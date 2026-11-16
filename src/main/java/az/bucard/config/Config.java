@@ -1,7 +1,32 @@
 package az.bucard.config;
 
 public final class Config {
+    private static final java.util.Map<String, String> DOTENV = loadDotEnv();
+
     private Config() {}
+
+    private static java.util.Map<String, String> loadDotEnv() {
+        java.util.Map<String, String> map = new java.util.HashMap<>();
+        java.nio.file.Path envPath = java.nio.file.Paths.get(".env");
+        if (java.nio.file.Files.exists(envPath)) {
+            try {
+                for (String line : java.nio.file.Files.readAllLines(envPath)) {
+                    String trimmed = line.trim();
+                    if (!trimmed.isEmpty() && !trimmed.startsWith("#") && trimmed.contains("=")) {
+                        int idx = trimmed.indexOf('=');
+                        String key = trimmed.substring(0, idx).trim();
+                        String val = trimmed.substring(idx + 1).trim();
+                        if ((val.startsWith("\"") && val.endsWith("\"")) || (val.startsWith("'") && val.endsWith("'"))) {
+                            val = val.substring(1, val.length() - 1);
+                        }
+                        map.put(key, val);
+                    }
+                }
+            } catch (Exception ignored) {
+            }
+        }
+        return map;
+    }
 
     private static String getSetting(String sysProp, String envVar, String defaultValue) {
         String val = System.getProperty(sysProp);
@@ -11,6 +36,12 @@ public final class Config {
         val = System.getenv(envVar);
         if (val != null && !val.isBlank()) {
             return val;
+        }
+        if (envVar != null && DOTENV.containsKey(envVar)) {
+            String dotVal = DOTENV.get(envVar);
+            if (dotVal != null && !dotVal.isBlank()) {
+                return dotVal;
+            }
         }
         return defaultValue;
     }
