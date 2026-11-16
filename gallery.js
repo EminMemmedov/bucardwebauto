@@ -205,6 +205,8 @@
     function injectOverviewWidget() {
         const hash = window.location.hash;
         if (hash && hash !== '#' && hash !== '#/' && !hash.startsWith('#overview')) {
+            const existing = document.getElementById('bucard-gallery-widget-wrap');
+            if (existing) existing.remove();
             return;
         }
 
@@ -212,13 +214,12 @@
         if (!widgetsGrid) return;
 
         let wrap = document.getElementById('bucard-gallery-widget-wrap');
-        if (!wrap) {
+        if (!wrap || !widgetsGrid.contains(wrap)) {
+            if (wrap && wrap.parentNode) wrap.parentNode.removeChild(wrap);
             wrap = document.createElement('div');
             wrap.id = 'bucard-gallery-widget-wrap';
-            wrap.style.width = '100%';
-            wrap.style.marginBottom = '20px';
             wrap.innerHTML = buildGalleryHtml(false);
-            widgetsGrid.parentNode.insertBefore(wrap, widgetsGrid);
+            widgetsGrid.insertBefore(wrap, widgetsGrid.firstChild);
             attachFilterListeners(wrap);
         }
     }

@@ -16,13 +16,25 @@
     display: none !important;
 }
 
+/* Overview Grid Integration */
+.widgets-grid {
+    flex-wrap: wrap !important;
+}
+
+#bucard-gallery-widget-wrap {
+    flex: 1 0 100% !important;
+    width: 100% !important;
+    order: -1 !important;
+    box-sizing: border-box !important;
+    margin-bottom: 20px !important;
+}
+
 /* Gallery Widget Container on Overview */
 .bucard-gallery-widget {
     background: #ffffff;
     border: 1px solid var(--bucard-border);
     border-radius: 10px;
     padding: 20px 24px;
-    margin-bottom: 24px;
     box-shadow: var(--bucard-shadow);
     width: 100%;
     box-sizing: border-box;
