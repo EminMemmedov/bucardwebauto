@@ -24,21 +24,28 @@ rm -rf "$DEPLOY_DIR"/*
 cp -R target/site/allure-maven-plugin/* "$DEPLOY_DIR"/
 touch "$DEPLOY_DIR/.nojekyll"
 
-echo "=== Injecting behaviors redirect into index.html ==="
+echo "=== Copying custom visual gallery assets ==="
+cp "$DIR/scripts/gallery.css" "$DEPLOY_DIR/"
+cp "$DIR/scripts/gallery.js" "$DEPLOY_DIR/"
+
+echo "=== Generating gallery.json from test cases ==="
+python3 "$DIR/scripts/generate_gallery.py" "$DEPLOY_DIR"
+
+echo "=== Injecting gallery assets and customizations into index.html ==="
 python3 -c "
 with open('$DEPLOY_DIR/index.html', 'r', encoding='utf-8') as f:
     html = f.read()
 
-redirect_code = '''<script>
-if (!window.location.hash || window.location.hash === '#' || window.location.hash === '#/') {
-    window.location.replace('#behaviors');
-}
-</script>'''
+# Inject gallery CSS before </head>
+if 'gallery.css' not in html:
+    html = html.replace('</head>', '    <link rel=\"stylesheet\" type=\"text/css\" href=\"gallery.css\">\n</head>')
 
-if 'window.location.replace' not in html:
-    html = html.replace('<head>', '<head>\n' + redirect_code)
-    with open('$DEPLOY_DIR/index.html', 'w', encoding='utf-8') as f:
-        f.write(html)
+# Inject gallery JS before </body>
+if 'gallery.js' not in html:
+    html = html.replace('</body>', '    <script src=\"gallery.js\"></script>\n</body>')
+
+with open('$DEPLOY_DIR/index.html', 'w', encoding='utf-8') as f:
+    f.write(html)
 "
 
 echo "=== Deploying to gh-pages branch ==="

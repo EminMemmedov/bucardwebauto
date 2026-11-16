@@ -155,7 +155,7 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
         String allureUrl = Config.allureReportUrl();
         if (allureUrl != null && !allureUrl.isBlank()) {
             sb.append("\n📊 <a href=\"").append(escapeHtml(allureUrl))
-                    .append("\"><b>👉 Ətraflı Allure hesabatına baxın</b></a>");
+                    .append("\"><b>👉 Canlı Allure hesabatı və Skrinşotlar Qalereyası</b></a>\n");
         }
 
         // Allure veb hesabatını Telegram bildirişindən ƏVVƏL generasiya et və GitHub Pages-ə göndər

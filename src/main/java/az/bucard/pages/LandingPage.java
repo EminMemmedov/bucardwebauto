@@ -2,9 +2,14 @@ package az.bucard.pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public final class LandingPage extends BasePage {
@@ -16,6 +21,16 @@ public final class LandingPage extends BasePage {
             "li.navItem");
     private static final By LANGUAGE_SWITCHER = By.cssSelector(
             ".selectLang");
+    private static final By CURRENT_LANGUAGE_LABEL = By.cssSelector(
+            ".selectLang .text p");
+    private static final By LANG_BOX = By.cssSelector(
+            ".selectLang ul.langBox");
+    private static final By AZ_LANG_ITEM = By.cssSelector(
+            ".selectLang ul.langBox li#az-AZ, .selectLang li[id*='az']");
+    private static final By EN_LANG_ITEM = By.cssSelector(
+            ".selectLang ul.langBox li#en-US, .selectLang li[id*='en']");
+    private static final By RU_LANG_ITEM = By.cssSelector(
+            ".selectLang ul.langBox li#ru-RU, .selectLang li[id*='ru']");
     private static final By SIGN_IN_LINK = By.cssSelector(
             "a.signIn, a[href*='/login']");
     private static final By REGISTER_BUTTON = By.cssSelector(
@@ -53,6 +68,63 @@ public final class LandingPage extends BasePage {
 
     public boolean hasLanguageSwitcher() {
         return isElementPresent(LANGUAGE_SWITCHER);
+    }
+
+    @Step("Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')")
+    public String getCurrentLanguageCode() {
+        if (!isElementPresent(CURRENT_LANGUAGE_LABEL)) {
+            return "";
+        }
+        return driver.findElement(CURRENT_LANGUAGE_LABEL).getText().trim();
+    }
+
+    @Step("Seçilmiş dil göstəricisinin '{expectedCode}' olmasını gözlə")
+    public boolean waitForLanguageCode(String expectedCode, Duration timeout) {
+        try {
+            return new WebDriverWait(driver, timeout)
+                    .until(ExpectedConditions.textToBePresentInElementLocated(CURRENT_LANGUAGE_LABEL, expectedCode));
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    @Step("Dil menyusunu aç")
+    public void openLanguageMenu() {
+        click(LANGUAGE_SWITCHER);
+        visible(LANG_BOX);
+    }
+
+    @Step("Dili dəyiş: {langCode} ('az', 'en', 'ru')")
+    public void switchLanguage(String langCode) {
+        String expectedText;
+        By targetLocator;
+        if ("en".equalsIgnoreCase(langCode)) {
+            expectedText = "EN";
+            targetLocator = EN_LANG_ITEM;
+        } else if ("ru".equalsIgnoreCase(langCode)) {
+            expectedText = "РУ";
+            targetLocator = RU_LANG_ITEM;
+        } else {
+            expectedText = "AZ";
+            targetLocator = AZ_LANG_ITEM;
+        }
+
+        openLanguageMenu();
+        WebElement target = visible(targetLocator);
+        try {
+            target.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", target);
+        }
+        waitForLanguageCode(expectedText, Duration.ofSeconds(5));
+    }
+
+    @Step("Giriş linkinin cari mətnini al")
+    public String getSignInLinkText() {
+        if (!isElementVisible(SIGN_IN_LINK)) {
+            return "";
+        }
+        return driver.findElement(SIGN_IN_LINK).getText().trim();
     }
 
     public boolean hasSignInLink() {

@@ -14,12 +14,15 @@
             <class name="az.bucard.smoke.LoginPageSmokeTest"/>
             <class name="az.bucard.smoke.RegisterPageSmokeTest"/>
             <class name="az.bucard.smoke.ForgotPasswordSmokeTest"/>
+            <class name="az.bucard.smoke.LocalizationSmokeTest"/>
         </classes>
     </test>
 
+    <!-- Authenticated tests are placed in a separate suite until PM provides production test account credentials
     <test name="Authenticated Read-Only Smoke">
         <classes>
             <class name="az.bucard.smoke.AuthenticatedNavigationSmokeTest"/>
         </classes>
     </test>
+    -->
 </suite>
