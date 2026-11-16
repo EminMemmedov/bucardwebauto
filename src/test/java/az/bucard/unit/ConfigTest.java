@@ -1,9 +1,13 @@
 package az.bucard.unit;
 
 import az.bucard.config.Config;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("Unit Tests")
+@Feature("Framework Configuration")
 public class ConfigTest {
 
     @Test(description = "Verify default base URL is https://bucard.az", groups = "unit")

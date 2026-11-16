@@ -117,6 +117,26 @@ Test icrası başa çatdıqdan sonra `TelegramTestListener` nəticələri əks e
 
 ---
 
+## Allure Report hesabatları
+
+Layihə interaktiv HTML hesabatların formalaşdırılması üçün **Allure Report** inteqrasiyasına malikdir (qrafiklər, test kateqoriyaları, addımlar və skrinşotlar ilə).
+
+### 1. Hesabatın lokal generasiyası və brauzerdə açılması:
+
+```bash
+# Nəticələr əsasında lokal veb-server açıb hesabatı göstərir:
+mvn allure:serve
+```
+
+### 2. Statik HTML hesabatın generasiyası:
+
+```bash
+# target/site/allure-maven-plugin qovluğunda HTML faylları yaradır:
+mvn allure:report
+```
+
+---
+
 ## Xətalar zamanı skrinşotlar
 
 İstənilən test uğursuz olduqda, `BaseTest` avtomatik olaraq həmin anın skrinşotunu çəkir və aşağıdakı ünvanda saxlayır:

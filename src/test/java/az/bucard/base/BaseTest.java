@@ -2,6 +2,9 @@ package az.bucard.base;
 
 import az.bucard.driver.DriverFactory;
 import az.bucard.utils.ScreenshotUtil;
+import io.qameta.allure.Attachment;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -24,6 +27,7 @@ public abstract class BaseTest {
         if (driver != null) {
             try {
                 if (result.getStatus() == ITestResult.FAILURE) {
+                    attachScreenshotToAllure(driver, result.getName());
                     Path screenshot = ScreenshotUtil.captureFailure(driver, result.getName());
                     if (screenshot != null) {
                         result.setAttribute("screenshotPath", screenshot.toString());
@@ -34,6 +38,14 @@ public abstract class BaseTest {
                 DRIVER_HOLDER.remove();
             }
         }
+    }
+
+    @Attachment(value = "Failure Screenshot: {testName}", type = "image/png")
+    public byte[] attachScreenshotToAllure(WebDriver driver, String testName) {
+        if (driver instanceof TakesScreenshot takesScreenshot) {
+            return takesScreenshot.getScreenshotAs(OutputType.BYTES);
+        }
+        return new byte[0];
     }
 
     protected WebDriver getDriver() {

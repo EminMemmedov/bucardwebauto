@@ -1,5 +1,6 @@
 package az.bucard.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -36,6 +37,7 @@ public final class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open login page at {baseUrl}/login")
     public void open(String baseUrl) {
         driver.get(baseUrl.replaceAll("/+$", "") + "/login");
         visible(EMAIL_FIELD);
@@ -73,6 +75,7 @@ public final class LoginPage extends BasePage {
         return isElementPresent(GOOGLE_IFRAME);
     }
 
+    @Step("Enter email: {email}")
     public void enterCredentials(String email, String password) {
         if (email != null) {
             clearAndType(EMAIL_FIELD, email);
@@ -82,6 +85,7 @@ public final class LoginPage extends BasePage {
         }
     }
 
+    @Step("Log in with phone: {rawPhone}")
     public void loginWithPhone(String rawPhone, String password) {
         switchToPhoneTab();
         WebElement phoneInput = visible(PHONE_FIELD);
@@ -93,6 +97,7 @@ public final class LoginPage extends BasePage {
         submit();
     }
 
+    @Step("Log in with user/phone: {usernameOrPhone}")
     public void login(String usernameOrPhone, String password) {
         if (usernameOrPhone == null) {
             throw new IllegalArgumentException("Username/phone cannot be null");
@@ -106,10 +111,12 @@ public final class LoginPage extends BasePage {
         }
     }
 
+    @Step("Submit login form")
     public void submit() {
         click(SUBMIT_BUTTON);
     }
 
+    @Step("Toggle password visibility eye button")
     public void togglePasswordVisibility() {
         click(PASSWORD_TOGGLE);
     }
@@ -119,11 +126,13 @@ public final class LoginPage extends BasePage {
         return passwordElement.getAttribute("type");
     }
 
+    @Step("Switch to Phone tab")
     public void switchToPhoneTab() {
         click(PHONE_TAB);
         visible(PHONE_FIELD);
     }
 
+    @Step("Switch to Email tab")
     public void switchToEmailTab() {
         click(EMAIL_TAB);
         visible(EMAIL_FIELD);

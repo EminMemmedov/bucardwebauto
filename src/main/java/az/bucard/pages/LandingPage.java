@@ -1,5 +1,6 @@
 package az.bucard.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,6 +33,7 @@ public final class LandingPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open landing page at {baseUrl}")
     public void open(String baseUrl) {
         driver.get(baseUrl);
         visible(LOGO);
@@ -69,10 +71,12 @@ public final class LandingPage extends BasePage {
         return isElementPresent(YEARLY_TAB);
     }
 
+    @Step("Switch package billing tab to Yearly")
     public void switchToYearlyTab() {
         click(YEARLY_TAB);
     }
 
+    @Step("Switch package billing tab to Monthly")
     public void switchToMonthlyTab() {
         click(MONTHLY_TAB);
     }
@@ -97,6 +101,7 @@ public final class LandingPage extends BasePage {
         return isElementPresent(GOOGLE_PLAY_LINK);
     }
 
+    @Step("Navigate to Login page from header sign-in link")
     public LoginPage openLoginPage() {
         click(SIGN_IN_LINK);
         return new LoginPage(driver);

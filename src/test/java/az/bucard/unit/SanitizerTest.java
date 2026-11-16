@@ -1,9 +1,13 @@
 package az.bucard.unit;
 
 import az.bucard.utils.Sanitizer;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("Unit Tests")
+@Feature("Security & Sanitization")
 public class SanitizerTest {
 
     @Test(description = "Verify null or empty messages are handled gracefully", groups = "unit")

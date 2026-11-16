@@ -46,6 +46,7 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
 
     @Override
     public void onExecutionFinish() {
+        writeAllureEnvironment();
         Instant endedAt = Instant.now();
         long seconds = startedAt == null ? 0 : Duration.between(startedAt, endedAt).toSeconds();
         int passed = PASSED.get();
@@ -86,5 +87,28 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
             reason = exceptionType + (sanitizedMessage.isEmpty() ? "" : ": " + sanitizedMessage);
         }
         FAILURE_SUMMARIES.add(className + "." + testName + ": " + reason);
+    }
+
+    private void writeAllureEnvironment() {
+        try {
+            java.nio.file.Path allureResults = java.nio.file.Paths.get("target", "allure-results");
+            if (java.nio.file.Files.exists(allureResults)) {
+                java.util.Properties props = new java.util.Properties();
+                props.setProperty("Application", "Bucard Web");
+                props.setProperty("Base_URL", Config.baseUrl());
+                props.setProperty("Browser", Config.browser() + (Config.headless() ? " (headless)" : " (headed)"));
+                props.setProperty("OS", System.getProperty("os.name") + " " + System.getProperty("os.version"));
+                props.setProperty("Java_Version", System.getProperty("java.version"));
+                try (java.io.OutputStream os = java.nio.file.Files.newOutputStream(allureResults.resolve("environment.properties"))) {
+                    props.store(os, "Allure Environment Properties");
+                }
+
+                java.io.InputStream catIs = getClass().getClassLoader().getResourceAsStream("categories.json");
+                if (catIs != null) {
+                    java.nio.file.Files.copy(catIs, allureResults.resolve("categories.json"), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                }
+            }
+        } catch (Exception ignored) {
+        }
     }
 }

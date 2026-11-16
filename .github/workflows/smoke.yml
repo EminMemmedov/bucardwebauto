@@ -40,3 +40,16 @@ jobs:
           path: target/screenshots/
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Generate Allure Report
+        if: always()
+        run: mvn allure:report --batch-mode
+
+      - name: Upload Allure Report Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/site/allure-maven-plugin/
+          if-no-files-found: ignore
+          retention-days: 14

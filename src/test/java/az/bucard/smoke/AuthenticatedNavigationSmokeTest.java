@@ -8,6 +8,12 @@ import az.bucard.pages.LoginPage;
 import az.bucard.pages.ProfilePage;
 import az.bucard.pages.SearchPage;
 import az.bucard.pages.SettingsPage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.SkipException;
@@ -16,6 +22,8 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+@Epic("Authenticated Smoke")
+@Feature("Dashboard & Internal Services")
 public class AuthenticatedNavigationSmokeTest extends BaseTest {
 
     @BeforeMethod(alwaysRun = true)

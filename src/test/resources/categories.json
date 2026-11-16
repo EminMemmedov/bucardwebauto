@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Ignored / Skipped Tests",
+    "matchedStatuses": ["skipped"]
+  },
+  {
+    "name": "Infrastructure & Timeout Issues",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*(TimeoutException|WebDriverException|SessionNotCreatedException).*"
+  },
+  {
+    "name": "DOM & Element Interaction Defects",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*(ElementClickInterceptedException|NoSuchElementException|StaleElementReferenceException).*"
+  },
+  {
+    "name": "Product & Assertion Failures",
+    "matchedStatuses": ["failed"],
+    "traceRegex": ".*AssertionError.*"
+  }
+]
