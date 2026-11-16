@@ -5,7 +5,13 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$DIR"
 
 echo "=== Generating Allure report ==="
-mvn allure:report
+if [ -x "$DIR/.allure/allure-2.29.0/bin/allure" ]; then
+    "$DIR/.allure/allure-2.29.0/bin/allure" generate target/allure-results -o target/site/allure-maven-plugin --clean
+elif command -v allure &> /dev/null; then
+    allure generate target/allure-results -o target/site/allure-maven-plugin --clean
+else
+    mvn allure:report -Dallure.results.directory=target/allure-results
+fi
 
 DEPLOY_DIR="/tmp/allure-deploy"
 if [ ! -d "$DEPLOY_DIR/.git" ]; then

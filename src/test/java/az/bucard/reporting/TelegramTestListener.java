@@ -6,6 +6,7 @@ import org.testng.IExecutionListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
@@ -157,6 +158,9 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
                     .append("\"><b>👉 Ətraflı Allure hesabatına baxın</b></a>");
         }
 
+        // Allure veb hesabatını Telegram bildirişindən ƏVVƏL generasiya et və GitHub Pages-ə göndər
+        deployAllureReport();
+
         TelegramReporter reporter = new TelegramReporter();
         reporter.send(sb.toString().trim());
 
@@ -213,6 +217,36 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
                 }
             }
         } catch (Exception ignored) {
+        }
+    }
+
+    private void deployAllureReport() {
+        try {
+            Path deployScript = Path.of("deploy-allure.sh");
+            if (Files.exists(deployScript)) {
+                System.out.println("🔄 Allure veb hesabatı Telegram bildirişindən əvvəl generasiya olunur və GitHub Pages-ə göndərilir...");
+                Process process = new ProcessBuilder("bash", deployScript.toAbsolutePath().toString())
+                        .directory(Path.of(".").toFile())
+                        .redirectErrorStream(true)
+                        .start();
+
+                try (var is = process.getInputStream();
+                     var reader = new java.io.BufferedReader(new java.io.InputStreamReader(is))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println("[AllureDeploy] " + line);
+                    }
+                }
+
+                boolean finished = process.waitFor(90, java.util.concurrent.TimeUnit.SECONDS);
+                if (finished && process.exitValue() == 0) {
+                    System.out.println("✅ Allure hesabatı uğurla GitHub Pages-ə göndərildi!");
+                } else {
+                    System.err.println("⚠️ Allure deploy çıxış kodu: " + (finished ? process.exitValue() : "timeout"));
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("⚠️ Allure hesabatının avtomatik yenilənməsi zamanı xəta: " + e.getMessage());
         }
     }
 }
