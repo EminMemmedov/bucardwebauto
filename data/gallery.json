@@ -1,6 +1,6 @@
 [
   {
-    "uid": "6cae9581bcc3591c",
+    "uid": "197032e3ed0fa981",
     "name": "ANA-01: Ana səhifənin loqosu, naviqasiyası və qeydiyyat düymələri",
     "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
     "story": "Ana Səhifə (Landing)",
@@ -14,20 +14,20 @@
       "3. Naviqasiya menyusunun və qeydiyyat düyməsinin mövcudluğunu yoxla"
     ],
     "lastPassed": {
-      "uid": "6cae9581bcc3591c",
+      "uid": "197032e3ed0fa981",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839895521
     },
     "images": [
       {
         "name": "Bucard Ana Səhifəsinin Ümumi Görünüşü",
-        "src": "data/attachments/ded8acb17bcae764.png",
+        "src": "data/attachments/99e86e0e8095aaff.png",
         "size": 190766
       }
     ]
   },
   {
-    "uid": "6a244eb5b9b9a702",
+    "uid": "307b673fca4f08c3",
     "name": "ANA-02: Mobil tətbiq mağazaları və əsas səhifə bölmələri",
     "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
     "story": "Mobil Tətbiq Linkləri",
@@ -41,20 +41,20 @@
       "3. Əsas səhifənin tam yüklənməsini və mobil tətbiq linklərini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "6a244eb5b9b9a702",
+      "uid": "307b673fca4f08c3",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839888373
     },
     "images": [
       {
         "name": "Mobil Tətbiq Keçidləri və Əsas Bölmə",
-        "src": "data/attachments/b2e81c854a6d550.png",
+        "src": "data/attachments/334ccbc843332b1a.png",
         "size": 190764
       }
     ]
   },
   {
-    "uid": "515c1c51d44fb9ec",
+    "uid": "d473ee31f54cc9cb",
     "name": "SAYT-01: Bucard əsas səhifəsinin açılması və başlıq yoxlanışı",
     "feature": "Saytın Əlçatanlığı və İnfrastruktur",
     "story": "Saytın Əsas Giriş Nöqtəsi",
@@ -68,20 +68,20 @@
       "3. HTML DOM və #root strukturunun qurulduğunu yoxla"
     ],
     "lastPassed": {
-      "uid": "515c1c51d44fb9ec",
+      "uid": "d473ee31f54cc9cb",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839884923
     },
     "images": [
       {
         "name": "Bucard əsas səhifəsinin ilkin görünüşü",
-        "src": "data/attachments/d460feb2e13b06b8.png",
+        "src": "data/attachments/1dcb3c22d66451a7.png",
         "size": 190766
       }
     ]
   },
   {
-    "uid": "7a7a1552a62c10e0",
+    "uid": "f71d278db6c3d9cf",
     "name": "XƏTA-04: Səhifədə 500 / 502 server xətalarının olmaması",
     "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
     "story": "Server İnteqrallığı",
@@ -95,20 +95,20 @@
       "3. Təmiz 404 səhifəsinin və ya yönləndirmənin olduğunu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "7a7a1552a62c10e0",
+      "uid": "f71d278db6c3d9cf",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839898089
     },
     "images": [
       {
         "name": "Server Xətası Olmayan Giriş Səhifəsi",
-        "src": "data/attachments/7aef236c9b5420c7.png",
+        "src": "data/attachments/ecdb29834d9f84f8.png",
         "size": 229762
       }
     ]
   },
   {
-    "uid": "cf58565e0c55da8c",
+    "uid": "d5f1da3280fb0159",
     "name": "DİL-01: Dil seçim menyusunun mövcudluğu və ilkin dil vəziyyəti",
     "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
     "story": "Dil Seçimi Elementi",
@@ -123,20 +123,20 @@
       "4. Tam ekran sübut skrinşotunu çək"
     ],
     "lastPassed": {
-      "uid": "cf58565e0c55da8c",
+      "uid": "d5f1da3280fb0159",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839967543
     },
     "images": [
       {
         "name": "İlkin Dil Vəziyyəti: EN",
-        "src": "data/attachments/ac0975269ddc4f35.png",
+        "src": "data/attachments/4ecbac760008f2a3.png",
         "size": 190764
       }
     ]
   },
   {
-    "uid": "23ea6967b3c91194",
+    "uid": "d48a6c8f90123aec",
     "name": "DİL-02: Dili İngilis dilinə (EN) dəyişmə və interfeysin uyğunlaşması",
     "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
     "story": "İngilis Dili (EN)",
@@ -152,20 +152,20 @@
       "5. İnterfeys mətnlərinin ingilis dilinə keçdiyini yoxla"
     ],
     "lastPassed": {
-      "uid": "23ea6967b3c91194",
+      "uid": "d48a6c8f90123aec",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839979235
     },
     "images": [
       {
         "name": "İngilis Dili İnterfeysi (EN)",
-        "src": "data/attachments/8d032d78d46734f.png",
+        "src": "data/attachments/35cf71b22b661d0.png",
         "size": 190760
       }
     ]
   },
   {
-    "uid": "2c90ba680c5470cc",
+    "uid": "871d510c5813e2f9",
     "name": "DİL-03: Dili Rus dilinə (RU) dəyişmə və interfeysin uyğunlaşması",
     "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
     "story": "Rus Dili (RU)",
@@ -181,20 +181,20 @@
       "5. İnterfeys mətnlərinin rus dilinə keçdiyini yoxla"
     ],
     "lastPassed": {
-      "uid": "2c90ba680c5470cc",
+      "uid": "871d510c5813e2f9",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839984797
     },
     "images": [
       {
         "name": "Rus Dili İnterfeysi (RU)",
-        "src": "data/attachments/d6b33e1ae5be0911.png",
+        "src": "data/attachments/2e52c8170014d21f.png",
         "size": 117624
       }
     ]
   },
   {
-    "uid": "2deb89022ee67036",
+    "uid": "e2febcd2699c275a",
     "name": "DİL-04: Dili Azərbaycan dilinə (AZ) geri qaytarılması",
     "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
     "story": "Azərbaycan Dili (AZ)",
@@ -210,25 +210,25 @@
       "5. Keçid öncəsi və sonrası skrinşotları qeydə al"
     ],
     "lastPassed": {
-      "uid": "2deb89022ee67036",
+      "uid": "e2febcd2699c275a",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839974458
     },
     "images": [
       {
         "name": "1. İngilis Dilinə Keçid (EN)",
-        "src": "data/attachments/843eb94d6bb50df2.png",
+        "src": "data/attachments/8b3d88478d7b3bf1.png",
         "size": 190771
       },
       {
         "name": "2. Azərbaycan Dilinə Geri Qayıdış (AZ)",
-        "src": "data/attachments/1f8991ef86aab90e.png",
+        "src": "data/attachments/b445ea46eaaad4a5.png",
         "size": 203680
       }
     ]
   },
   {
-    "uid": "5e00e5945905e99c",
+    "uid": "997c6ded1c4fac3d",
     "name": "DİL-05: Səhifə yeniləndikdə (Page Reload) seçilmiş dilin saxlanılması",
     "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
     "story": "Dilin Saxlanması (Persistence)",
@@ -243,20 +243,20 @@
       "4. Yaddaşın (i18nextLng) saxlanmasını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "5e00e5945905e99c",
+      "uid": "997c6ded1c4fac3d",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839964064
     },
     "images": [
       {
         "name": "Səhifə Yeniləndikdən Sonra Dilin Saxlanması Təsdiqi",
-        "src": "data/attachments/122913c6539ffd66.png",
+        "src": "data/attachments/d142f7c7a86161eb.png",
         "size": 190766
       }
     ]
   },
   {
-    "uid": "d8070e415bcab133",
+    "uid": "6ac39cf40a803fee",
     "name": "GİRİŞ-01: Giriş səhifəsinin (/login) açılması və bütün interfeys elementlərinin yoxlanışı",
     "feature": "İstifadəçi Girişi (Authentication)",
     "story": "Giriş Səhifəsi Elementləri",
@@ -271,20 +271,20 @@
       "4. Qeydiyyat və şifrə bərpası linklərini yoxla"
     ],
     "lastPassed": {
-      "uid": "d8070e415bcab133",
+      "uid": "6ac39cf40a803fee",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839917368
     },
     "images": [
       {
         "name": "Giriş Səhifəsinin İlkin Görünüşü",
-        "src": "data/attachments/10df87f1e0a33d65.png",
+        "src": "data/attachments/85c39403fa964cc4.png",
         "size": 229762
       }
     ]
   },
   {
-    "uid": "d66036450dd86c1b",
+    "uid": "2b4e411a5ca0520a",
     "name": "GİRİŞ-02: 'Email' və 'Telefon' giriş tabları arasında keçid",
     "feature": "İstifadəçi Girişi (Authentication)",
     "story": "Giriş Növləri Tabları",
@@ -299,20 +299,20 @@
       "4. 'Email' tabına təkrar klikləyib geri qayıt"
     ],
     "lastPassed": {
-      "uid": "d66036450dd86c1b",
+      "uid": "2b4e411a5ca0520a",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839908207
     },
     "images": [
       {
         "name": "Telefonla Giriş Tabı",
-        "src": "data/attachments/542775e89e23516.png",
+        "src": "data/attachments/c3ac0a414cbe76b7.png",
         "size": 227433
       }
     ]
   },
   {
-    "uid": "3fcf68ee893306bb",
+    "uid": "c9ca41d8b911a717",
     "name": "GİRİŞ-03: Giriş səhifəsinin (/login) təmiz açılması və yüklənməsi",
     "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
     "story": "Giriş Səhifəsi (/login)",
@@ -327,20 +327,20 @@
       "4. Aşkar vəziyyətin skrinşotunu çək və təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "3fcf68ee893306bb",
+      "uid": "c9ca41d8b911a717",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839903515
     },
     "images": [
       {
         "name": "Giriş Səhifəsi (/login)",
-        "src": "data/attachments/289fa99c9577c437.png",
+        "src": "data/attachments/df89e2fac84a4f41.png",
         "size": 229762
       }
     ]
   },
   {
-    "uid": "d83590455a614bbb",
+    "uid": "110c34f7ac63e00b",
     "name": "GİRİŞ-03: Şifrə görünməzlik göz ikonunun (Eye Toggle) işləməsi",
     "feature": "İstifadəçi Girişi (Authentication)",
     "story": "Təhlükəsizlik və UI İdarəetmə",
@@ -355,25 +355,25 @@
       "4. Aşkar vəziyyətin skrinşotunu çək və təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "d83590455a614bbb",
+      "uid": "110c34f7ac63e00b",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839919962
     },
     "images": [
       {
         "name": "1. Şifrənin Gizli Vəziyyəti (Maskalı)",
-        "src": "data/attachments/15c7ff02f6373c9.png",
+        "src": "data/attachments/4c695de117e87e85.png",
         "size": 229762
       },
       {
         "name": "2. Göz İkonu ilə Şifrənin Aşkar Görünüşü",
-        "src": "data/attachments/6b37afb32d191573.png",
+        "src": "data/attachments/137b6f05b324e524.png",
         "size": 229762
       }
     ]
   },
   {
-    "uid": "6913f98a92edb70d",
+    "uid": "fecc7805bcc651a8",
     "name": "GİRİŞ-04: Boş forma göndərildikdə validasiya reaksiyası",
     "feature": "İstifadəçi Girişi (Authentication)",
     "story": "Məlumat Validasiyası",
@@ -387,20 +387,20 @@
       "3. HTML5 / react form validasiya reaksiyasını yoxla"
     ],
     "lastPassed": {
-      "uid": "6913f98a92edb70d",
+      "uid": "fecc7805bcc651a8",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839910560
     },
     "images": [
       {
         "name": "Boş Məlumatla Giriş Cəhdi",
-        "src": "data/attachments/3ddc044c4f872fe2.png",
+        "src": "data/attachments/8f5d551e15780caf.png",
         "size": 236434
       }
     ]
   },
   {
-    "uid": "2160f21470c7d508",
+    "uid": "264e539b88eef8dd",
     "name": "GİRİŞ-05: 'Şifrəni unutmusunuz?' linki ilə bərpa səhifəsinə yönləndirmə",
     "feature": "İstifadəçi Girişi (Authentication)",
     "story": "Naviqasiya Keçidləri",
@@ -414,20 +414,20 @@
       "3. /forgot-password/email səhifəsinə yönləndirməni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "2160f21470c7d508",
+      "uid": "264e539b88eef8dd",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839914950
     },
     "images": [
       {
         "name": "Şifrə Bərpasına Yönləndirmə Təsdiqi",
-        "src": "data/attachments/8a0b9df3c9bb9ab.png",
+        "src": "data/attachments/6c8d5591e60c1121.png",
         "size": 250317
       }
     ]
   },
   {
-    "uid": "ee20b44db16e87a3",
+    "uid": "74c276f00a753e5f",
     "name": "GİRİŞ-05: Giriş formasında sahələr, düymələr və bərpa linki",
     "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
     "story": "Giriş Forması Elementləri",
@@ -441,20 +441,20 @@
       "3. /forgot-password/email səhifəsinə yönləndirməni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "ee20b44db16e87a3",
+      "uid": "74c276f00a753e5f",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839900573
     },
     "images": [
       {
         "name": "Giriş Formasının Əsas Sahələri",
-        "src": "data/attachments/1216061430931970.png",
+        "src": "data/attachments/d5513256aff7951c.png",
         "size": 229762
       }
     ]
   },
   {
-    "uid": "72da03ffe46497e1",
+    "uid": "256412c8fc19468f",
     "name": "GİRİŞ-06: 'Qeydiyyatdan keçin' linki ilə /register səhifəsinə yönləndirmə",
     "feature": "İstifadəçi Girişi (Authentication)",
     "story": "Naviqasiya Keçidləri",
@@ -468,20 +468,20 @@
       "3. /register səhifəsinə təmiz keçidi yoxla"
     ],
     "lastPassed": {
-      "uid": "72da03ffe46497e1",
+      "uid": "256412c8fc19468f",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839923109
     },
     "images": [
       {
         "name": "Qeydiyyata Yönləndirmə Təsdiqi",
-        "src": "data/attachments/c63853af1efea24a.png",
+        "src": "data/attachments/4b28a8f62996b05c.png",
         "size": 294187
       }
     ]
   },
   {
-    "uid": "fd0dadf4444f72fb",
+    "uid": "9e11579d03d926a0",
     "name": "GİRİŞ-06: Şifrənin göz işarəsinə kliklə göstərilməsi və gizlədilməsi",
     "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
     "story": "Şifrə Sahəsi İdarəetməsi",
@@ -495,20 +495,20 @@
       "3. /register səhifəsinə təmiz keçidi yoxla"
     ],
     "lastPassed": {
-      "uid": "fd0dadf4444f72fb",
+      "uid": "9e11579d03d926a0",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839905827
     },
     "images": [
       {
         "name": "Şifrə Göstərilən Vəziyyətdə (Açıq Göz)",
-        "src": "data/attachments/72d0cdc6389ee49.png",
+        "src": "data/attachments/fd3728b960657b6b.png",
         "size": 229931
       }
     ]
   },
   {
-    "uid": "92f0775b773012b9",
+    "uid": "cd2beaced7ffa088",
     "name": "GİRİŞ-07: 'E-poçt' və 'Telefon nömrəsi' giriş növləri arasında keçid",
     "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
     "story": "Giriş Növləri Tabları",
@@ -521,20 +521,20 @@
       "2. Hər iki rejimdə müvafiq sahələrin əks olunduğunu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "92f0775b773012b9",
+      "uid": "cd2beaced7ffa088",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839891589
     },
     "images": [
       {
         "name": "Telefon Nömrəsi ilə Giriş Forması",
-        "src": "data/attachments/153a2fafa6ea96f5.png",
+        "src": "data/attachments/6f422b33a957481e.png",
         "size": 227169
       }
     ]
   },
   {
-    "uid": "d1cf888e9efe50e9",
+    "uid": "a00264a3e418851a",
     "name": "QEYD-01: Qeydiyyat səhifəsinin (/register) açılması və bütün interfeys elementlərinin yoxlanışı",
     "feature": "İstifadəçi Qeydiyyatı (User Registration)",
     "story": "Qeydiyyat Səhifəsi Elementləri",
@@ -548,20 +548,20 @@
       "3. Qaydalarla razılıq checkbox-unu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "d1cf888e9efe50e9",
+      "uid": "a00264a3e418851a",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839935875
     },
     "images": [
       {
         "name": "Qeydiyyat Səhifəsinin İlkin Görünüşü",
-        "src": "data/attachments/61f2bc8af8d3a9b1.png",
+        "src": "data/attachments/c626cb5e53ed39d9.png",
         "size": 293456
       }
     ]
   },
   {
-    "uid": "21d27b04022f46af",
+    "uid": "792e8aa0e95d9b55",
     "name": "QEYD-02: Şifrə görünməzlik göz ikonunun (Eye Toggle) düzgün işləməsi",
     "feature": "İstifadəçi Qeydiyyatı (User Registration)",
     "story": "Təhlükəsizlik və UI İdarəetmə",
@@ -575,20 +575,20 @@
       "3. Təkrar klikləyərək şifrənin yenidən maskalandığını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "21d27b04022f46af",
+      "uid": "792e8aa0e95d9b55",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839933451
     },
     "images": [
       {
         "name": "Göz İkonu ilə Şifrənin Görünən Vəziyyəti",
-        "src": "data/attachments/156120be8a96af97.png",
+        "src": "data/attachments/3311a5d427e15aa4.png",
         "size": 296194
       }
     ]
   },
   {
-    "uid": "59fa7a906a8dea7f",
+    "uid": "27a98aa98690acd8",
     "name": "QEYD-03: 'Hesabınız var? Daxil olun' keçidi ilə /login səhifəsinə yönləndirmə",
     "feature": "İstifadəçi Qeydiyyatı (User Registration)",
     "story": "Giriş Səhifəsinə Keçid",
@@ -601,20 +601,20 @@
       "2. /login səhifəsinə problemsiz qayıdışı təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "59fa7a906a8dea7f",
+      "uid": "27a98aa98690acd8",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839930864
     },
     "images": [
       {
         "name": "Giriş Səhifəsinə Yönləndirmə Təsdiqi",
-        "src": "data/attachments/8a88bc11bce2d94a.png",
+        "src": "data/attachments/7b617754a225bc95.png",
         "size": 229762
       }
     ]
   },
   {
-    "uid": "7201216e5b962379",
+    "uid": "e08dfbad59171459",
     "name": "QEYD-04: Boş forma göndərildikdə validasiya xətasının yaranması",
     "feature": "İstifadəçi Qeydiyyatı (User Registration)",
     "story": "Məlumat Validasiyası",
@@ -627,20 +627,20 @@
       "2. Sahələrin tələb olunan (required) olduğunu yoxla"
     ],
     "lastPassed": {
-      "uid": "7201216e5b962379",
+      "uid": "e08dfbad59171459",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839925516
     },
     "images": [
       {
         "name": "Boş Forma Göndərildikdə Validasiya Xətası",
-        "src": "data/attachments/7d7ba07e6b55c469.png",
+        "src": "data/attachments/b551f19a3a1c2e2e.png",
         "size": 300586
       }
     ]
   },
   {
-    "uid": "a6194f796e5a459",
+    "uid": "da901a7f8b699b13",
     "name": "QEYD-05: Qeyri-valid e-poçt formatı ilə qeydiyyat cəhdi",
     "feature": "İstifadəçi Qeydiyyatı (User Registration)",
     "story": "E-poçt Validasiyası",
@@ -653,20 +653,20 @@
       "2. Formanın qəbul olunmadığını və xəta indikatorunu yoxla"
     ],
     "lastPassed": {
-      "uid": "a6194f796e5a459",
+      "uid": "da901a7f8b699b13",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839928341
     },
     "images": [
       {
         "name": "Qeyri-valid E-poçt ilə Qeydiyyat Cəhdi",
-        "src": "data/attachments/85fe85f2a93a5afc.png",
+        "src": "data/attachments/4428c7b2737c6cd8.png",
         "size": 62627
       }
     ]
   },
   {
-    "uid": "7dc7983865d1a0aa",
+    "uid": "fbe3983694a2dc36",
     "name": "BƏRPA-01: E-poçt ilə şifrə bərpası səhifəsinin (/forgot-password/email) açılması və ilkin vəziyyəti",
     "feature": "Şifrənin Bərpası (Password Recovery)",
     "story": "E-poçt ilə Bərpa",
@@ -680,20 +680,20 @@
       "3. Telefon bərpasına keçid linkini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "7dc7983865d1a0aa",
+      "uid": "fbe3983694a2dc36",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839943231
     },
     "images": [
       {
         "name": "E-poçt ilə Şifrə Bərpası Səhifəsi",
-        "src": "data/attachments/20b81d45c373391c.png",
+        "src": "data/attachments/7d82ea2ae28e8628.png",
         "size": 250317
       }
     ]
   },
   {
-    "uid": "9ced9ca6afc8a517",
+    "uid": "8963ecaf11d8cd25",
     "name": "BƏRPA-02: Telefon nömrəsi ilə şifrə bərpası səhifəsinin (/forgot-password/phone) açılması və yoxlanışı",
     "feature": "Şifrənin Bərpası (Password Recovery)",
     "story": "Telefon Nömrəsi ilə Bərpa",
@@ -707,20 +707,20 @@
       "3. E-poçt sahəsinin ekranda olmadığını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "9ced9ca6afc8a517",
+      "uid": "8963ecaf11d8cd25",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839958115
     },
     "images": [
       {
         "name": "Telefon Nömrəsi ilə Şifrə Bərpası Səhifəsi",
-        "src": "data/attachments/7b7bca734015c6cd.png",
+        "src": "data/attachments/70b4211178358091.png",
         "size": 249830
       }
     ]
   },
   {
-    "uid": "fc25d93e9f08b1d7",
+    "uid": "6de5f0f88f186296",
     "name": "BƏRPA-03: E-poçt daxil etdikdə təsdiq düyməsinin aktivləşməsi (Input Reactive State)",
     "feature": "Şifrənin Bərpası (Password Recovery)",
     "story": "Daxiletmə və Düymə Vəziyyəti",
@@ -735,25 +735,25 @@
       "4. Aktivləşmiş vəziyyətin skrinşotunu çək"
     ],
     "lastPassed": {
-      "uid": "fc25d93e9f08b1d7",
+      "uid": "6de5f0f88f186296",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839940871
     },
     "images": [
       {
         "name": "1. E-poçt Sahəsi Boş İkən (Düymə Passiv)",
-        "src": "data/attachments/ca10288262fe2253.png",
+        "src": "data/attachments/73fe9c494bc12bd1.png",
         "size": 250317
       },
       {
         "name": "2. E-poçt Daxil Edildikdən Sonra (Düymə Aktiv)",
-        "src": "data/attachments/a326706a61fc4a39.png",
+        "src": "data/attachments/c444cdea9686df61.png",
         "size": 252462
       }
     ]
   },
   {
-    "uid": "8ed5c30c20b98c66",
+    "uid": "d88b39adef663a32",
     "name": "BƏRPA-04: 'Geri qayıt' düyməsi ilə /login səhifəsinə qayıdışın yoxlanışı",
     "feature": "Şifrənin Bərpası (Password Recovery)",
     "story": "Giriş Səhifəsinə Qayıdış",
@@ -766,20 +766,20 @@
       "2. /login səhifəsinə uğurla qayıdıldığını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "8ed5c30c20b98c66",
+      "uid": "d88b39adef663a32",
       "formatted": "16.11.2026, 18:38",
       "timestamp": 1794839938221
     },
     "images": [
       {
         "name": "Giriş Səhifəsinə Uğurlu Qayıdış",
-        "src": "data/attachments/cbfef6382789004.png",
+        "src": "data/attachments/b81ca7d8cb25a2d3.png",
         "size": 229760
       }
     ]
   },
   {
-    "uid": "34ef87e4f101bd01",
+    "uid": "f9c3f39c9662e68f",
     "name": "BƏRPA-05: Qeyri-valid formatlı e-poçt daxil edildikdə xətanın göstərilməsi",
     "feature": "Şifrənin Bərpası (Password Recovery)",
     "story": "Format Validasiyası",
@@ -792,20 +792,20 @@
       "2. Hər iki səhifənin ayrılmış və müstəqil işlədiyini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "34ef87e4f101bd01",
+      "uid": "f9c3f39c9662e68f",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839945656
     },
     "images": [
       {
         "name": "Qeyri-valid Formatlı E-poçt Daxil Edilmiş Vəziyyət",
-        "src": "data/attachments/2c308ee80f5000a9.png",
+        "src": "data/attachments/1a8baf7593e9c8f8.png",
         "size": 257816
       }
     ]
   },
   {
-    "uid": "57b04744735b4c9d",
+    "uid": "83c6feff4b01866a",
     "name": "NEQ-AUTH-01: Qonaq istifadəçinin birbaşa /dashboard ünvanına keçid cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Mühafizə Olunan Marşrutlar",
@@ -819,20 +819,20 @@
       "3. İstifadəçinin avtomatik /login səhifəsinə yönləndirildiyini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "57b04744735b4c9d",
+      "uid": "83c6feff4b01866a",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840039289
     },
     "images": [
       {
         "name": "Dashboard-a İcazəsiz Girişin Bloklanması",
-        "src": "data/attachments/fb9894284d82845d.png",
+        "src": "data/attachments/e4d576079872d8bb.png",
         "size": 232897
       }
     ]
   },
   {
-    "uid": "6d7d58cff1bb8f16",
+    "uid": "f7120d60fab65887",
     "name": "NEQ-AUTH-02: Qonaq istifadəçinin birbaşa /profile ünvanına keçid cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Mühafizə Olunan Marşrutlar",
@@ -846,20 +846,20 @@
       "3. /login səhifəsinə yönləndirməni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "6d7d58cff1bb8f16",
+      "uid": "f7120d60fab65887",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840053680
     },
     "images": [
       {
         "name": "Profile-a İcazəsiz Girişin Bloklanması",
-        "src": "data/attachments/b8e41e53de6aa9f1.png",
+        "src": "data/attachments/72b45577c9dd136d.png",
         "size": 11436
       }
     ]
   },
   {
-    "uid": "25f202d1dbbc7b13",
+    "uid": "fc08cfd59c2c0b17",
     "name": "NEQ-AUTH-03: Qonaq istifadəçinin birbaşa /settings ünvanına keçid cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Mühafizə Olunan Marşrutlar",
@@ -873,20 +873,20 @@
       "3. /login səhifəsinə yönləndirməni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "25f202d1dbbc7b13",
+      "uid": "fc08cfd59c2c0b17",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840057025
     },
     "images": [
       {
         "name": "Settings-ə İcazəsiz Girişin Bloklanması",
-        "src": "data/attachments/99b57751d6213025.png",
+        "src": "data/attachments/e3c8d6378203ef80.png",
         "size": 230729
       }
     ]
   },
   {
-    "uid": "9fb92dde9be1aa2b",
+    "uid": "1cb4f1fa3d4b649c",
     "name": "NEQ-AUTH-04: Qonaq istifadəçinin mövcud olmayan qutuya (/boxes/invalid-id-999) keçidi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Mühafizə Olunan Marşrutlar",
@@ -900,20 +900,20 @@
       "3. Təhlükəsiz vəziyyətin qorunduğunu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "9fb92dde9be1aa2b",
+      "uid": "1cb4f1fa3d4b649c",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840042694
     },
     "images": [
       {
         "name": "Qeyri-mövcud Qutuya İcazəsiz Keçid",
-        "src": "data/attachments/7b5f91f06d638430.png",
+        "src": "data/attachments/b9cf3945d199ee72.png",
         "size": 21492
       }
     ]
   },
   {
-    "uid": "2373fa4559bd216f",
+    "uid": "51e730a4b9c6d741",
     "name": "NEQ-BƏRPA-01: Sistemdə mövcud olmayan e-poçt üçün bərpa sorğusu",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Şifrə Bərpası Neqativ Halları",
@@ -927,20 +927,20 @@
       "3. Telefon bərpasına keçid linkini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "2373fa4559bd216f",
+      "uid": "51e730a4b9c6d741",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840001979
     },
     "images": [
       {
         "name": "Mövcud Olmayan E-poçt ilə Şifrə Bərpası",
-        "src": "data/attachments/f3b3ebae40d67332.png",
+        "src": "data/attachments/b74f82033b404db0.png",
         "size": 262932
       }
     ]
   },
   {
-    "uid": "3a81ccc9f80143b1",
+    "uid": "13f8287829870d22",
     "name": "NEQ-BƏRPA-02: Yanlış/natamam telefon nömrəsi ilə bərpa cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Şifrə Bərpası Neqativ Halları",
@@ -954,20 +954,20 @@
       "3. E-poçt sahəsinin ekranda olmadığını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "3a81ccc9f80143b1",
+      "uid": "13f8287829870d22",
       "formatted": "16.11.2026, 18:39",
       "timestamp": 1794839998171
     },
     "images": [
       {
         "name": "Natamam Telefon ilə Şifrə Bərpası",
-        "src": "data/attachments/9ae33259d69421f5.png",
+        "src": "data/attachments/5406753aaad761b.png",
         "size": 249830
       }
     ]
   },
   {
-    "uid": "cdab822586ce6bc4",
+    "uid": "fae61bbab90cd4e3",
     "name": "NEQ-BƏRPA-03: XSS inyeksiya simvolları ilə bərpa cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Təhlükəsizlik və Sanitiyasiya",
@@ -982,20 +982,20 @@
       "4. Aktivləşmiş vəziyyətin skrinşotunu çək"
     ],
     "lastPassed": {
-      "uid": "cdab822586ce6bc4",
+      "uid": "fae61bbab90cd4e3",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840005375
     },
     "images": [
       {
         "name": "XSS Simvolları ilə Bərpa Cəhdi",
-        "src": "data/attachments/20be97198b5200b4.png",
+        "src": "data/attachments/d8922bbd883de439.png",
         "size": 252093
       }
     ]
   },
   {
-    "uid": "878041cac29f3f00",
+    "uid": "c2cdfc9c4d0e5f2e",
     "name": "NEQ-GİRİŞ-01: Yanlış istifadəçi e-poçtu və ya şifrəsi ilə daxil olma cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Giriş Neqativ Halları",
@@ -1010,20 +1010,20 @@
       "4. Qeydiyyat və şifrə bərpası linklərini yoxla"
     ],
     "lastPassed": {
-      "uid": "878041cac29f3f00",
+      "uid": "c2cdfc9c4d0e5f2e",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840015803
     },
     "images": [
       {
         "name": "Yanlış Giriş Məlumatları Xətası",
-        "src": "data/attachments/aed6a76d3a7c1261.png",
+        "src": "data/attachments/401afd6af9dc6037.png",
         "size": 239462
       }
     ]
   },
   {
-    "uid": "f10ab640dfd01a52",
+    "uid": "b9495271678147c8",
     "name": "NEQ-GİRİŞ-02: Qeyri-valid formatlı e-poçt ilə daxil olma cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Giriş Neqativ Halları",
@@ -1038,20 +1038,20 @@
       "4. 'Email' tabına təkrar klikləyib geri qayıt"
     ],
     "lastPassed": {
-      "uid": "f10ab640dfd01a52",
+      "uid": "b9495271678147c8",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840019012
     },
     "images": [
       {
         "name": "Qeyri-valid Formatlı E-poçt ilə Giriş",
-        "src": "data/attachments/244f7a9c946cd26d.png",
+        "src": "data/attachments/f6b478dba88e9db7.png",
         "size": 240644
       }
     ]
   },
   {
-    "uid": "ef53a9d2251fa3d4",
+    "uid": "932a06950ad3893e",
     "name": "NEQ-GİRİŞ-03: Natamam telefon nömrəsi ilə daxil olma cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Giriş Neqativ Halları",
@@ -1066,20 +1066,20 @@
       "4. Aşkar vəziyyətin skrinşotunu çək və təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "ef53a9d2251fa3d4",
+      "uid": "932a06950ad3893e",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840012244
     },
     "images": [
       {
         "name": "Natamam Telefon Nömrəsi ilə Giriş",
-        "src": "data/attachments/28e17b443bbbf4ed.png",
+        "src": "data/attachments/5ec990469139881.png",
         "size": 229373
       }
     ]
   },
   {
-    "uid": "836e54e4d4fbcd4e",
+    "uid": "7c02045a9fe2f47d",
     "name": "NEQ-GİRİŞ-04: SQL Injection və XSS təhlükəsizlik simvolları ilə giriş cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Təhlükəsizlik və Sanitiyasiya",
@@ -1093,20 +1093,20 @@
       "3. HTML5 / react form validasiya reaksiyasını yoxla"
     ],
     "lastPassed": {
-      "uid": "836e54e4d4fbcd4e",
+      "uid": "7c02045a9fe2f47d",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840022549
     },
     "images": [
       {
         "name": "SQLi və XSS Simvolları ilə Giriş Cəhdi",
-        "src": "data/attachments/8f6c7311ddfa3bb4.png",
+        "src": "data/attachments/6a3d7f1843566a67.png",
         "size": 239237
       }
     ]
   },
   {
-    "uid": "e282fc19a71813fb",
+    "uid": "92e15e6e735ec6b6",
     "name": "NEQ-GİRİŞ-05: Həddindən artıq uzun mətnlə (500+ simvol) forma dayanıqlığı",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Təhlükəsizlik və Sanitiyasiya",
@@ -1120,20 +1120,20 @@
       "3. /forgot-password/email səhifəsinə yönləndirməni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "e282fc19a71813fb",
+      "uid": "92e15e6e735ec6b6",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840008994
     },
     "images": [
       {
         "name": "500+ Simvolluq Mətnlə Forma Dayanıqlığı",
-        "src": "data/attachments/f7472cd580d9bad9.png",
+        "src": "data/attachments/cf0dfa4aca1bbbb9.png",
         "size": 229035
       }
     ]
   },
   {
-    "uid": "c5b4c50e7f6ae528",
+    "uid": "970f496ab17cadbd",
     "name": "NEQ-QEYD-01: Zəif / qısa şifrə ilə qeydiyyat cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Qeydiyyat Neqativ Halları",
@@ -1147,20 +1147,20 @@
       "3. Qaydalarla razılıq checkbox-unu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "c5b4c50e7f6ae528",
+      "uid": "970f496ab17cadbd",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840035898
     },
     "images": [
       {
         "name": "Zəif Şifrə ilə Qeydiyyat Cəhdi",
-        "src": "data/attachments/6b7f95b8edce3391.png",
+        "src": "data/attachments/76ac0da7361edb44.png",
         "size": 297556
       }
     ]
   },
   {
-    "uid": "f63b6fec30bb5d0c",
+    "uid": "267dbb88fa1e3e23",
     "name": "NEQ-QEYD-02: Qeydiyyat formasının boş saxlanılaraq göndərilməsi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Qeydiyyat Neqativ Halları",
@@ -1174,20 +1174,20 @@
       "3. Təkrar klikləyərək şifrənin yenidən maskalandığını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "f63b6fec30bb5d0c",
+      "uid": "267dbb88fa1e3e23",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840029282
     },
     "images": [
       {
         "name": "Boş Sahələrlə Qeydiyyat Cəhdi",
-        "src": "data/attachments/37111e160b529c80.png",
+        "src": "data/attachments/45aaed9a62e84bdc.png",
         "size": 301328
       }
     ]
   },
   {
-    "uid": "2d09fae154b8d99a",
+    "uid": "c3db36bc8df593d",
     "name": "NEQ-QEYD-03: Qeyri-valid sintaksisli e-poçt formatı ilə submit cəhdi",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Qeydiyyat Neqativ Halları",
@@ -1200,20 +1200,20 @@
       "2. /login səhifəsinə problemsiz qayıdışı təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "2d09fae154b8d99a",
+      "uid": "c3db36bc8df593d",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840032648
     },
     "images": [
       {
         "name": "Qeyri-valid E-poçt ilə Qeydiyyat",
-        "src": "data/attachments/bea4f72cd393854a.png",
+        "src": "data/attachments/85fbaea6d42b87a9.png",
         "size": 297228
       }
     ]
   },
   {
-    "uid": "c35761cb388f6bd3",
+    "uid": "d29228fef2cd03ca",
     "name": "NEQ-QEYD-04: Yalnız e-poçt doldurulub şifrə sahəsi boş buraxıldıqda",
     "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
     "story": "Qeydiyyat Neqativ Halları",
@@ -1226,20 +1226,20 @@
       "2. Sahələrin tələb olunan (required) olduğunu yoxla"
     ],
     "lastPassed": {
-      "uid": "c35761cb388f6bd3",
+      "uid": "d29228fef2cd03ca",
       "formatted": "16.11.2026, 18:40",
       "timestamp": 1794840026025
     },
     "images": [
       {
         "name": "Şifrəsiz Qeydiyyat Cəhdi",
-        "src": "data/attachments/928f72b9a5b4cb7a.png",
+        "src": "data/attachments/bb6c1428781568aa.png",
         "size": 298375
       }
     ]
   },
   {
-    "uid": "238d4052ef0f5a9b",
+    "uid": "a6f19322cd80de20",
     "name": "DYN-QEYD-02: Dinamik qeydiyyat, Dashboard-a yönləndirmə və Çıxış (Logout)",
     "feature": "Dinamik Temp-Mail Qeydiyyatı və Giriş İnteqrasiyası",
     "story": "Avtomatlaşdırılmış Qeydiyyat və Çıxış",
@@ -1254,30 +1254,30 @@
       "4. /dashboard səhifəsinə uğurlu yönləndirməni və sessiyanı təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "238d4052ef0f5a9b",
+      "uid": "a6f19322cd80de20",
       "formatted": "16.11.2026, 18:41",
       "timestamp": 1794840077642
     },
     "images": [
       {
         "name": "Qeydiyyat Formasının İlkin Vəziyyəti",
-        "src": "data/attachments/9c9e0d0dc9a4f641.png",
+        "src": "data/attachments/f11f0e0c6cccc001.png",
         "size": 293456
       },
       {
         "name": "Dinamik Qeydiyyatdan Sonra Dashboard",
-        "src": "data/attachments/f4ae548a68c6864b.png",
+        "src": "data/attachments/58b68633d4fb3fbd.png",
         "size": 88784
       },
       {
         "name": "Çıxışdan Sonra Giriş Səhifəsi",
-        "src": "data/attachments/6bf35fe35498a1ad.png",
+        "src": "data/attachments/f5e21155d211fcde.png",
         "size": 78444
       }
     ]
   },
   {
-    "uid": "72930d60f7d70836",
+    "uid": "96965595e650a93f",
     "name": "DYN-QEYD-03: Yeni qeydiyyatdan keçmiş dinamik hesab ilə təkrar giriş (Login)",
     "feature": "Dinamik Temp-Mail Qeydiyyatı və Giriş İnteqrasiyası",
     "story": "Dinamik Hesabla Giriş",
@@ -1291,20 +1291,20 @@
       "3. /login səhifəsinə geri qayıtmanı təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "72930d60f7d70836",
+      "uid": "96965595e650a93f",
       "formatted": "16.11.2026, 18:41",
       "timestamp": 1794840085789
     },
     "images": [
       {
         "name": "Dinamik Hesabla Təkrar Girişdən Sonra Dashboard",
-        "src": "data/attachments/7f1235d4aef615f.png",
+        "src": "data/attachments/ca6ca1b959f670d8.png",
         "size": 88784
       }
     ]
   },
   {
-    "uid": "2a92d739c7c627ec",
+    "uid": "92b33bd02de11ebc",
     "name": "BIZ-P0-01: İstifadəçi autentifikasiyası (Login və Logout dövrü)",
     "feature": "P0: Autentifikasiya, Profil, Görünürlük, Axtarış və Paylaşım",
     "story": "İstifadəçi Autentifikasiyası",
@@ -1319,25 +1319,25 @@
       "4. Təkrar /login səhifəsinə yönləndirməni yoxla"
     ],
     "lastPassed": {
-      "uid": "2a92d739c7c627ec",
+      "uid": "92b33bd02de11ebc",
       "formatted": "16.11.2026, 18:41",
       "timestamp": 1794840114485
     },
     "images": [
       {
         "name": "Uğurlu Girişdən Sonra Dashboard",
-        "src": "data/attachments/1f765fec8c479173.png",
+        "src": "data/attachments/51e3423a73dfdc78.png",
         "size": 88784
       },
       {
         "name": "Hesabdan Çıxışdan Sonra Giriş Səhifəsi",
-        "src": "data/attachments/2ce4b6b4786e6f05.png",
+        "src": "data/attachments/62974eca57d7c9b6.png",
         "size": 78591
       }
     ]
   },
   {
-    "uid": "fbcbd0b0b878761f",
+    "uid": "859c39bded02962c",
     "name": "BIZ-P0-02: İstifadəçi profili məlumatlarının göstərilməsi və saxlanılması",
     "feature": "P0: Autentifikasiya, Profil, Görünürlük, Axtarış və Paylaşım",
     "story": "İstifadəçi Profili",
@@ -1352,20 +1352,20 @@
       "4. Dəyişikliyi yadda saxla və əks olunduğunu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "fbcbd0b0b878761f",
+      "uid": "859c39bded02962c",
       "formatted": "16.11.2026, 18:42",
       "timestamp": 1794840168440
     },
     "images": [
       {
         "name": "İstifadəçi Profili Əsas Görünüşü",
-        "src": "data/attachments/681fab7cb23688d1.png",
+        "src": "data/attachments/ed41823fa47e7f22.png",
         "size": 7522
       }
     ]
   },
   {
-    "uid": "aae92942ed1675e1",
+    "uid": "9ba10dfb16503b13",
     "name": "BIZ-P0-03: Profilin görünürlüyü (Public vs Private qorunma qaydaları)",
     "feature": "P0: Autentifikasiya, Profil, Görünürlük, Axtarış və Paylaşım",
     "story": "Profilin Görünürlüyü",
@@ -1378,20 +1378,20 @@
       "2. Status indikatorunun düzgün əks olunduğunu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "aae92942ed1675e1",
+      "uid": "9ba10dfb16503b13",
       "formatted": "16.11.2026, 18:42",
       "timestamp": 1794840156933
     },
     "images": [
       {
         "name": "Profil Görünürlük Statusu İndikatoru",
-        "src": "data/attachments/5e4050339e50b501.png",
+        "src": "data/attachments/f5a6617dd5def950.png",
         "size": 5577
       }
     ]
   },
   {
-    "uid": "4db833584d46c846",
+    "uid": "69c5641766cd91eb",
     "name": "BIZ-P0-04: Profil axtarışı və uyğun nəticələrin əks olunması",
     "feature": "P0: Autentifikasiya, Profil, Görünürlük, Axtarış və Paylaşım",
     "story": "Profil Axtarışı",
@@ -1405,20 +1405,20 @@
       "3. Axtarış nəticələrinin gəldiyini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "4db833584d46c846",
+      "uid": "69c5641766cd91eb",
       "formatted": "16.11.2026, 18:42",
       "timestamp": 1794840135199
     },
     "images": [
       {
         "name": "Profil Axtarışı Nəticələri",
-        "src": "data/attachments/c043b117b58bebd1.png",
+        "src": "data/attachments/a2518f8d9dcb547.png",
         "size": 114225
       }
     ]
   },
   {
-    "uid": "4fd4e7618c332aa6",
+    "uid": "fe4bb418a7b8631",
     "name": "BIZ-P0-05: Profilin paylaşılması və keçid linkinin düzgün yönləndirməsi",
     "feature": "P0: Autentifikasiya, Profil, Görünürlük, Axtarış və Paylaşım",
     "story": "Profilin Paylaşılması",
@@ -1432,25 +1432,25 @@
       "3. Paylaşılan profil kartının ictimai əlçatanlığını yoxla"
     ],
     "lastPassed": {
-      "uid": "4fd4e7618c332aa6",
+      "uid": "fe4bb418a7b8631",
       "formatted": "16.11.2026, 18:42",
       "timestamp": 1794840146333
     },
     "images": [
       {
         "name": "Profil Paylaşım Linki İcra Vəziyyəti",
-        "src": "data/attachments/1419ac3642d059a4.png",
+        "src": "data/attachments/637ad8ec3ecda1dd.png",
         "size": 5577
       },
       {
         "name": "Anonim İstifadəçinin Gördüyü Paylaşılan Profil",
-        "src": "data/attachments/5675b5acb9ba55dc.png",
+        "src": "data/attachments/c537381a1ab89d63.png",
         "size": 8082
       }
     ]
   },
   {
-    "uid": "32ad08fb17365b85",
+    "uid": "f5d9fa00e88ae4aa",
     "name": "BIZ-P1-01: Qutuların idarə edilməsi (Yaradılma, Baxış və Təmizlənmə)",
     "feature": "P1: Qutuların və Kontaktların İdarə Edilməsi",
     "story": "Qutuların İdarə Edilməsi",
@@ -1464,26 +1464,22 @@
       "3. Qutunun siyahıda əks olunduğunu təsdiqlə",
       "4. Qutunun detallarını aç və sınaqdan sonra qutunu sil"
     ],
-    "lastPassed": {
-      "uid": "32ad08fb17365b85",
-      "formatted": "16.11.2026, 18:43",
-      "timestamp": 1794840181557
-    },
+    "lastPassed": null,
     "images": [
       {
         "name": "Yeni Qutu Yaradılması Əməliyyatı",
-        "src": "data/attachments/8741c0f3659345f.png",
+        "src": "data/attachments/5b34702a1c05d326.png",
         "size": 81038
       },
       {
         "name": "Mövcud Qutunun Detal Görünüşü",
-        "src": "data/attachments/a95adf3704c4c69d.png",
+        "src": "data/attachments/79c3ead32d8ff80d.png",
         "size": 77779
       }
     ]
   },
   {
-    "uid": "f5bb0e328d8c84fd",
+    "uid": "e6c4ec42eab84865",
     "name": "BIZ-P1-02: Kontaktların idarə edilməsi (Əlavə etmə, baxış və silinmə)",
     "feature": "P1: Qutuların və Kontaktların İdarə Edilməsi",
     "story": "Kontaktların İdarə Edilməsi",
@@ -1501,13 +1497,13 @@
     "images": [
       {
         "name": "Kontaktlar Bölməsinin İlkin Vəziyyəti",
-        "src": "data/attachments/edef62b0c4e9c4ca.png",
+        "src": "data/attachments/189f7d87160f256b.png",
         "size": 5577
       }
     ]
   },
   {
-    "uid": "5f155c2ba6989a62",
+    "uid": "7c4db99b07c54d3f",
     "name": "BIZ-P1-03: Abunəlik və planlar (Free və Pro funksionallıq və limitləri)",
     "feature": "P1: Abunəlik, Planlar və Bonus Sistemi",
     "story": "Abunəlik və Planlar",
@@ -1521,20 +1517,20 @@
       "3. Mövcud tarifləri və paket limitlərini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "5f155c2ba6989a62",
+      "uid": "7c4db99b07c54d3f",
       "formatted": "16.11.2026, 18:44",
       "timestamp": 1794840255997
     },
     "images": [
       {
         "name": "Cari Abunəlik Planı və Məhdudiyyətlər",
-        "src": "data/attachments/80fe4fb97d0328a7.png",
+        "src": "data/attachments/9bf10179a66ac68b.png",
         "size": 82536
       }
     ]
   },
   {
-    "uid": "b050f6e1e8327b07",
+    "uid": "81938b94cabf06b",
     "name": "BIZ-P1-04: Bonus sistemi (Balans və bonus tarixçəsinin göstərilməsi)",
     "feature": "P1: Abunəlik, Planlar və Bonus Sistemi",
     "story": "Bonus Sistemi",
@@ -1548,20 +1544,47 @@
       "3. Əməliyyat tarixçəsi bölməsinin yükləndiyini təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "b050f6e1e8327b07",
+      "uid": "81938b94cabf06b",
       "formatted": "16.11.2026, 18:43",
       "timestamp": 1794840235428
     },
     "images": [
       {
         "name": "Dashboard Bonus Balansı İndikatoru",
-        "src": "data/attachments/9f1ca5a10565962.png",
+        "src": "data/attachments/f06b324049842de8.png",
         "size": 88784
       },
       {
         "name": "Bonus Tarixçəsi və Əməliyyatlar Bölməsi",
-        "src": "data/attachments/41baddbf4a0ea746.png",
+        "src": "data/attachments/682dcb1a54617e0b.png",
         "size": 58740
+      }
+    ]
+  },
+  {
+    "uid": "97aaedcea6ae83eb",
+    "name": "BIZ-P2-01: Bildirişlərin göstərilməsi və oxunma statusunun yenilənməsi",
+    "feature": "P2: Bildirişlər Sistemi",
+    "story": "Bildirişlər (Notifications)",
+    "category": "Biznes Funksionallıqları (P0, P1, P2)",
+    "status": "passed",
+    "duration": 38.2,
+    "description": "Bildirişlərin düzgün göstərildiyini və oxunma statusunun uğurla yeniləndiyini yoxlayır.",
+    "steps": [
+      "1. Bildirişlər panelini (Notification Drawer) aç",
+      "2. Bildirişlərin siyahısını yoxla",
+      "3. Hamısını oxunmuş et əməliyyatını icra et və statusu yenilə"
+    ],
+    "lastPassed": {
+      "uid": "97aaedcea6ae83eb",
+      "formatted": "16.11.2026, 18:46",
+      "timestamp": 1794840395167
+    },
+    "images": [
+      {
+        "name": "Bildirişlər Bölməsi Vəziyyəti",
+        "src": "data/attachments/c6cf7cb433720106.png",
+        "size": 89043
       }
     ]
   }
