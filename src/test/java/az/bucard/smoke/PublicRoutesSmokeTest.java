@@ -90,6 +90,8 @@ public class PublicRoutesSmokeTest extends BaseTest {
         String pageSource = driver.getPageSource();
         Assert.assertFalse(pageSource.contains("502 Bad Gateway") || pageSource.contains("500 Internal Server Error"),
                 "Giriş səhifəsində server xətası mətni olmamalıdır");
+
+        attachScreenshot("Server Xətası Olmayan Giriş Səhifəsi");
     }
 
     @Test(description = "GİRİŞ-05: Giriş formasında sahələr, düymələr və bərpa linki", groups = {"smoke", "public"})

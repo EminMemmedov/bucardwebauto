@@ -2,6 +2,7 @@ package az.bucard.base;
 
 import az.bucard.driver.DriverFactory;
 import az.bucard.utils.ScreenshotUtil;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -10,6 +11,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.ByteArrayInputStream;
 import java.nio.file.Path;
 
 public abstract class BaseTest {
@@ -43,11 +45,15 @@ public abstract class BaseTest {
     }
 
     @Attachment(value = "{title}", type = "image/png")
-    public byte[] attachScreenshot(String title) {
+    public static byte[] attachScreenshot(String title) {
         WebDriver driver = DRIVER_HOLDER.get();
         if (driver instanceof TakesScreenshot takesScreenshot) {
             try {
-                return takesScreenshot.getScreenshotAs(OutputType.BYTES);
+                byte[] bytes = takesScreenshot.getScreenshotAs(OutputType.BYTES);
+                if (bytes != null && bytes.length > 0) {
+                    Allure.addAttachment(title, "image/png", new ByteArrayInputStream(bytes), ".png");
+                    return bytes;
+                }
             } catch (Exception ignored) {
             }
         }
