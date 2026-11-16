@@ -1,0 +1,478 @@
+[
+  {
+    "uid": "d3db09016475331f",
+    "name": "DİL-01: Dil seçim menyusunun mövcudluğu və ilkin dil vəziyyəti",
+    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
+    "story": "Dil Seçimi Elementi",
+    "category": "Çoxdillilik (AZ / EN / RU)",
+    "status": "passed",
+    "duration": 1.1,
+    "description": "Ana səhifədə dil seçim düyməsinin (.selectLang) mövcud olduğunu və ilkin dil göstəricisinin təyin edildiyini yoxlayır.",
+    "images": [
+      {
+        "name": "İlkin Dil Vəziyyəti: EN",
+        "src": "data/attachments/38f1fbf5f70978ca.png",
+        "size": 5702
+      }
+    ]
+  },
+  {
+    "uid": "9b30e2d238f73ccf",
+    "name": "DİL-02: Dili İngilis dilinə (EN) dəyişmə və interfeysin uyğunlaşması",
+    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
+    "story": "İngilis Dili (EN)",
+    "category": "Çoxdillilik (AZ / EN / RU)",
+    "status": "passed",
+    "duration": 1.8,
+    "description": "Dil menyusundan 'English' seçdikdə dil kodunun 'EN' olduğunu və interfeysin ingilis dilinə keçdiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "İngilis Dili İnterfeysi (EN)",
+        "src": "data/attachments/be528e7764273e2b.png",
+        "size": 194719
+      }
+    ]
+  },
+  {
+    "uid": "5edbc05b7c4eb256",
+    "name": "DİL-03: Dili Rus dilinə (RU) dəyişmə və interfeysin uyğunlaşması",
+    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
+    "story": "Rus Dili (RU)",
+    "category": "Çoxdillilik (AZ / EN / RU)",
+    "status": "passed",
+    "duration": 2.3,
+    "description": "Dil menyusundan 'Русский' seçdikdə dil kodunun 'РУ' olduğunu və interfeysin rus dilinə keçdiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "Rus Dili İnterfeysi (RU)",
+        "src": "data/attachments/bd2ad1b5ca36c223.png",
+        "size": 117652
+      }
+    ]
+  },
+  {
+    "uid": "5db9c314fa126ff7",
+    "name": "DİL-04: Dili Azərbaycan dilinə (AZ) geri qaytarılması",
+    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
+    "story": "Azərbaycan Dili (AZ)",
+    "category": "Çoxdillilik (AZ / EN / RU)",
+    "status": "passed",
+    "duration": 1.9,
+    "description": "Fərqli dildən yenidən 'Azərbaycan -ca' seçdikdə əsas dil kodunun 'AZ' olaraq bərpa olunduğunu yoxlayır.",
+    "images": [
+      {
+        "name": "Azərbaycan Dili İnterfeysi (AZ)",
+        "src": "data/attachments/75fa0c54b82a50ba.png",
+        "size": 203674
+      }
+    ]
+  },
+  {
+    "uid": "ebc531e2b7526303",
+    "name": "DİL-05: Səhifə yeniləndikdə (Page Reload) seçilmiş dilin saxlanılması",
+    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
+    "story": "Dilin Saxlanması (Persistence)",
+    "category": "Çoxdillilik (AZ / EN / RU)",
+    "status": "passed",
+    "duration": 2.1,
+    "description": "Dil dəyişdirildikdən sonra səhifəni yenilədikdə (F5) seçilmiş dil parametrinin itmədiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "Səhifə Yeniləndikdən Sonra Dilin Saxlanması Təsdiqi",
+        "src": "data/attachments/d16f2f4d451ef5cd.png",
+        "size": 5577
+      }
+    ]
+  },
+  {
+    "uid": "fa24132b46c38362",
+    "name": "ANA-01: Ana səhifənin loqosu, naviqasiyası və qeydiyyat düymələri",
+    "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
+    "story": "Ana Səhifə (Landing)",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.1,
+    "description": "Bucard ana səhifəsinin loqosunu, naviqasiya menyusunu, dil seçimini və 'Giriş' / 'Qeydiyyat' düymələrinin mövcudluğunu yoxlayır.",
+    "images": [
+      {
+        "name": "Bucard Ana Səhifəsinin Ümumi Görünüşü",
+        "src": "data/attachments/f318120b69b9b4d4.png",
+        "size": 5741
+      }
+    ]
+  },
+  {
+    "uid": "ff4a3bdfe364be09",
+    "name": "BƏRPA-04: 'Geri qayıt' düyməsi ilə /login səhifəsinə qayıdışın yoxlanışı",
+    "feature": "Şifrənin Bərpası (Password Recovery)",
+    "story": "Giriş Səhifəsinə Qayıdış",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Şifrə bərpası səhifəsində geri qayıt oxuna və ya keçidə basdıqda istifadəçinin /login səhifəsinə problemsiz qayıtdığını təsdiqləyir.",
+    "images": [
+      {
+        "name": "Giriş Səhifəsinə Uğurlu Qayıdış",
+        "src": "data/attachments/1cfd5483815af70d.png",
+        "size": 229760
+      }
+    ]
+  },
+  {
+    "uid": "f57503bfa014512d",
+    "name": "GİRİŞ-01: Giriş səhifəsinin (/login) açılması və bütün interfeys elementlərinin yoxlanışı",
+    "feature": "İstifadəçi Girişi (Authentication)",
+    "story": "Giriş Səhifəsi Elementləri",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.1,
+    "description": "/login ünvanının xətasız açıldığını, e-poçt və şifrə daxiletmə sahələrini, təsdiq düyməsini, şifrə bərpası və qeydiyyat keçidlərini yoxlayır.",
+    "images": [
+      {
+        "name": "Giriş Səhifəsinin İlkin Görünüşü",
+        "src": "data/attachments/e248484a92f34f1d.png",
+        "size": 232651
+      }
+    ]
+  },
+  {
+    "uid": "86fccef4cf8876d5",
+    "name": "GİRİŞ-02: 'Email' və 'Telefon' giriş tabları arasında keçid",
+    "feature": "İstifadəçi Girişi (Authentication)",
+    "story": "Giriş Növləri Tabları",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.3,
+    "description": "Giriş səhifəsində 'Email' və 'Telefon' tabları arasında keçid etdikdə müvafiq daxiletmə xanalarının ekranda əks olunduğunu təsdiqləyir.",
+    "images": [
+      {
+        "name": "Telefonla Giriş Tabı",
+        "src": "data/attachments/860b98a4db04464f.png",
+        "size": 227749
+      }
+    ]
+  },
+  {
+    "uid": "bf27b3ac61c70a1f",
+    "name": "GİRİŞ-03: Giriş səhifəsinin (/login) təmiz açılması və yüklənməsi",
+    "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
+    "story": "Giriş Səhifəsi (/login)",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.1,
+    "description": "/login ünvanının xətasız açıldığını, heç bir kənar yönləndirmə olmadığını və tətbiqin #root konteynerinin qurulduğunu yoxlayır.",
+    "images": [
+      {
+        "name": "Giriş Səhifəsi (/login)",
+        "src": "data/attachments/991de69dd22e33ef.png",
+        "size": 229762
+      }
+    ]
+  },
+  {
+    "uid": "757795c315038ece",
+    "name": "GİRİŞ-03: Şifrə görünməzlik göz ikonunun (Eye Toggle) işləməsi",
+    "feature": "İstifadəçi Girişi (Authentication)",
+    "story": "Təhlükəsizlik və UI İdarəetmə",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Göz ikonuna basdıqda şifrə sahəsinin tipinin 'password' və 'text' arasında düzgün dəyişdiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "Göz İkonu ilə Şifrənin Aşkar Görünüşü",
+        "src": "data/attachments/641244498961c1b.png",
+        "size": 232819
+      }
+    ]
+  },
+  {
+    "uid": "99e379765773e806",
+    "name": "GİRİŞ-04: Boş forma göndərildikdə validasiya reaksiyası",
+    "feature": "İstifadəçi Girişi (Authentication)",
+    "story": "Məlumat Validasiyası",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Sahələr boş qaldıqda 'Daxil ol' düyməsinə basıldıqda səhifənin çökmədiyini və validasiya bildirişinin yarandığını yoxlayır.",
+    "images": [
+      {
+        "name": "Boş Məlumatla Giriş Cəhdi",
+        "src": "data/attachments/22be0d403e5b6cba.png",
+        "size": 238447
+      }
+    ]
+  },
+  {
+    "uid": "d8dc7fa840388ba2",
+    "name": "GİRİŞ-05: 'Şifrəni unutmusunuz?' linki ilə bərpa səhifəsinə yönləndirmə",
+    "feature": "İstifadəçi Girişi (Authentication)",
+    "story": "Naviqasiya Keçidləri",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Şifrəni unutmusunuz linkinə basdıqda istifadəçinin /forgot-password səhifəsinə problemsiz keçdiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "Şifrə Bərpasına Yönləndirmə Təsdiqi",
+        "src": "data/attachments/c61f368fdd45497c.png",
+        "size": 250317
+      }
+    ]
+  },
+  {
+    "uid": "e9c3e2e3afa05c2b",
+    "name": "GİRİŞ-05: Giriş formasında sahələr, düymələr və bərpa linki",
+    "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
+    "story": "Giriş Forması Elementləri",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.1,
+    "description": "Giriş formasında e-poçt xanası, şifrə xanası, 'Davam et' düyməsi, şifrə bərpası və LinkedIn düyməsinin olduğunu yoxlayır.",
+    "images": [
+      {
+        "name": "Giriş Formasının Əsas Sahələri",
+        "src": "data/attachments/36190d1a61444ded.png",
+        "size": 229762
+      }
+    ]
+  },
+  {
+    "uid": "5ac8a184a7ca30a1",
+    "name": "GİRİŞ-06: 'Qeydiyyatdan keçin' linki ilə /register səhifəsinə yönləndirmə",
+    "feature": "İstifadəçi Girişi (Authentication)",
+    "story": "Naviqasiya Keçidləri",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Qeydiyyat keçidinə basdıqda istifadəçinin /register ünvanına yönləndirildiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "Qeydiyyata Yönləndirmə Təsdiqi",
+        "src": "data/attachments/bfc8d7c07b786c77.png",
+        "size": 293451
+      }
+    ]
+  },
+  {
+    "uid": "4ec735b58a319641",
+    "name": "GİRİŞ-06: Şifrənin göz işarəsinə kliklə göstərilməsi və gizlədilməsi",
+    "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
+    "story": "Şifrə Sahəsi İdarəetməsi",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.3,
+    "description": "Şifrə sahəsindəki göz ikonuna basdıqda input tipinin 'password' və 'text' arasında düzgün dəyişdiyini yoxlayır.",
+    "images": [
+      {
+        "name": "Şifrə Göstərilən Vəziyyətdə (Açıq Göz)",
+        "src": "data/attachments/6c00950eb58d81.png",
+        "size": 229931
+      }
+    ]
+  },
+  {
+    "uid": "b0e5c63f3c1de0e8",
+    "name": "GİRİŞ-07: 'E-poçt' və 'Telefon nömrəsi' giriş növləri arasında keçid",
+    "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
+    "story": "Giriş Növləri Tabları",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.6,
+    "description": "Giriş formasında 'E-poçt' və 'Telefon' tabları arasında klik etdikdə uyğun sahələrin göründüyünü yoxlayır.",
+    "images": [
+      {
+        "name": "Telefon Nömrəsi ilə Giriş Forması",
+        "src": "data/attachments/3f882cc7ef3783f1.png",
+        "size": 227433
+      }
+    ]
+  },
+  {
+    "uid": "d1b6b172531fbf25",
+    "name": "QEYD-03: 'Hesabınız var? Daxil olun' keçidi ilə /login səhifəsinə yönləndirmə",
+    "feature": "İstifadəçi Qeydiyyatı (User Registration)",
+    "story": "Giriş Səhifəsinə Keçid",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Qeydiyyat səhifəsində artıq hesabı olan istifadəçilər üçün nəzərdə tutulmuş keçidə basdıqda /login ünvanına keçildiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "Giriş Səhifəsinə Yönləndirmə Təsdiqi",
+        "src": "data/attachments/b98211a718c2e645.png",
+        "size": 232651
+      }
+    ]
+  },
+  {
+    "uid": "72a62839415a1b60",
+    "name": "SAYT-01: Bucard əsas səhifəsinin açılması və başlıq yoxlanışı",
+    "feature": "Saytın Əlçatanlığı və İnfrastruktur",
+    "story": "Saytın Əsas Giriş Nöqtəsi",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 0.8,
+    "description": "Bucard platformasının aktivliyini, səhifə başlığında 'Bucard' sözünün olduğunu və #root SPA konteynerinin uğurla yükləndiyini təsdiqləyir.",
+    "images": [
+      {
+        "name": "Bucard əsas səhifəsinin ilkin görünüşü",
+        "src": "data/attachments/7200827ad69f4514.png",
+        "size": 5577
+      }
+    ]
+  },
+  {
+    "uid": "51977e9d86ef5bc6",
+    "name": "XƏTA-04: Səhifədə 500 / 502 server xətalarının olmaması",
+    "feature": "İctimai Səhifələr və Naviqasiya (Pre-Login)",
+    "story": "Server İnteqrallığı",
+    "category": "Giriş və Avtorizasiya",
+    "status": "passed",
+    "duration": 1.1,
+    "description": "Giriş səhifəsinin mənbə kodunda 500 Internal Server Error və ya 502 Bad Gateway kimi xətaların olmadığını təsdiqləyir.",
+    "images": [
+      {
+        "name": "Server Xətası Olmayan Giriş Səhifəsi",
+        "src": "data/attachments/6988a13d27ee111b.png",
+        "size": 229762
+      }
+    ]
+  },
+  {
+    "uid": "9891365f9836b765",
+    "name": "QEYD-01: Qeydiyyat səhifəsinin (/register) açılması və bütün interfeys elementlərinin yoxlanışı",
+    "feature": "İstifadəçi Qeydiyyatı (User Registration)",
+    "story": "Qeydiyyat Səhifəsi Elementləri",
+    "category": "Qeydiyyat",
+    "status": "passed",
+    "duration": 1.1,
+    "description": "/register ünvanının xətasız açıldığını, e-poçt, şifrə xanalarını, qeydiyyat düyməsini və 'Daxil ol' keçidini yoxlayır.",
+    "images": [
+      {
+        "name": "Qeydiyyat Səhifəsinin İlkin Görünüşü",
+        "src": "data/attachments/3e3d67fe779e0523.png",
+        "size": 293456
+      }
+    ]
+  },
+  {
+    "uid": "ea5b804efb369c44",
+    "name": "QEYD-02: Şifrə görünməzlik göz ikonunun (Eye Toggle) düzgün işləməsi",
+    "feature": "İstifadəçi Qeydiyyatı (User Registration)",
+    "story": "Təhlükəsizlik və UI İdarəetmə",
+    "category": "Qeydiyyat",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Göz ikonuna kliklədikdə şifrə sahəsinin tipinin 'password'-dan 'text'-ə və təkrar klikdə 'password'-a dəyişdiyini yoxlayır.",
+    "images": [
+      {
+        "name": "Göz İkonu ilə Şifrənin Görünən Vəziyyəti",
+        "src": "data/attachments/217f5c166c569836.png",
+        "size": 296194
+      }
+    ]
+  },
+  {
+    "uid": "e711b6c17c958416",
+    "name": "QEYD-04: Boş forma göndərildikdə validasiya xətasının yaranması",
+    "feature": "İstifadəçi Qeydiyyatı (User Registration)",
+    "story": "Məlumat Validasiyası",
+    "category": "Qeydiyyat",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "Xanalar boş saxlanılaraq qeydiyyat düyməsi basıldıqda səhifənin çökmədiyini və validasiya bildirişinin yarandığını yoxlayır.",
+    "images": [
+      {
+        "name": "Boş Forma Göndərildikdə Validasiya Xətası",
+        "src": "data/attachments/860f4b1271418186.png",
+        "size": 303173
+      }
+    ]
+  },
+  {
+    "uid": "81220aa3ac5c7b10",
+    "name": "QEYD-05: Qeyri-valid e-poçt formatı ilə qeydiyyat cəhdi",
+    "feature": "İstifadəçi Qeydiyyatı (User Registration)",
+    "story": "E-poçt Validasiyası",
+    "category": "Qeydiyyat",
+    "status": "passed",
+    "duration": 1.3,
+    "description": "Yanlış formatlı e-poçt daxil edildikdə sahənin qorunduğunu və xəta bildirişinin göstərildiyini yoxlayır.",
+    "images": [
+      {
+        "name": "Qeyri-valid E-poçt ilə Qeydiyyat Cəhdi",
+        "src": "data/attachments/144c8a70a60a6552.png",
+        "size": 300293
+      }
+    ]
+  },
+  {
+    "uid": "df99ee829ae216b0",
+    "name": "BƏRPA-01: E-poçt ilə şifrə bərpası səhifəsinin (/forgot-password/email) açılması və ilkin vəziyyəti",
+    "feature": "Şifrənin Bərpası (Password Recovery)",
+    "story": "E-poçt ilə Bərpa",
+    "category": "Şifrə Bərpası",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "/forgot-password/email ünvanının xətasız açıldığını, e-poçt daxiletmə sahəsinin mövcudluğunu və ilkin olaraq göndər düyməsinin deaktiv (disabled) olduğunu yoxlayır.",
+    "images": [
+      {
+        "name": "E-poçt ilə Şifrə Bərpası Səhifəsi",
+        "src": "data/attachments/8e4da9deed88bd78.png",
+        "size": 250317
+      }
+    ]
+  },
+  {
+    "uid": "218d40892e2a65e9",
+    "name": "BƏRPA-02: Telefon nömrəsi ilə şifrə bərpası səhifəsinin (/forgot-password/phone) açılması və yoxlanışı",
+    "feature": "Şifrənin Bərpası (Password Recovery)",
+    "story": "Telefon Nömrəsi ilə Bərpa",
+    "category": "Şifrə Bərpası",
+    "status": "passed",
+    "duration": 11.4,
+    "description": "/forgot-password/phone ünvanının açıldığını, telefon nömrəsi daxiletmə sahəsinin mövcudluğunu və e-poçt sahəsinin olmadığını təsdiqləyir.",
+    "images": [
+      {
+        "name": "Telefon Nömrəsi ilə Şifrə Bərpası Səhifəsi",
+        "src": "data/attachments/c4e80ad09bc21c8e.png",
+        "size": 249830
+      }
+    ]
+  },
+  {
+    "uid": "46c40eafc7a9ce3e",
+    "name": "BƏRPA-03: E-poçt daxil etdikdə təsdiq düyməsinin aktivləşməsi (Input Reactive State)",
+    "feature": "Şifrənin Bərpası (Password Recovery)",
+    "story": "Daxiletmə və Düymə Vəziyyəti",
+    "category": "Şifrə Bərpası",
+    "status": "passed",
+    "duration": 1.2,
+    "description": "E-poçt xanası boş olduqda düymənin qeyri-aktiv olduğunu, simvol yazıldıqda dərhal aktivləşdiyini yoxlayır.",
+    "images": [
+      {
+        "name": "E-poçt Yazıldıqdan Sonra Düymənin Aktivləşməsi",
+        "src": "data/attachments/5e1c1eb79be14f59.png",
+        "size": 252462
+      }
+    ]
+  },
+  {
+    "uid": "3b1ddae803985d7b",
+    "name": "BƏRPA-05: Qeyri-valid formatlı e-poçt daxil edildikdə xətanın göstərilməsi",
+    "feature": "Şifrənin Bərpası (Password Recovery)",
+    "story": "Format Validasiyası",
+    "category": "Şifrə Bərpası",
+    "status": "passed",
+    "duration": 1.4,
+    "description": "E-poçt sahəsinə sintaktik olaraq yanlış məlumat (məs. 'invalid-format-test') yazıb təsdiq etdikdə xəta bildirişinin yarandığını yoxlayır.",
+    "images": [
+      {
+        "name": "Qeyri-valid Formatlı E-poçt Daxil Edilmiş Vəziyyət",
+        "src": "data/attachments/dafa1e600f09a7af.png",
+        "size": 257797
+      }
+    ]
+  }
+]
