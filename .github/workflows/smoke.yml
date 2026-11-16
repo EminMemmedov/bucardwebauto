@@ -15,14 +15,28 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
           cache: maven
-      - name: Run Bucard site smoke check
+
+      - name: Run Bucard site smoke checks
         env:
+          BUCARD_BASE_URL: ${{ secrets.BUCARD_BASE_URL || 'https://bucard.az' }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BUCARD_TEST_USER: ${{ secrets.BUCARD_TEST_USER }}
+          BUCARD_TEST_PASSWORD: ${{ secrets.BUCARD_TEST_PASSWORD }}
         run: mvn --batch-mode test
+
+      - name: Upload test failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-screenshots
+          path: target/screenshots/
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,8 +1,26 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Bucard UI Smoke" verbose="1">
-    <test name="Site availability">
+<suite name="Bucard Web Automation" verbose="1">
+    <listeners>
+        <listener class-name="az.bucard.reporting.TelegramTestListener"/>
+    </listeners>
+
+    <test name="Unit Tests (In-Memory)">
+        <classes>
+            <class name="az.bucard.unit.ConfigTest"/>
+            <class name="az.bucard.unit.SanitizerTest"/>
+        </classes>
+    </test>
+
+    <test name="Public Smoke Checks">
         <classes>
             <class name="az.bucard.smoke.SiteAvailabilityTest"/>
+            <class name="az.bucard.smoke.PublicRoutesSmokeTest"/>
+        </classes>
+    </test>
+
+    <test name="Authenticated Read-Only Smoke">
+        <classes>
+            <class name="az.bucard.smoke.AuthenticatedNavigationSmokeTest"/>
         </classes>
     </test>
 </suite>
