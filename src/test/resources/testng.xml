@@ -18,6 +18,12 @@
         </classes>
     </test>
 
+    <test name="Negative &amp; Security Checks">
+        <classes>
+            <class name="az.bucard.smoke.NegativeScenariosSmokeTest"/>
+        </classes>
+    </test>
+
     <!-- Authenticated tests are placed in a separate suite until PM provides production test account credentials
     <test name="Authenticated Read-Only Smoke">
         <classes>

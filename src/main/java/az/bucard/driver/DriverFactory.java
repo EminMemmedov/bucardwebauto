@@ -30,7 +30,9 @@ public final class DriverFactory {
                 "--no-sandbox",
                 "--disable-gpu",
                 "--remote-allow-origins=*",
-                "--disable-search-engine-choice-screen"
+                "--disable-search-engine-choice-screen",
+                "--disable-extensions",
+                "--disable-background-networking"
         );
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Config.pageLoadTimeoutSeconds()));

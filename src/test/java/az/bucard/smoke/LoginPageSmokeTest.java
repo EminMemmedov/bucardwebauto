@@ -11,8 +11,12 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 @Epic("Bucard Veb Platforması")
 @Feature("İstifadəçi Girişi (Authentication)")
@@ -109,6 +113,12 @@ public class LoginPageSmokeTest extends BaseTest {
 
         driver.findElement(By.cssSelector("div.forgot a, a[href*='forgot-password']")).click();
 
+        new WebDriverWait(driver, Duration.ofSeconds(8))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.formBtn, button[type='submit'], input[type='email'], input#email")));
+        try {
+            Thread.sleep(800);
+        } catch (InterruptedException ignored) {}
+
         Assert.assertTrue(driver.getCurrentUrl().contains("forgot-password"),
                 "Keçiddən sonra URL 'forgot-password' ehtiva etməlidir, cari URL: " + driver.getCurrentUrl());
         attachScreenshot("Şifrə Bərpasına Yönləndirmə Təsdiqi");
@@ -124,6 +134,12 @@ public class LoginPageSmokeTest extends BaseTest {
         loginPage.open(Config.baseUrl());
 
         driver.findElement(By.cssSelector("a[href*='/register'], div.haveAccount a")).click();
+
+        new WebDriverWait(driver, Duration.ofSeconds(8))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.formBtn, button[type='submit'], input[name='email'], input#email")));
+        try {
+            Thread.sleep(800);
+        } catch (InterruptedException ignored) {}
 
         Assert.assertTrue(driver.getCurrentUrl().contains("register"),
                 "Keçiddən sonra URL 'register' ehtiva etməlidir, cari URL: " + driver.getCurrentUrl());

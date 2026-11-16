@@ -279,6 +279,12 @@
     color: #166534;
 }
 
+.bucard-card-badge.negative {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+}
+
 .bucard-card-badge.failed {
     background: #fee2e2;
     color: #991b1b;

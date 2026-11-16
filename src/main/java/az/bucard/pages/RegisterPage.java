@@ -19,7 +19,7 @@ public final class RegisterPage extends BasePage {
     private static final By LOGIN_LINK = By.cssSelector(
             "a[href*='/login'], .haveAccount a");
     private static final By ERROR_ALERT = By.cssSelector(
-            "span.errorAlert, div.errorAlert");
+            "span.errorAlert, div.errorAlert, p.errorAlert, .alert, .Toastify__toast, div[class*='toast'], div[class*='alert']");
 
     public RegisterPage(WebDriver driver) {
         super(driver);

@@ -29,13 +29,13 @@ public abstract class BaseTest {
         if (driver != null) {
             try {
                 if (result.getStatus() == ITestResult.FAILURE) {
-                    attachScreenshot("❌ Xəta anında ekran görüntüsü");
+                    attachScreenshot("Xəta anında ekran görüntüsü");
                     Path screenshot = ScreenshotUtil.captureFailure(driver, result.getName());
                     if (screenshot != null) {
                         result.setAttribute("screenshotPath", screenshot.toString());
                     }
                 } else if (result.getStatus() == ITestResult.SUCCESS) {
-                    attachScreenshot("📸 Uğurlu icra skrinşotu");
+                    attachScreenshot("Uğurlu icra skrinşotu");
                 }
             } finally {
                 DriverFactory.quitDriver(driver);

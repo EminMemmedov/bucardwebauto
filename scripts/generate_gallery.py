@@ -153,6 +153,89 @@ KNOWN_STEPS = {
         "1. https://bucard.az ünvanına HTTPS bağlantısını yoxla",
         "2. Səhifənin 200 OK statusu ilə yükləndiyini təsdiqlə",
         "3. HTML DOM və #root strukturunun qurulduğunu yoxla"
+    ],
+    "NEQ-GİRİŞ-01": [
+        "1. /login səhifəsini aç",
+        "2. Mövcud olmayan e-poçt və yanlış şifrə daxil et",
+        "3. 'Daxil ol' düyməsinə kliklə",
+        "4. Dashboard-a keçilmədiyini və giriş formasının aktiv qaldığını təsdiqlə"
+    ],
+    "NEQ-GİRİŞ-02": [
+        "1. /login səhifəsini aç",
+        "2. Sintaktik qeyri-valid e-poçt formatı (məs. @ olmadan) daxil et",
+        "3. Formanı submit etməyə cəhd et",
+        "4. HTML5 / React validasiyasının sorğunu saxladığını təsdiqlə"
+    ],
+    "NEQ-GİRİŞ-03": [
+        "1. /login səhifəsində 'Telefon' tabına keç",
+        "2. Natamam nömrə (məs. cəmi 4 rəqəm) daxil et",
+        "3. Giriş cəhdinin bloklandığını və dashboard-a keçilmədiyini yoxla"
+    ],
+    "NEQ-GİRİŞ-04": [
+        "1. /login səhifəsini aç",
+        "2. E-poçt və şifrə sahələrinə SQLi və XSS simvolları daxil et",
+        "3. Formanı göndər",
+        "4. Server xətası (500) yaranmadığını və daxiletmələrin təhlükəsiz emal olunduğunu təsdiqlə"
+    ],
+    "NEQ-GİRİŞ-05": [
+        "1. /login formasını aç",
+        "2. Sahəyə 500+ simvoldan ibarət ekstremal uzun mətn yaz",
+        "3. CSS və vizual interfeys strukturunun pozulmadığını yoxla"
+    ],
+    "NEQ-QEYD-01": [
+        "1. /register qeydiyyat səhifəsini aç",
+        "2. Zəif / qısa şifrə ('123') daxil et",
+        "3. Qeydiyyatın tamamlanmadığını və formanın xəta bildirdiyini təsdiqlə"
+    ],
+    "NEQ-QEYD-02": [
+        "1. /register səhifəsini aç",
+        "2. Bütün sahələri boş buraxaraq qeydiyyat düyməsinə kliklə",
+        "3. Formanın göndərilmədiyini və istifadəçinin qeydiyyatda qaldığını yoxla"
+    ],
+    "NEQ-QEYD-03": [
+        "1. /register səhifəsini aç",
+        "2. İkiqat @@ və ya yanlış domenli e-poçt daxil et",
+        "3. Qeyri-valid e-poçt ilə qeydiyyatın bloklandığını təsdiqlə"
+    ],
+    "NEQ-QEYD-04": [
+        "1. /register səhifəsini aç",
+        "2. Yalnız e-poçt yazıb şifrəni boş saxla",
+        "3. Natamam məlumatla qeydiyyatın qarşısının alındığını yoxla"
+    ],
+    "NEQ-BƏRPA-01": [
+        "1. /forgot-password/email səhifəsini aç",
+        "2. Qeydiyyatdan keçməmiş e-poçt daxil edib sorğu göndər",
+        "3. 500 server xətasının yaranmadığını və səhifənin stabil qaldığını təsdiqlə"
+    ],
+    "NEQ-BƏRPA-02": [
+        "1. /forgot-password/phone səhifəsini aç",
+        "2. Telefon nömrəsini natamam saxla",
+        "3. 'Təsdiqlə' düyməsinin qeyri-aktiv (disabled) qaldığını təsdiqlə"
+    ],
+    "NEQ-BƏRPA-03": [
+        "1. /forgot-password/email səhifəsini aç",
+        "2. Sahəyə XSS inyeksiyası daxil et",
+        "3. Skriptin icra olunmadığını və sahənin təhlükəsiz emal edildiyini yoxla"
+    ],
+    "NEQ-AUTH-01": [
+        "1. Qonaq sessiyasında birbaşa /dashboard ünvanına keçid et",
+        "2. Protected Route Guard tərəfindən icazəsiz girişin bloklandığını yoxla",
+        "3. İstifadəçinin avtomatik /login səhifəsinə yönləndirildiyini təsdiqlə"
+    ],
+    "NEQ-AUTH-02": [
+        "1. Qonaq sessiyasında birbaşa /profile ünvanına keçid et",
+        "2. Şəxsi məlumatların sızmadığını yoxla",
+        "3. /login səhifəsinə yönləndirməni təsdiqlə"
+    ],
+    "NEQ-AUTH-03": [
+        "1. Qonaq sessiyasında birbaşa /settings ünvanına keçid et",
+        "2. Tənzimləmələrə girişin məhdudlaşdırıldığını yoxla",
+        "3. /login səhifəsinə yönləndirməni təsdiqlə"
+    ],
+    "NEQ-AUTH-04": [
+        "1. Qonaq sessiyasında mövcud olmayan qutuya (/boxes/invalid-id-999) keç",
+        "2. Ağ ekranın (white screen) baş vermədiyini yoxla",
+        "3. Təhlükəsiz vəziyyətin qorunduğunu təsdiqlə"
     ]
 }
 
@@ -198,6 +281,7 @@ def generate_gallery(report_dir):
         "Giriş və Avtorizasiya",
         "Qeydiyyat",
         "Şifrə Bərpası",
+        "Neqativ və Təhlükəsizlik Ssenariləri",
         "Digər Testlər"
     ]
 
@@ -240,7 +324,9 @@ def generate_gallery(report_dir):
         name_clean = name.strip()
 
         category = "Digər Testlər"
-        if name_clean.startswith("DİL") or "Localization" in full_name:
+        if name_clean.startswith("NEQ") or "NegativeScenarios" in full_name:
+            category = "Neqativ və Təhlükəsizlik Ssenariləri"
+        elif name_clean.startswith("DİL") or "Localization" in full_name:
             category = "Çoxdillilik (AZ / EN / RU)"
         elif name_clean.startswith("GİRİŞ") or "LoginPage" in full_name:
             category = "Giriş və Avtorizasiya"

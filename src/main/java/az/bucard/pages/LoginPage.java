@@ -31,7 +31,7 @@ public final class LoginPage extends BasePage {
     private static final By REGISTER_LINK = By.cssSelector(
             "a[href*='/register']");
     private static final By ERROR_MESSAGE = By.cssSelector(
-            ".alert-danger, .error-message, div[role='alert'], span.error, span.errorAlert, div.errorAlert");
+            ".alert-danger, .error-message, div[role='alert'], span.error, span.errorAlert, div.errorAlert, .Toastify__toast, div[class*='toast'], div[class*='alert'], p.errorAlert");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -144,6 +144,23 @@ public final class LoginPage extends BasePage {
 
     public boolean hasErrorMessage() {
         return isElementPresent(ERROR_MESSAGE);
+    }
+
+    public boolean isSubmitButtonDisabled() {
+        if (!isElementPresent(SUBMIT_BUTTON)) {
+            return false;
+        }
+        WebElement btn = driver.findElement(SUBMIT_BUTTON);
+        String disabled = btn.getAttribute("disabled");
+        String clazz = btn.getAttribute("class");
+        return disabled != null || (clazz != null && clazz.contains("disabled"));
+    }
+
+    public String getEmailFieldValue() {
+        if (!isElementPresent(EMAIL_FIELD)) {
+            return "";
+        }
+        return driver.findElement(EMAIL_FIELD).getAttribute("value");
     }
 
     public String getErrorMessage() {
