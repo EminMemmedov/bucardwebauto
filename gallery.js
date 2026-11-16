@@ -346,11 +346,24 @@
                 }
 
                 const isNegative = (item.name && item.name.startsWith('NEQ')) || item.category === 'Neqativ və Təhlükəsizlik Ssenariləri';
+                const isBusiness = (item.name && item.name.startsWith('BIZ')) || (item.category && item.category.includes('Biznes'));
+                let badgeClass = 'passed';
+                let badgeText = 'UĞURLU';
+                if (isFailed) {
+                    badgeClass = 'failed';
+                    badgeText = 'XƏTA';
+                } else if (isNegative) {
+                    badgeClass = 'negative';
+                    badgeText = 'NEQATİV UĞUR';
+                } else if (isBusiness) {
+                    badgeClass = 'business';
+                    badgeText = item.name.includes('P0') ? 'BİZNES P0' : (item.name.includes('P1') ? 'BİZNES P1' : 'BİZNES P2');
+                }
                 cardsHtml += `
                     <div class="bucard-card ${isFailed ? 'failed' : ''}" id="bucard-card-${item.uid}" data-uid="${item.uid}">
                         <div class="bucard-card-header">
-                            <span class="bucard-card-badge ${isFailed ? 'failed' : (isNegative ? 'negative' : 'passed')}">
-                                ${isFailed ? 'XƏTA' : (isNegative ? 'NEQATİV UĞUR' : 'UĞURLU')}
+                            <span class="bucard-card-badge ${badgeClass}">
+                                ${badgeText}
                             </span>
                             <span class="bucard-card-category">${item.category || 'SMOKE'}</span>
                             <span class="bucard-card-duration">${item.duration}s</span>

@@ -285,6 +285,12 @@
     border: 1px solid #bae6fd;
 }
 
+.bucard-card-badge.business {
+    background: #fdf4ff;
+    color: #9333ea;
+    border: 1px solid #f0abfc;
+}
+
 .bucard-card-badge.failed {
     background: #fee2e2;
     color: #991b1b;
