@@ -10,8 +10,12 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 @Epic("Bucard Veb Platforması")
 @Feature("Saytın Əlçatanlığı və İnfrastruktur")
@@ -24,6 +28,12 @@ public class SiteAvailabilityTest extends BaseTest {
     public void siteIsReachable() {
         WebDriver driver = getDriver();
         driver.get(Config.baseUrl());
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.logo, img[alt='bucard-logo'], a[href*='/login'], a.signIn")));
+        try {
+            Thread.sleep(1200);
+        } catch (InterruptedException ignored) {}
 
         String title = driver.getTitle();
         Assert.assertNotNull(title, "Səhifə başlığı boş olmamalıdır");

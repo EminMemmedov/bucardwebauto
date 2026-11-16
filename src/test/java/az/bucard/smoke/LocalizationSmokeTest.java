@@ -13,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 @Epic("Bucard Veb Platforması")
 @Feature("Lokalizasiya və Çoxdillilik (AZ / EN / RU)")
 public class LocalizationSmokeTest extends BaseTest {
@@ -102,7 +104,10 @@ public class LocalizationSmokeTest extends BaseTest {
         Assert.assertEquals(landingPage.getCurrentLanguageCode(), "EN");
 
         driver.navigate().refresh();
-        landingPage.isLoaded();
+        landingPage.waitForLanguageCode("EN", Duration.ofSeconds(10));
+        try {
+            Thread.sleep(1200);
+        } catch (InterruptedException ignored) {}
 
         String langAfterReload = landingPage.getCurrentLanguageCode();
         Assert.assertEquals(langAfterReload, "EN",

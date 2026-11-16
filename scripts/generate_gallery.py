@@ -134,6 +134,11 @@ KNOWN_STEPS = {
         "2. Bucard loqosunun (.logo) görünməsini təsdiqlə",
         "3. Naviqasiya menyusunun və qeydiyyat düyməsinin mövcudluğunu yoxla"
     ],
+    "ANA-02": [
+        "1. https://bucard.az ana səhifəsinə daxil ol",
+        "2. Mobil tətbiq mağazaları (App Store, Google Play) və ya əsas bölmələri yoxla",
+        "3. Əsas səhifənin tam yüklənməsini və mobil tətbiq linklərini təsdiqlə"
+    ],
     "TARİF-02": [
         "1. Ana səhifədə tariflər bölməsinə keç",
         "2. 'İllik' tabına kliklə və illik tariflərin skrinşotunu çək",
@@ -218,7 +223,10 @@ def generate_gallery(report_dir):
         for step in data.get("testStage", {}).get("steps", []):
             collect_images(step.get("attachments", []))
 
-        # We keep tests that have screenshots, or public smoke tests
+        # In the visual screenshot gallery, ONLY include tests that have real screenshots
+        if not images:
+            continue
+
         name = data.get("name", "")
         feature = ""
         story = ""

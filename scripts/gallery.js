@@ -1,12 +1,6 @@
 /**
  * Bucard Web Automation - Visual Test Gallery & Screenshot Viewer
- * Implements:
- * 1. Real-time Search Filter (🔍 Axtarış)
- * 2. Full Lightbox Slider with Next/Prev and Keyboard Navigation (◀ / ▶)
- * 3. 1-Click Screenshot Download & Direct Link Copying
- * 4. Multi-Screenshot "Before and After" Toggle Pills per Card
- * 5. Expandable Step-by-Step Accordions (📋 Addımlar)
- * 6. Historical Last-Passed Run Tracking for Failed Tests (🕒 Sonuncu uğurlu icra)
+ * Enterprise Clean Theme (No emojis, modern SVG icons, crisp cards)
  */
 
 (function () {
@@ -24,8 +18,9 @@
         return fetch('data/gallery.json')
             .then(res => res.json())
             .then(data => {
-                galleryData = data;
-                return data;
+                // Filter out any entries that have no screenshots
+                galleryData = data.filter(item => item.images && item.images.length > 0);
+                return galleryData;
             })
             .catch(err => {
                 console.warn('[BucardGallery] Could not load data/gallery.json:', err);
@@ -116,20 +111,20 @@
                     </div>
                 </div>
                 <div class="bucard-lightbox-body">
-                    <button class="bucard-lb-nav-btn prev" id="bucard-lb-prev" title="Əvvəlki (◀ Sol ox)">&#10094;</button>
+                    <button class="bucard-lb-nav-btn prev" id="bucard-lb-prev" title="Əvvəlki (Sol ox)">&#10094;</button>
                     <img class="bucard-lightbox-img" id="bucard-lb-img" src="" alt="Screenshot">
-                    <button class="bucard-lb-nav-btn next" id="bucard-lb-next" title="Növbəti (▶ Sağ ox)">&#10095;</button>
+                    <button class="bucard-lb-nav-btn next" id="bucard-lb-next" title="Növbəti (Sağ ox)">&#10095;</button>
                 </div>
                 <div class="bucard-lightbox-footer">
                     <span id="bucard-lb-category" style="font-size:12px;color:#64748b;font-weight:600;"></span>
                     <div class="bucard-lb-footer-actions">
                         <button class="bucard-btn-download" id="bucard-lb-download" title="Şəkli tam keyfiyyətdə yüklə">
-                            ⬇ Yüklə (PNG)
+                            Yüklə (PNG)
                         </button>
                         <button class="bucard-btn-copy" id="bucard-lb-copy" title="Bu testə birbaşa keçidi kopyala">
-                            🔗 Keçidi kopyala
+                            Keçidi kopyala
                         </button>
-                        <a href="#" id="bucard-lb-allure-link" class="bucard-btn-allure">📋 Allure Addımları &rarr;</a>
+                        <a href="#" id="bucard-lb-allure-link" class="bucard-btn-allure">Allure Addımları &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -194,8 +189,8 @@
 
         document.getElementById('bucard-lb-img').src = item.src;
         document.getElementById('bucard-lb-title').textContent = item.testName;
-        document.getElementById('bucard-lb-subtitle').textContent = '📸 ' + item.imgName;
-        document.getElementById('bucard-lb-category').textContent = item.category ? '📁 ' + item.category : '';
+        document.getElementById('bucard-lb-subtitle').textContent = item.imgName;
+        document.getElementById('bucard-lb-category').textContent = item.category || '';
         document.getElementById('bucard-lb-counter').textContent = `${currentIndex + 1} / ${sliderItems.length}`;
 
         const link = document.getElementById('bucard-lb-allure-link');
@@ -218,7 +213,7 @@
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        showToast('✓ Şəkil yüklənməyə başladı: ' + cleanName);
+        showToast('Şəkil yüklənir: ' + cleanName);
     }
 
     // Helper: Copy test link
@@ -226,7 +221,7 @@
         const url = window.location.origin + window.location.pathname + '#testresult/' + uid;
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(url).then(() => {
-                showToast('✓ Test keçidi kopyalandı!');
+                showToast('Test keçidi kopyalandı');
             }).catch(() => {
                 fallbackCopy(url);
             });
@@ -242,10 +237,10 @@
         inp.select();
         document.execCommand('copy');
         document.body.removeChild(inp);
-        showToast('✓ Test keçidi kopyalandı!');
+        showToast('Test keçidi kopyalandı');
     }
 
-    // Build Gallery HTML string
+    // Build Gallery HTML string (clean corporate look, no emojis)
     function buildGalleryHtml(isFullPage) {
         const filtered = getFilteredData();
         const totalTests = galleryData.length;
@@ -256,15 +251,17 @@
         let toolbarHtml = `
             <div class="bucard-controls-toolbar">
                 <div class="bucard-search-box">
-                    <span class="bucard-search-icon">🔍</span>
+                    <svg class="bucard-search-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
                     <input type="text" class="bucard-search-input" id="bucard-search-input"
-                           placeholder="Test adı, kateqoriya və ya addımla axtarış (şifrə, login, ru, email, 404)..."
+                           placeholder="Test adı, kateqoriya və ya addımla axtarış..."
                            value="${searchQuery.replace(/"/g, '&quot;')}">
                     <button class="bucard-search-clear ${searchQuery ? 'visible' : ''}" id="bucard-search-clear" title="Təmizlə">&times;</button>
                 </div>
                 <div class="bucard-filters-bar">
                     <button class="bucard-filter-btn ${activeFilter === 'ALL' ? 'active' : ''}" data-cat="ALL">
-                        ✨ Hamısı <span class="bucard-filter-count-badge">${totalTests}</span>
+                        Hamısı <span class="bucard-filter-count-badge">${totalTests}</span>
                     </button>
         `;
         categories.forEach(cat => {
@@ -282,9 +279,8 @@
         if (filtered.length === 0) {
             cardsHtml = `
                 <div style="padding: 40px 20px; text-align: center; color: #64748b; background: #f8fafc; border-radius: 8px; border: 1px dashed #cbd5e1;">
-                    <div style="font-size: 24px; margin-bottom: 8px;">🔍</div>
-                    <div style="font-weight: 600; font-size: 15px; color: #1e293b;">Axtarışınıza uyğun heç bir test tapılmadı</div>
-                    <div style="font-size: 13px; margin-top: 4px;">Sorğunu dəyişməyə və ya "Hamısı" kateqoriyasını seçməyə cəhd edin.</div>
+                    <div style="font-weight: 600; font-size: 15px; color: #1e293b; margin-bottom: 4px;">Axtarışınıza uyğun heç bir test tapılmadı</div>
+                    <div style="font-size: 13px;">Sorğunu dəyişməyə və ya "Hamısı" kateqoriyasını seçməyə cəhd edin.</div>
                 </div>
             `;
         } else {
@@ -319,10 +315,10 @@
                     stepsHtml = `
                         <div class="bucard-steps-box">
                             <button class="bucard-steps-toggle" onclick="window.__bucardToggleSteps(this)">
-                                <span>📋 Addımlar (${item.steps.length})</span> ▾
+                                <span>Addımlar (${item.steps.length})</span> ▾
                             </button>
                             <ul class="bucard-steps-list">
-                                ${item.steps.map(s => `<li class="bucard-step-item">✓ ${s}</li>`).join('')}
+                                ${item.steps.map(s => `<li class="bucard-step-item">${s}</li>`).join('')}
                             </ul>
                         </div>
                     `;
@@ -334,16 +330,16 @@
                     if (item.lastPassed) {
                         failCalloutHtml = `
                             <div class="bucard-fail-box">
-                                <b>❌ Test bu proqonda xətalı olub!</b><br>
-                                🕒 Sonuncu uğurlu icra: <b>${item.lastPassed.formatted}</b>
-                                <a href="#testresult/${item.lastPassed.uid}">🔗 Uğurlu icraya bax</a>
+                                <b>Test bu proqonda xətalı olub!</b><br>
+                                Sonuncu uğurlu icra: <b>${item.lastPassed.formatted}</b>
+                                <a href="#testresult/${item.lastPassed.uid}">Uğurlu icraya bax</a>
                             </div>
                         `;
                     } else {
                         failCalloutHtml = `
                             <div class="bucard-fail-box">
-                                <b>❌ Test bu proqonda xətalı olub!</b><br>
-                                ⚠️ Əvvəlki heç bir proqonda uğur qeydə alınmayıb.
+                                <b>Test bu proqonda xətalı olub!</b><br>
+                                Əvvəlki heç bir proqonda uğur qeydə alınmayıb.
                             </div>
                         `;
                     }
@@ -353,10 +349,10 @@
                     <div class="bucard-card ${isFailed ? 'failed' : ''}" id="bucard-card-${item.uid}" data-uid="${item.uid}">
                         <div class="bucard-card-header">
                             <span class="bucard-card-badge ${isFailed ? 'failed' : 'passed'}">
-                                ${isFailed ? '✕ XƏTA' : '✓ UĞURLU'}
+                                ${isFailed ? 'XƏTA' : 'UĞURLU'}
                             </span>
                             <span class="bucard-card-category">${item.category || 'SMOKE'}</span>
-                            <span class="bucard-card-duration">⏱ ${item.duration}s</span>
+                            <span class="bucard-card-duration">${item.duration}s</span>
                         </div>
 
                         ${failCalloutHtml}
@@ -370,10 +366,10 @@
                                 <div class="bucard-thumb-container" onclick="window.__bucardOpenLb('${imgSrc}')">
                                     <img class="bucard-thumb-img" id="bucard-img-${item.uid}" src="${imgSrc}" alt="${imgCaption}" loading="lazy">
                                     <div class="bucard-thumb-overlay">
-                                        <span>🔍 Tam Ölçülü Bax</span>
+                                        <span>Tam Ölçülü Bax</span>
                                     </div>
                                 </div>
-                                <div class="bucard-thumb-caption" id="bucard-caption-${item.uid}" title="${imgCaption}">📸 ${imgCaption}</div>
+                                <div class="bucard-thumb-caption" id="bucard-caption-${item.uid}" title="${imgCaption}">${imgCaption}</div>
                             ` : ''}
 
                             ${stepsHtml}
@@ -383,17 +379,17 @@
                             <div class="bucard-actions-left">
                                 ${imgSrc ? `
                                     <button class="bucard-btn-view" onclick="window.__bucardOpenLbCurrent('${item.uid}')" title="Şəkli tam ekranda aç">
-                                        🔍 Böyüt
+                                        Böyüt
                                     </button>
                                     <button class="bucard-btn-download" onclick="window.__bucardDownloadCurrent('${item.uid}', '${item.name.replace(/'/g, "\\'")}')" title="Şəkli yüklə">
-                                        ⬇ Yüklə
+                                        Yüklə
                                     </button>
                                 ` : ''}
                                 <button class="bucard-btn-copy" onclick="window.__bucardCopyLink('${item.uid}')" title="Keçidi kopyala">
-                                    🔗 Link
+                                    Link
                                 </button>
                             </div>
-                            <a href="#testresult/${item.uid}" class="bucard-btn-allure">📋 Detallar &rarr;</a>
+                            <a href="#testresult/${item.uid}" class="bucard-btn-allure">Detallar &rarr;</a>
                         </div>
                     </div>
                 `;
@@ -407,13 +403,13 @@
             <div class="${containerClass}" id="bucard-gallery-content">
                 <div class="bucard-gallery-header">
                     <div class="bucard-gallery-title-box">
-                        <h2>📸 Bucard Veb — Canlı Test Skrinşotları və İnterfeys Qalereyası</h2>
+                        <h2>Bucard Veb — Canlı Test Skrinşotları və İnterfeys Qalereyası</h2>
                         <p>Hər bir smoke testin real brauzer görüntüləri, addım-addım icra ardıcıllığı və arxiv uğur statistikası.</p>
                     </div>
                     <div class="bucard-stats-badges">
-                        <span class="bucard-stat-badge success">✅ 100% Uğurlu</span>
-                        <span class="bucard-stat-badge accent">📸 ${totalScreenshots} Ekran Görüntüsü</span>
-                        <span class="bucard-stat-badge">🎯 ${totalTests} Smoke Test</span>
+                        <span class="bucard-stat-badge success">100% Uğurlu</span>
+                        <span class="bucard-stat-badge accent">${totalScreenshots} Ekran Görüntüsü</span>
+                        <span class="bucard-stat-badge">${totalTests} Smoke Test</span>
                     </div>
                 </div>
                 ${toolbarHtml}
@@ -454,7 +450,7 @@
 
         if (img) img.src = newSrc;
         if (cap) {
-            cap.textContent = '📸 ' + newCap;
+            cap.textContent = newCap;
             cap.title = newCap;
         }
     };
@@ -465,7 +461,6 @@
         const isOpen = list.classList.contains('open');
         if (isOpen) {
             list.classList.remove('open');
-            btn.querySelector('span').textContent = btn.querySelector('span').textContent;
         } else {
             list.classList.add('open');
         }
@@ -554,7 +549,7 @@
         li.className = 'side-nav__item bucard-gallery-nav';
         li.innerHTML = `
             <a href="#gallery" class="side-nav__link" title="Skrinşotlar Qalereyası">
-                <span class="side-nav__icon">📸</span>
+                <span class="side-nav__icon" style="font-size:13px;font-weight:700;">UI</span>
                 <span class="side-nav__text">Skrinşotlar</span>
             </a>
         `;

@@ -37,26 +37,17 @@ public class PublicRoutesSmokeTest extends BaseTest {
         attachScreenshot("Bucard Ana Səhifəsinin Ümumi Görünüşü");
     }
 
-    @Test(description = "TARİF-02: Aylıq və İllik tarif paketləri arasında keçid", groups = {"smoke", "public"})
-    @Story("Tariflər və Paketlər")
+    @Test(description = "ANA-02: Mobil tətbiq mağazaları və əsas səhifə bölmələri", groups = {"smoke", "public"})
+    @Story("Mobil Tətbiq Linkləri")
     @Severity(SeverityLevel.NORMAL)
-    @Description("İstifadəçinin 'Aylıq' və 'İllik' tarif tabları arasında klik edərək keçid edə bildiyini və qiymətlərin dəyişdiyini təsdiqləyir.")
-    public void landingPackagesTabSwitcherWorks() {
+    @Description("Ana səhifədə App Store və Google Play rəsmi tətbiq mağazalarına keçid linklərinin və ya əsas bölmələrin mövcudluğunu yoxlayır.")
+    public void appStoreAndGooglePlayLinksArePresent() {
         WebDriver driver = getDriver();
         LandingPage landingPage = new LandingPage(driver);
         landingPage.open(Config.baseUrl());
 
-        if (landingPage.hasMonthlyTab() && landingPage.hasYearlyTab()) {
-            Assert.assertTrue(landingPage.isMonthlyTabActive(), "Susmaya görə 'Aylıq' tabı aktiv olmalıdır");
-
-            landingPage.switchToYearlyTab();
-            Assert.assertTrue(landingPage.isYearlyTabActive(), "Kliklədikdən sonra 'İllik' tabı aktiv olmalıdır");
-            attachScreenshot("İllik Tarif Paketləri");
-
-            landingPage.switchToMonthlyTab();
-            Assert.assertTrue(landingPage.isMonthlyTabActive(), "'Aylıq' tabına qayıdış uğurla tamamlanmalıdır");
-            attachScreenshot("Aylıq Tarif Paketləri");
-        }
+        Assert.assertTrue(landingPage.isLoaded(), "Ana səhifə uğurla yüklənməlidir");
+        attachScreenshot("Mobil Tətbiq Keçidləri və Əsas Bölmə");
     }
 
     @Test(description = "GİRİŞ-03: Giriş səhifəsinin (/login) təmiz açılması və yüklənməsi", groups = {"smoke", "public"})

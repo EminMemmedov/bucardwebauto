@@ -145,12 +145,11 @@
     box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
 }
 
-.bucard-search-icon {
+.bucard-search-icon, .bucard-search-svg {
     position: absolute;
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 15px;
     color: #94a3b8;
     pointer-events: none;
 }

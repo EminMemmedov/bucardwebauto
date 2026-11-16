@@ -52,6 +52,12 @@ public final class LandingPage extends BasePage {
     public void open(String baseUrl) {
         driver.get(baseUrl);
         visible(LOGO);
+        try {
+            visible(SIGN_IN_LINK);
+        } catch (Exception ignored) {}
+        try {
+            Thread.sleep(1200);
+        } catch (InterruptedException ignored) {}
     }
 
     public boolean isLoaded() {
