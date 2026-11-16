@@ -11,6 +11,9 @@
         <classes>
             <class name="az.bucard.smoke.SiteAvailabilityTest"/>
             <class name="az.bucard.smoke.PublicRoutesSmokeTest"/>
+            <class name="az.bucard.smoke.LoginPageSmokeTest"/>
+            <class name="az.bucard.smoke.RegisterPageSmokeTest"/>
+            <class name="az.bucard.smoke.ForgotPasswordSmokeTest"/>
         </classes>
     </test>
 

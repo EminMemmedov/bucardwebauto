@@ -17,9 +17,9 @@ public final class LoginPage extends BasePage {
     private static final By PASSWORD_TOGGLE = By.cssSelector(
             "div.eye");
     private static final By EMAIL_TAB = By.xpath(
-            "//div[contains(@class, 'tabList')]//p[contains(normalize-space(), 'Email')]");
+            "//div[contains(@class, 'tabList')]//p[1]");
     private static final By PHONE_TAB = By.xpath(
-            "//div[contains(@class, 'tabList')]//p[contains(normalize-space(), 'Phone')]");
+            "//div[contains(@class, 'tabList')]//p[2]");
     private static final By PHONE_FIELD = By.cssSelector(
             "input[type='tel'], input.react-international-phone-input");
     private static final By LINKEDIN_BUTTON = By.cssSelector(
@@ -31,7 +31,7 @@ public final class LoginPage extends BasePage {
     private static final By REGISTER_LINK = By.cssSelector(
             "a[href*='/register']");
     private static final By ERROR_MESSAGE = By.cssSelector(
-            ".alert-danger, .error-message, div[role='alert'], span.error");
+            ".alert-danger, .error-message, div[role='alert'], span.error, span.errorAlert, div.errorAlert");
 
     public LoginPage(WebDriver driver) {
         super(driver);
