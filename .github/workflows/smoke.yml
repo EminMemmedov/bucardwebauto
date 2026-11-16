@@ -8,6 +8,9 @@ on:
   schedule:
     - cron: '17 6 * * *'
 
+permissions:
+  contents: write
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
@@ -30,6 +33,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           BUCARD_TEST_USER: ${{ secrets.BUCARD_TEST_USER }}
           BUCARD_TEST_PASSWORD: ${{ secrets.BUCARD_TEST_PASSWORD }}
+          ALLURE_REPORT_URL: https://bucard-tech.github.io/bucardwebauto/
         run: mvn --batch-mode test
 
       - name: Upload test failure screenshots
@@ -53,3 +57,11 @@ jobs:
           path: target/site/allure-maven-plugin/
           if-no-files-found: ignore
           retention-days: 14
+
+      - name: Deploy Allure Report to GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target/site/allure-maven-plugin/
+          publish_branch: gh-pages

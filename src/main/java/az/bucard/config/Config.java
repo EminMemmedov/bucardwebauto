@@ -98,6 +98,10 @@ public final class Config {
         return getSetting("bucard.test.password", "BUCARD_TEST_PASSWORD", null);
     }
 
+    public static String allureReportUrl() {
+        return getSetting("allure.report.url", "ALLURE_REPORT_URL", "https://bucard-tech.github.io/bucardwebauto/");
+    }
+
     public static boolean isAuthAvailable() {
         String user = testUser();
         String pass = testPassword();

@@ -6,8 +6,10 @@ import org.testng.IExecutionListener;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -16,8 +18,17 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
     private static final AtomicInteger PASSED = new AtomicInteger();
     private static final AtomicInteger FAILED = new AtomicInteger();
     private static final AtomicInteger SKIPPED = new AtomicInteger();
-    private static final List<String> FAILURE_SUMMARIES = new CopyOnWriteArrayList<>();
+    private static final List<TestRecord> TEST_RECORDS = new CopyOnWriteArrayList<>();
     private static Instant startedAt;
+
+    public record TestRecord(
+            String className,
+            String methodName,
+            String status,
+            double durationSeconds,
+            String failureReason,
+            String screenshotPath
+    ) {}
 
     @Override
     public void onExecutionStart() {
@@ -25,68 +36,159 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
         PASSED.set(0);
         FAILED.set(0);
         SKIPPED.set(0);
-        FAILURE_SUMMARIES.clear();
+        TEST_RECORDS.clear();
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
         PASSED.incrementAndGet();
+        double duration = (result.getEndMillis() - result.getStartMillis()) / 1000.0;
+        TEST_RECORDS.add(new TestRecord(
+                result.getTestClass().getRealClass().getSimpleName(),
+                result.getMethod().getMethodName(),
+                "PASSED",
+                duration,
+                null,
+                null
+        ));
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
         FAILED.incrementAndGet();
-        recordFailure(result);
+        double duration = (result.getEndMillis() - result.getStartMillis()) / 1000.0;
+        String reason = extractReason(result.getThrowable());
+        String screenshotPath = (String) result.getAttribute("screenshotPath");
+        TEST_RECORDS.add(new TestRecord(
+                result.getTestClass().getRealClass().getSimpleName(),
+                result.getMethod().getMethodName(),
+                "FAILED",
+                duration,
+                reason,
+                screenshotPath
+        ));
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
         SKIPPED.incrementAndGet();
+        double duration = (result.getEndMillis() - result.getStartMillis()) / 1000.0;
+        TEST_RECORDS.add(new TestRecord(
+                result.getTestClass().getRealClass().getSimpleName(),
+                result.getMethod().getMethodName(),
+                "SKIPPED",
+                duration,
+                null,
+                null
+        ));
     }
 
     @Override
     public void onExecutionFinish() {
         writeAllureEnvironment();
         Instant endedAt = Instant.now();
-        long seconds = startedAt == null ? 0 : Duration.between(startedAt, endedAt).toSeconds();
+        double totalSeconds = startedAt == null ? 0 : Duration.between(startedAt, endedAt).toMillis() / 1000.0;
+
         int passed = PASSED.get();
         int failed = FAILED.get();
         int skipped = SKIPPED.get();
+        int total = passed + failed + skipped;
+
+        if (total == 0) {
+            return;
+        }
+
+        int passPercent = (int) Math.round(((double) passed / total) * 100);
+        int greenBlocks = (int) Math.round(((double) passed / total) * 8);
+        int redBlocks = 8 - greenBlocks;
+        String progressBar = "🟩".repeat(greenBlocks) + "🟥".repeat(redBlocks);
+
+        String statusHeader = failed == 0
+                ? "🟢 <b>Bucard Smoke Suite: УСПЕХ</b>"
+                : "🔴 <b>Bucard Smoke Suite: СБОИ (" + failed + ")</b>";
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Bucard Web Automation Summary\n");
-        sb.append("Target: ").append(Config.baseUrl()).append("\n");
-        sb.append("Result: ").append(passed).append(" passed, ")
-                .append(failed).append(" failed, ")
-                .append(skipped).append(" skipped\n");
-        sb.append("Duration: ").append(seconds).append("s");
+        sb.append(statusHeader).append("\n");
+        sb.append("🎯 <b>Цель:</b> ").append(escapeHtml(Config.baseUrl())).append("\n");
+        sb.append("⏱ <b>Время:</b> ").append(String.format("%.1fs", totalSeconds))
+                .append(" | <b>Браузер:</b> ").append(escapeHtml(Config.browser()))
+                .append(Config.headless() ? " (headless)" : " (headed)").append("\n\n");
 
-        if (failed > 0 && !FAILURE_SUMMARIES.isEmpty()) {
-            sb.append("\n\nFailures:\n");
-            int maxReported = Math.min(5, FAILURE_SUMMARIES.size());
-            for (int i = 0; i < maxReported; i++) {
-                sb.append("• ").append(FAILURE_SUMMARIES.get(i)).append("\n");
-            }
-            if (FAILURE_SUMMARIES.size() > 5) {
-                sb.append("• ... and ").append(FAILURE_SUMMARIES.size() - 5).append(" more");
+        sb.append("[").append(progressBar).append("] <b>").append(passPercent).append("%</b>\n");
+        sb.append("✅ ").append(passed).append(" Passed  |  ❌ ").append(failed)
+                .append(" Failed  |  ⚠️ ").append(skipped).append(" Skipped\n\n");
+
+        sb.append("<b>Тесты:</b>\n");
+        int maxListing = Math.min(10, TEST_RECORDS.size());
+        for (int i = 0; i < maxListing; i++) {
+            TestRecord rec = TEST_RECORDS.get(i);
+            String icon = "PASSED".equals(rec.status()) ? "✅" : ("FAILED".equals(rec.status()) ? "❌" : "⚠️");
+            sb.append("• ").append(icon).append(" <code>").append(escapeHtml(rec.className()))
+                    .append(".").append(escapeHtml(rec.methodName())).append("</code> (")
+                    .append(String.format("%.1fs", rec.durationSeconds())).append(")\n");
+        }
+        if (TEST_RECORDS.size() > 10) {
+            sb.append("• ... и ещё ").append(TEST_RECORDS.size() - 10).append(" тестов\n");
+        }
+
+        List<TestRecord> failedRecords = new ArrayList<>();
+        for (TestRecord rec : TEST_RECORDS) {
+            if ("FAILED".equals(rec.status())) {
+                failedRecords.add(rec);
             }
         }
 
-        new TelegramReporter().send(sb.toString().trim());
+        if (!failedRecords.isEmpty()) {
+            sb.append("\n<b>⚠️ Причины сбоев:</b>\n");
+            int maxFailures = Math.min(3, failedRecords.size());
+            for (int i = 0; i < maxFailures; i++) {
+                TestRecord f = failedRecords.get(i);
+                sb.append("• <b>").append(escapeHtml(f.methodName())).append("</b>: ")
+                        .append(escapeHtml(f.failureReason())).append("\n");
+            }
+            if (failedRecords.size() > 3) {
+                sb.append("• ... и ещё ").append(failedRecords.size() - 3).append(" сбоев\n");
+            }
+        }
+
+        String allureUrl = Config.allureReportUrl();
+        if (allureUrl != null && !allureUrl.isBlank()) {
+            sb.append("\n📱 <a href=\"").append(escapeHtml(allureUrl))
+                    .append("\"><b>👉 Открыть детальный Allure-отчёт (Mobile)</b></a>");
+        }
+
+        TelegramReporter reporter = new TelegramReporter();
+        reporter.send(sb.toString().trim());
+
+        // Отправка скриншотов падений прямо в чат (до 2 штук, чтобы не спамить)
+        int sentPhotos = 0;
+        for (TestRecord f : failedRecords) {
+            if (f.screenshotPath() != null && sentPhotos < 2) {
+                Path photo = Path.of(f.screenshotPath());
+                String caption = "❌ <b>Скриншот сбоя:</b> " + escapeHtml(f.className()) + "." + escapeHtml(f.methodName());
+                reporter.sendPhoto(photo, caption);
+                sentPhotos++;
+            }
+        }
     }
 
-    private void recordFailure(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
-        String className = result.getTestClass().getRealClass().getSimpleName();
-        Throwable t = result.getThrowable();
-        String reason = "Unknown error";
-        if (t != null) {
-            String exceptionType = t.getClass().getSimpleName();
-            String rawMessage = t.getMessage();
-            String sanitizedMessage = Sanitizer.sanitizeErrorMessage(rawMessage);
-            reason = exceptionType + (sanitizedMessage.isEmpty() ? "" : ": " + sanitizedMessage);
+    private static String extractReason(Throwable t) {
+        if (t == null) {
+            return "Unknown error";
         }
-        FAILURE_SUMMARIES.add(className + "." + testName + ": " + reason);
+        String type = t.getClass().getSimpleName();
+        String message = Sanitizer.sanitizeErrorMessage(t.getMessage());
+        return type + (message.isEmpty() ? "" : ": " + message);
+    }
+
+    private static String escapeHtml(String text) {
+        if (text == null) {
+            return "";
+        }
+        return text.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;");
     }
 
     private void writeAllureEnvironment() {
