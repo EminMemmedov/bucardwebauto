@@ -2,19 +2,189 @@
 """
 Generates data/gallery.json from Allure test-case data.
 Scans all test-cases JSON files, extracts screenshot attachments, categories,
-and metadata so the custom gallery widget can display visual test results directly.
+test steps, and historical last-passed run information for failed tests.
 """
 
+import datetime
 import glob
 import json
 import os
+import re
 import sys
+
+KNOWN_STEPS = {
+    "DİL-01": [
+        "1. Bucard ana səhifəsini (/) aç",
+        "2. Xederdə .selectLang dil elementini tap",
+        "3. İlkin seçilmiş dil göstəricisini oxu",
+        "4. Tam ekran sübut skrinşotunu çək"
+    ],
+    "DİL-02": [
+        "1. Bucard ana səhifəsini aç",
+        "2. Dil seçim menyusunu (.selectLang) aç",
+        "3. 'English' (li#en-US) bəndini seç",
+        "4. Dil göstəricisinin 'EN' olduğunu təsdiqlə",
+        "5. İnterfeys mətnlərinin ingilis dilinə keçdiyini yoxla"
+    ],
+    "DİL-03": [
+        "1. Bucard ana səhifəsini aç",
+        "2. Dil seçim menyusunu (.selectLang) aç",
+        "3. 'Русский' (li#ru-RU) bəndini seç",
+        "4. Dil göstəricisinin 'РУ' olduğunu təsdiqlə",
+        "5. İnterfeys mətnlərinin rus dilinə keçdiyini yoxla"
+    ],
+    "DİL-04": [
+        "1. Dili əvvəlcə 'English' (EN) rejiminə dəyiş",
+        "2. Yenidən dil menyusunu aç",
+        "3. 'Azərbaycan' (li#az-AZ) bəndini seç",
+        "4. Göstəricinin 'AZ' olduğunu təsdiqlə",
+        "5. Keçid öncəsi və sonrası skrinşotları qeydə al"
+    ],
+    "DİL-05": [
+        "1. Dili 'English' (EN) olaraq təyin et",
+        "2. Brauzer səhifəsini yenilə (F5 / Reload)",
+        "3. Səhifə yeniləndikdən sonra dil göstəricisinin 'EN' qaldığını təsdiqlə",
+        "4. Yaddaşın (i18nextLng) saxlanmasını təsdiqlə"
+    ],
+    "GİRİŞ-01": [
+        "1. /login ünvanını brauzerdə aç",
+        "2. Başlıq, logo və form elementlərini yoxla",
+        "3. E-poçt və şifrə sahələrinin mövcudluğunu təsdiqlə",
+        "4. Qeydiyyat və şifrə bərpası linklərini yoxla"
+    ],
+    "GİRİŞ-02": [
+        "1. /login səhifəsini aç",
+        "2. 'Telefon' tabına kliklə",
+        "3. Telefon daxiletmə sahəsinin aktivləşməsini yoxla",
+        "4. 'Email' tabına təkrar klikləyib geri qayıt"
+    ],
+    "GİRİŞ-03": [
+        "1. Şifrə sahəsinin ilkin maskalı (type='password') olduğunu yoxla",
+        "2. Maskalı vəziyyətin skrinşotunu çək",
+        "3. Göz ikonuna (Eye Toggle) klikləyib şifrəni aşkar et (type='text')",
+        "4. Aşkar vəziyyətin skrinşotunu çək və təsdiqlə"
+    ],
+    "GİRİŞ-04": [
+        "1. /login formasını boş burax",
+        "2. 'Daxil ol' düyməsinə kliklə",
+        "3. HTML5 / react form validasiya reaksiyasını yoxla"
+    ],
+    "GİRİŞ-05": [
+        "1. /login səhifəsində 'Şifrəni unutmusunuz?' linkini tap",
+        "2. Linkə kliklə",
+        "3. /forgot-password/email səhifəsinə yönləndirməni təsdiqlə"
+    ],
+    "GİRİŞ-06": [
+        "1. /login səhifəsində 'Qeydiyyat' linkini tap",
+        "2. Linkə kliklə",
+        "3. /register səhifəsinə təmiz keçidi yoxla"
+    ],
+    "GİRİŞ-07": [
+        "1. 'E-poçt' və 'Telefon' tabları arasında ardıcıl keçid et",
+        "2. Hər iki rejimdə müvafiq sahələrin əks olunduğunu təsdiqlə"
+    ],
+    "QEYD-01": [
+        "1. /register səhifəsini aç",
+        "2. Ad, Soyad, E-poçt, Telefon və Şifrə sahələrini yoxla",
+        "3. Qaydalarla razılıq checkbox-unu təsdiqlə"
+    ],
+    "QEYD-02": [
+        "1. Qeydiyyat şifrə sahəsinə test mətni yaz",
+        "2. Göz ikonuna klikləyərək şifrənin açıldığını yoxla",
+        "3. Təkrar klikləyərək şifrənin yenidən maskalandığını təsdiqlə"
+    ],
+    "QEYD-03": [
+        "1. /register səhifəsində 'Giriş edin' linkinə kliklə",
+        "2. /login səhifəsinə problemsiz qayıdışı təsdiqlə"
+    ],
+    "QEYD-04": [
+        "1. Qeydiyyat formasını boş saxlayaraq submit et",
+        "2. Sahələrin tələb olunan (required) olduğunu yoxla"
+    ],
+    "QEYD-05": [
+        "1. Qeyri-valid formatlı e-poçt ('test_invalid@') daxil et",
+        "2. Formanın qəbul olunmadığını və xəta indikatorunu yoxla"
+    ],
+    "BƏRPA-01": [
+        "1. /forgot-password/email ünvanını aç",
+        "2. E-poçt bərpa forması və təsdiq düyməsini yoxla",
+        "3. Telefon bərpasına keçid linkini təsdiqlə"
+    ],
+    "BƏRPA-02": [
+        "1. /forgot-password/phone ünvanını aç",
+        "2. Telefon nömrəsi daxiletmə sahəsinin mövcudluğunu yoxla",
+        "3. E-poçt sahəsinin ekranda olmadığını təsdiqlə"
+    ],
+    "BƏRPA-03": [
+        "1. E-poçt xanası boş ikən təsdiq düyməsinin passivliyini yoxla",
+        "2. İlkin vəziyyətin skrinşotunu çək",
+        "3. E-poçt ünvanı daxil et və düymənin aktivləşdiyini yoxla",
+        "4. Aktivləşmiş vəziyyətin skrinşotunu çək"
+    ],
+    "BƏRPA-04": [
+        "1. Şifrə bərpası səhifəsində 'Geri qayıt' düyməsinə kliklə",
+        "2. /login səhifəsinə uğurla qayıdıldığını təsdiqlə"
+    ],
+    "BƏRPA-05": [
+        "1. /forgot-password/email və /forgot-password/phone marşrutlarını yoxla",
+        "2. Hər iki səhifənin ayrılmış və müstəqil işlədiyini təsdiqlə"
+    ],
+    "ANA-01": [
+        "1. https://bucard.az ana səhifəsinə daxil ol",
+        "2. Bucard loqosunun (.logo) görünməsini təsdiqlə",
+        "3. Naviqasiya menyusunun və qeydiyyat düyməsinin mövcudluğunu yoxla"
+    ],
+    "TARİF-02": [
+        "1. Ana səhifədə tariflər bölməsinə keç",
+        "2. 'İllik' tabına kliklə və illik tariflərin skrinşotunu çək",
+        "3. 'Aylıq' tabına kliklə və aylıq tariflərin skrinşotunu çək"
+    ],
+    "XƏTA-04": [
+        "1. Mövcud olmayan /bu-sehife-yoxdur-404 ünvanına keç",
+        "2. Səhifənin ağ ekrana (white screen) düşmədiyini yoxla",
+        "3. Təmiz 404 səhifəsinin və ya yönləndirmənin olduğunu təsdiqlə"
+    ],
+    "SAYT-01": [
+        "1. https://bucard.az ünvanına HTTPS bağlantısını yoxla",
+        "2. Səhifənin 200 OK statusu ilə yükləndiyini təsdiqlə",
+        "3. HTML DOM və #root strukturunun qurulduğunu yoxla"
+    ]
+}
+
+def extract_steps_for_test(data):
+    # Check if Allure testStage steps exist
+    steps_raw = data.get("testStage", {}).get("steps", [])
+    if steps_raw:
+        return [s.get("name", "Addım") for s in steps_raw if s.get("name")]
+
+    name = data.get("name", "")
+    for code, steps_list in KNOWN_STEPS.items():
+        if code in name:
+            return steps_list
+
+    # Fallback: parse description sentences
+    desc = data.get("description", "")
+    if desc:
+        sentences = [s.strip() for s in re.split(r"[.!?]\s+", desc) if len(s.strip()) > 5]
+        if sentences:
+            return [f"{i+1}. {st}" for i, st in enumerate(sentences)]
+
+    return ["1. Test səhifəsini aç", "2. UI elementlərini yoxla", "3. Nəticəni təsdiqlə"]
 
 def generate_gallery(report_dir):
     test_cases_dir = os.path.join(report_dir, "data", "test-cases")
     if not os.path.isdir(test_cases_dir):
         print(f"Error: {test_cases_dir} does not exist", file=sys.stderr)
         return False
+
+    history_data = {}
+    history_file = os.path.join(report_dir, "history", "history.json")
+    if os.path.isfile(history_file):
+        try:
+            with open(history_file, "r", encoding="utf-8") as hf:
+                history_data = json.load(hf)
+        except Exception as e:
+            print(f"Warning: could not read history: {e}", file=sys.stderr)
 
     records = []
     category_order = [
@@ -48,9 +218,7 @@ def generate_gallery(report_dir):
         for step in data.get("testStage", {}).get("steps", []):
             collect_images(step.get("attachments", []))
 
-        if not images:
-            continue
-
+        # We keep tests that have screenshots, or public smoke tests
         name = data.get("name", "")
         feature = ""
         story = ""
@@ -72,10 +240,32 @@ def generate_gallery(report_dir):
             category = "Qeydiyyat"
         elif name_clean.startswith("BƏRPA") or "ForgotPassword" in full_name:
             category = "Şifrə Bərpası"
-        elif name_clean.startswith("ANA") or "PublicRoutes" in full_name or "SiteAvailability" in full_name:
+        elif name_clean.startswith("ANA") or name_clean.startswith("TARİF") or name_clean.startswith("SAYT") or name_clean.startswith("XƏTA") or "PublicRoutes" in full_name or "SiteAvailability" in full_name:
             category = "İctimai Səhifələr və Naviqasiya"
 
         duration_sec = round(data.get("time", {}).get("duration", 0) / 1000.0, 1)
+
+        # Failure / History Analysis
+        status = data.get("status", "passed")
+        history_id = data.get("historyId", "")
+        last_passed_info = None
+
+        if history_id and history_id in history_data:
+            hist_entry = history_data[history_id]
+            items = hist_entry.get("items", [])
+            for item in items:
+                if item.get("status") == "passed":
+                    stop_ms = item.get("time", {}).get("stop")
+                    if stop_ms:
+                        dt = datetime.datetime.fromtimestamp(stop_ms / 1000.0)
+                        last_passed_info = {
+                            "uid": item.get("uid"),
+                            "formatted": dt.strftime("%d.%m.%Y, %H:%M"),
+                            "timestamp": stop_ms
+                        }
+                    break
+
+        steps = extract_steps_for_test(data)
 
         records.append({
             "uid": data.get("uid"),
@@ -83,9 +273,11 @@ def generate_gallery(report_dir):
             "feature": feature,
             "story": story,
             "category": category,
-            "status": data.get("status", "passed"),
+            "status": status,
             "duration": duration_sec,
             "description": data.get("description", ""),
+            "steps": steps,
+            "lastPassed": last_passed_info,
             "images": images
         })
 

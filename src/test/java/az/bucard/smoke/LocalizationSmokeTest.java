@@ -80,12 +80,13 @@ public class LocalizationSmokeTest extends BaseTest {
         // Əvvəlcə EN-ə, sonra təkrar AZ-a keçid
         landingPage.switchLanguage("en");
         Assert.assertEquals(landingPage.getCurrentLanguageCode(), "EN");
+        attachScreenshot("1. İngilis Dilinə Keçid (EN)");
 
         landingPage.switchLanguage("az");
         String currentLang = landingPage.getCurrentLanguageCode();
         Assert.assertEquals(currentLang, "AZ", "Azərbaycan dilinə qayıtdıqda göstərici 'AZ' olmalıdır");
 
-        attachScreenshot("Azərbaycan Dili İnterfeysi (AZ)");
+        attachScreenshot("2. Azərbaycan Dilinə Geri Qayıdış (AZ)");
     }
 
     @Test(description = "DİL-05: Səhifə yeniləndikdə (Page Reload) seçilmiş dilin saxlanılması", groups = {"smoke", "public"})

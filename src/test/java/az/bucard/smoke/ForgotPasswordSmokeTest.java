@@ -66,10 +66,11 @@ public class ForgotPasswordSmokeTest extends BaseTest {
         forgotPage.openEmailRecovery(Config.baseUrl());
 
         Assert.assertFalse(forgotPage.isSubmitButtonEnabled(), "İlkin olaraq düymə qeyri-aktiv (disabled) olmalıdır");
+        attachScreenshot("1. E-poçt Sahəsi Boş İkən (Düymə Passiv)");
 
         forgotPage.typeEmail("test@example.com");
         Assert.assertTrue(forgotPage.isSubmitButtonEnabled(), "E-poçt yazıldıqdan sonra təsdiq düyməsi aktivləşməlidir");
-        attachScreenshot("E-poçt Yazıldıqdan Sonra Düymənin Aktivləşməsi");
+        attachScreenshot("2. E-poçt Daxil Edildikdən Sonra (Düymə Aktiv)");
     }
 
     @Test(description = "BƏRPA-04: 'Geri qayıt' düyməsi ilə /login səhifəsinə qayıdışın yoxlanışı", groups = {"smoke", "public"})

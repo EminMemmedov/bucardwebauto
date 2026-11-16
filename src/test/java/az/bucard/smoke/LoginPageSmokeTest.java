@@ -70,11 +70,12 @@ public class LoginPageSmokeTest extends BaseTest {
 
         Assert.assertEquals(loginPage.getPasswordInputType(), "password",
                 "İlkin vəziyyətdə şifrə sahəsi 'password' tipində olmalıdır");
+        attachScreenshot("1. Şifrənin Gizli Vəziyyəti (Maskalı)");
 
         loginPage.togglePasswordVisibility();
         Assert.assertEquals(loginPage.getPasswordInputType(), "text",
                 "Göz ikonuna klikdən sonra şifrə 'text' tipinə çevrilməlidir");
-        attachScreenshot("Göz İkonu ilə Şifrənin Aşkar Görünüşü");
+        attachScreenshot("2. Göz İkonu ilə Şifrənin Aşkar Görünüşü");
 
         loginPage.togglePasswordVisibility();
         Assert.assertEquals(loginPage.getPasswordInputType(), "password",
