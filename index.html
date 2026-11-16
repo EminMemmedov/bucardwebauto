@@ -26,9 +26,12 @@
         gtag('js', new Date());
         gtag('config', 'G-FVWC4GKEYS', {
           'allureVersion': '2.29.0',
-          'reportUuid': '7feacd6b-3bdb-418a-97ec-29d2baaec8d6',
+          'reportUuid': '0806d345-a95f-48f0-a542-0b8951befc17',
           'single_file': false
         });
+        if (!window.location.hash || window.location.hash === '#' || window.location.hash === '') {
+            window.location.replace('#behaviors');
+        }
     </script>
 </body>
 </html>
