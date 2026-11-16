@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
+<script>
+if (!window.location.hash || window.location.hash === '#' || window.location.hash === '#/') {
+    window.location.replace('#behaviors');
+}
+</script>
     <meta charset="utf-8">
     <title>Allure Report</title>
     <link rel="icon" href="favicon.ico">
@@ -26,12 +31,9 @@
         gtag('js', new Date());
         gtag('config', 'G-FVWC4GKEYS', {
           'allureVersion': '2.29.0',
-          'reportUuid': '0806d345-a95f-48f0-a542-0b8951befc17',
+          'reportUuid': 'c586e05e-cf5a-4eaf-bff7-c6645b031d8a',
           'single_file': false
         });
-        if (!window.location.hash || window.location.hash === '#' || window.location.hash === '') {
-            window.location.replace('#behaviors');
-        }
     </script>
 </body>
 </html>
