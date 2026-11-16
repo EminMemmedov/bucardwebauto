@@ -13,25 +13,26 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Epic("Platform Availability")
-@Feature("Public Web Gateway")
+@Epic("Bucard Veb Platforması")
+@Feature("Saytın Əlçatanlığı və İnfrastruktur")
 public class SiteAvailabilityTest extends BaseTest {
 
-    @Test(description = "Bucard public entry point responds with a page carrying the product title", groups = {"smoke", "public"})
-    @Story("Entry Point Availability")
+    @Test(description = "SAYT-01: Bucard əsas səhifəsinin açılması və başlıq yoxlanışı", groups = {"smoke", "public"})
+    @Story("Saytın Əsas Giriş Nöqtəsi")
     @Severity(SeverityLevel.BLOCKER)
-    @Description("Verifies that https://bucard.az is reachable, returns valid page title, and DOM #root is mounted.")
+    @Description("Bucard platformasının aktivliyini, səhifə başlığında 'Bucard' sözünün olduğunu və #root SPA konteynerinin uğurla yükləndiyini təsdiqləyir.")
     public void siteIsReachable() {
         WebDriver driver = getDriver();
         driver.get(Config.baseUrl());
 
         String title = driver.getTitle();
-        Assert.assertNotNull(title, "Page title should not be null after loading baseUrl");
+        Assert.assertNotNull(title, "Səhifə başlığı boş olmamalıdır");
         Assert.assertTrue(title.toLowerCase().contains("bucard"),
-                "Expected page title to contain 'Bucard', but got: '" + title + "'");
+                "Səhifə başlığında 'Bucard' sözü olmalıdır, alınan başlıq: '" + title + "'");
 
-        // Verify root single-page container is present
         Assert.assertFalse(driver.findElements(By.id("root")).isEmpty(),
-                "Expected '#root' container to be present in the Bucard SPA DOM");
+                "Bucard SPA DOM-da '#root' konteyneri mövcud olmalıdır");
+
+        attachScreenshot("Bucard əsas səhifəsinin ilkin görünüşü");
     }
 }

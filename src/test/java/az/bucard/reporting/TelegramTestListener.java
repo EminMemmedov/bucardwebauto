@@ -196,11 +196,13 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
             java.nio.file.Path allureResults = java.nio.file.Paths.get("target", "allure-results");
             if (java.nio.file.Files.exists(allureResults)) {
                 java.util.Properties props = new java.util.Properties();
-                props.setProperty("Application", "Bucard Web");
-                props.setProperty("Base_URL", Config.baseUrl());
-                props.setProperty("Browser", Config.browser() + (Config.headless() ? " (headless)" : " (headed)"));
-                props.setProperty("OS", System.getProperty("os.name") + " " + System.getProperty("os.version"));
-                props.setProperty("Java_Version", System.getProperty("java.version"));
+                props.setProperty("Tətbiq (Application)", "Bucard Web (https://bucard.az)");
+                props.setProperty("Mühit (Environment)", "Production");
+                props.setProperty("Test Növü (Test Type)", "Smoke & UI Visual Verification");
+                props.setProperty("Brauzer (Browser)", Config.browser() + (Config.headless() ? " (headless)" : " (headed)"));
+                props.setProperty("Əməliyyat Sistemi (OS)", System.getProperty("os.name") + " " + System.getProperty("os.version"));
+                props.setProperty("Java Versiyası", System.getProperty("java.version"));
+                props.setProperty("Hesabat Portalı", "https://eminmemmedov.github.io/bucardwebauto/");
                 try (java.io.OutputStream os = java.nio.file.Files.newOutputStream(allureResults.resolve("environment.properties"))) {
                     props.store(os, "Allure Environment Properties");
                 }

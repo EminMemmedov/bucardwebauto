@@ -1,20 +1,20 @@
 [
   {
-    "name": "Ignored / Skipped Tests",
+    "name": "Ötürülmüş Testlər (Skipped)",
     "matchedStatuses": ["skipped"]
   },
   {
-    "name": "Infrastructure & Timeout Issues",
+    "name": "İnfrastruktur və Şəbəkə Gözləmələri (Timeouts)",
     "matchedStatuses": ["broken"],
     "traceRegex": ".*(TimeoutException|WebDriverException|SessionNotCreatedException).*"
   },
   {
-    "name": "DOM & Element Interaction Defects",
+    "name": "İnterfeys və Element Tapılmadı Xətaları (DOM)",
     "matchedStatuses": ["broken"],
     "traceRegex": ".*(ElementClickInterceptedException|NoSuchElementException|StaleElementReferenceException).*"
   },
   {
-    "name": "Product & Assertion Failures",
+    "name": "Məhsul və Funksional Xətalar (Assertion Failures)",
     "matchedStatuses": ["failed"],
     "traceRegex": ".*AssertionError.*"
   }

@@ -15,53 +15,54 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Epic("Public Routes Smoke")
-@Feature("Pre-Login Navigation & Forms")
+@Epic("Bucard Veb Platforması")
+@Feature("İctimai Səhifələr və Naviqasiya (Pre-Login)")
 public class PublicRoutesSmokeTest extends BaseTest {
 
-    @Test(description = "PRE-02: Verify landing page header navigation, logo, and main CTA buttons", groups = {"smoke", "public"})
-    @Story("Landing Page Navigation")
+    @Test(description = "ANA-01: Ana səhifənin loqosu, naviqasiyası və qeydiyyat düymələri", groups = {"smoke", "public"})
+    @Story("Ana Səhifə (Landing)")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Verifies header navigation menu, logo, language switcher, and main CTA buttons on the landing page.")
+    @Description("Bucard ana səhifəsinin loqosunu, naviqasiya menyusunu, dil seçimini və 'Giriş' / 'Qeydiyyat' düymələrinin mövcudluğunu yoxlayır.")
     public void landingPageHeaderAndCtasArePresent() {
         WebDriver driver = getDriver();
         LandingPage landingPage = new LandingPage(driver);
         landingPage.open(Config.baseUrl());
 
-        Assert.assertTrue(landingPage.isLoaded(), "Landing page logo and sign-in link should be visible");
-        Assert.assertTrue(landingPage.hasNavMenu(), "Header navigation menu should be present");
-        Assert.assertTrue(landingPage.hasLanguageSwitcher(), "Language switcher should be present");
-        Assert.assertTrue(landingPage.hasSignInLink(), "Sign-in / Login link should be present in header");
-        Assert.assertTrue(landingPage.hasRegisterButton(), "'Create profile' registration CTA button should be present");
+        Assert.assertTrue(landingPage.isLoaded(), "Ana səhifənin loqosu və giriş linki görünməlidir");
+        Assert.assertTrue(landingPage.hasNavMenu(), "Naviqasiya menyusu mövcud olmalıdır");
+        Assert.assertTrue(landingPage.hasLanguageSwitcher(), "Dil seçimi elementi mövcud olmalıdır");
+        Assert.assertTrue(landingPage.hasSignInLink(), "Giriş (Daxil ol) düyməsi mövcud olmalıdır");
+        Assert.assertTrue(landingPage.hasRegisterButton(), "'Qeydiyyat' / profil yaratma düyməsi mövcud olmalıdır");
+
+        attachScreenshot("Bucard Ana Səhifəsinin Ümumi Görünüşü");
     }
 
-    @Test(description = "PRE-03: Verify landing packages billing tab switching between Monthly and Yearly", groups = {"smoke", "public"})
-    @Story("Pricing Packages Switcher")
+    @Test(description = "TARİF-02: Aylıq və İllik tarif paketləri arasında keçid", groups = {"smoke", "public"})
+    @Story("Tariflər və Paketlər")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Verifies that clicking between Monthly and Yearly packages toggles the active billing cycle tab.")
+    @Description("İstifadəçinin 'Aylıq' və 'İllik' tarif tabları arasında klik edərək keçid edə bildiyini və qiymətlərin dəyişdiyini təsdiqləyir.")
     public void landingPackagesTabSwitcherWorks() {
         WebDriver driver = getDriver();
         LandingPage landingPage = new LandingPage(driver);
         landingPage.open(Config.baseUrl());
 
         if (landingPage.hasMonthlyTab() && landingPage.hasYearlyTab()) {
-            // By default Monthly is active
-            Assert.assertTrue(landingPage.isMonthlyTabActive(), "Monthly tab should be active by default");
+            Assert.assertTrue(landingPage.isMonthlyTabActive(), "Susmaya görə 'Aylıq' tabı aktiv olmalıdır");
 
-            // Click Yearly
             landingPage.switchToYearlyTab();
-            Assert.assertTrue(landingPage.isYearlyTabActive(), "Yearly tab should become active after click");
+            Assert.assertTrue(landingPage.isYearlyTabActive(), "Kliklədikdən sonra 'İllik' tabı aktiv olmalıdır");
+            attachScreenshot("İllik Tarif Paketləri");
 
-            // Switch back to Monthly
             landingPage.switchToMonthlyTab();
-            Assert.assertTrue(landingPage.isMonthlyTabActive(), "Monthly tab should be restored as active");
+            Assert.assertTrue(landingPage.isMonthlyTabActive(), "'Aylıq' tabına qayıdış uğurla tamamlanmalıdır");
+            attachScreenshot("Aylıq Tarif Paketləri");
         }
     }
 
-    @Test(description = "PRE-04: Verify public /login route loads cleanly and renders SPA application root", groups = {"smoke", "public"})
-    @Story("Login Route Accessibility")
+    @Test(description = "GİRİŞ-03: Giriş səhifəsinin (/login) təmiz açılması və yüklənməsi", groups = {"smoke", "public"})
+    @Story("Giriş Səhifəsi (/login)")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Verifies that /login route opens cleanly, remains on /login without redirects, and mounts #root.")
+    @Description("/login ünvanının xətasız açıldığını, heç bir kənar yönləndirmə olmadığını və tətbiqin #root konteynerinin qurulduğunu yoxlayır.")
     public void loginRouteIsAccessible() {
         WebDriver driver = getDriver();
         LoginPage loginPage = new LoginPage(driver);
@@ -69,16 +70,18 @@ public class PublicRoutesSmokeTest extends BaseTest {
 
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("/login") || currentUrl.contains("/dashboard"),
-                "Expected URL to remain on /login (or /dashboard if pre-authenticated), but got: " + currentUrl);
+                "URL '/login' (və ya avtorizasiya olunubsa '/dashboard') olmalıdır, cari: " + currentUrl);
 
         Assert.assertFalse(driver.findElements(By.id("root")).isEmpty(),
-                "Expected SPA '#root' container to be present on the login route");
+                "Login səhifəsində SPA '#root' konteyneri mövcud olmalıdır");
+
+        attachScreenshot("Giriş Səhifəsi (/login)");
     }
 
-    @Test(description = "PRE-04b: Verify /login page elements or layout do not display raw 5xx error text", groups = {"smoke", "public"})
-    @Story("Server Error Integrity")
+    @Test(description = "XƏTA-04: Səhifədə 500 / 502 server xətalarının olmaması", groups = {"smoke", "public"})
+    @Story("Server İnteqrallığı")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Checks page source for absence of raw 502/500 gateway or internal server error dumps.")
+    @Description("Giriş səhifəsinin mənbə kodunda 500 Internal Server Error və ya 502 Bad Gateway kimi xətaların olmadığını təsdiqləyir.")
     public void loginPageHasNoServerError() {
         WebDriver driver = getDriver();
         LoginPage loginPage = new LoginPage(driver);
@@ -86,66 +89,66 @@ public class PublicRoutesSmokeTest extends BaseTest {
 
         String pageSource = driver.getPageSource();
         Assert.assertFalse(pageSource.contains("502 Bad Gateway") || pageSource.contains("500 Internal Server Error"),
-                "Login page should not return server error page");
+                "Giriş səhifəsində server xətası mətni olmamalıdır");
     }
 
-    @Test(description = "PRE-05: Verify key interactive controls on /login page (email, password, continue, forgot, register, social)", groups = {"smoke", "public"})
-    @Story("Login Form Elements")
+    @Test(description = "GİRİŞ-05: Giriş formasında sahələr, düymələr və bərpa linki", groups = {"smoke", "public"})
+    @Story("Giriş Forması Elementləri")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("Verifies presence of email and password inputs, submit button, recovery, registration, and social buttons.")
+    @Description("Giriş formasında e-poçt xanası, şifrə xanası, 'Davam et' düyməsi, şifrə bərpası və LinkedIn düyməsinin olduğunu yoxlayır.")
     public void loginPageKeyControlsArePresent() {
         WebDriver driver = getDriver();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(Config.baseUrl());
 
-        Assert.assertTrue(loginPage.hasEmailField(), "Email input field (#email) should be present");
-        Assert.assertTrue(loginPage.hasPasswordField(), "Password input field (#password) should be present");
-        Assert.assertTrue(loginPage.hasSubmitButton(), "Submit / Continue button (.formBtn) should be present");
-        Assert.assertTrue(loginPage.hasForgotPasswordLink(), "Forgot password link should be present");
-        Assert.assertTrue(loginPage.hasRegisterLink(), "Register / Create profile link should be present");
-        Assert.assertTrue(loginPage.hasLinkedInButton(), "LinkedIn sign-in button should be present");
+        Assert.assertTrue(loginPage.hasEmailField(), "E-poçt daxiletmə sahəsi (#email) mövcud olmalıdır");
+        Assert.assertTrue(loginPage.hasPasswordField(), "Şifrə daxiletmə sahəsi (#password) mövcud olmalıdır");
+        Assert.assertTrue(loginPage.hasSubmitButton(), "Təsdiq / Davam et düyməsi (.formBtn) mövcud olmalıdır");
+        Assert.assertTrue(loginPage.hasForgotPasswordLink(), "Şifrəni unutmusunuz linki mövcud olmalıdır");
+        Assert.assertTrue(loginPage.hasRegisterLink(), "Qeydiyyat linki mövcud olmalıdır");
+        Assert.assertTrue(loginPage.hasLinkedInButton(), "LinkedIn ilə giriş düyməsi mövcud olmalıdır");
+
+        attachScreenshot("Giriş Formasının Əsas Sahələri");
     }
 
-    @Test(description = "PRE-06: Verify password visibility toggle button clicks and switches input type between password and text", groups = {"smoke", "public"})
-    @Story("Password Visibility Toggle")
+    @Test(description = "GİRİŞ-06: Şifrənin göz işarəsinə kliklə göstərilməsi və gizlədilməsi", groups = {"smoke", "public"})
+    @Story("Şifrə Sahəsi İdarəetməsi")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Verifies clicking the eye icon toggles the password input type between 'password' and 'text'.")
+    @Description("Şifrə sahəsindəki göz ikonuna basdıqda input tipinin 'password' və 'text' arasında düzgün dəyişdiyini yoxlayır.")
     public void passwordVisibilityToggleWorks() {
         WebDriver driver = getDriver();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(Config.baseUrl());
 
         Assert.assertEquals(loginPage.getPasswordInputType(), "password",
-                "Password field should initially have type='password'");
+                "Şifrə sahəsi əvvəlcə type='password' olmalıdır");
 
-        // Click eye toggle button
         loginPage.togglePasswordVisibility();
         Assert.assertEquals(loginPage.getPasswordInputType(), "text",
-                "Password field should have type='text' after clicking visibility toggle");
+                "Göz ikonuna klikdən sonra şifrə sahəsi type='text' olmalıdır");
+        attachScreenshot("Şifrə Göstərilən Vəziyyətdə (Açıq Göz)");
 
-        // Click eye toggle button again to restore hidden state
         loginPage.togglePasswordVisibility();
         Assert.assertEquals(loginPage.getPasswordInputType(), "password",
-                "Password field should return to type='password' after clicking toggle again");
+                "Yenidən kliklədikdə sahə type='password' vəziyyətinə qayıtmalıdır");
     }
 
-    @Test(description = "PRE-07: Verify tab switching between Email Address and Phone Number authentication", groups = {"smoke", "public"})
-    @Story("Authentication Mode Tabs")
+    @Test(description = "GİRİŞ-07: 'E-poçt' və 'Telefon nömrəsi' giriş növləri arasında keçid", groups = {"smoke", "public"})
+    @Story("Giriş Növləri Tabları")
     @Severity(SeverityLevel.NORMAL)
-    @Description("Verifies clicking between 'Email Address' and 'Phone Number' tabs displays the appropriate input field.")
+    @Description("Giriş formasında 'E-poçt' və 'Telefon' tabları arasında klik etdikdə uyğun sahələrin göründüyünü yoxlayır.")
     public void authTabSwitchingWorks() {
         WebDriver driver = getDriver();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(Config.baseUrl());
 
-        Assert.assertTrue(loginPage.hasEmailField(), "Email field should be visible by default on Email tab");
+        Assert.assertTrue(loginPage.hasEmailField(), "E-poçt sahəsi susmaya görə görünməlidir");
 
-        // Switch to Phone tab
         loginPage.switchToPhoneTab();
-        Assert.assertTrue(loginPage.isPhoneFieldVisible(), "Phone input field should be visible after switching to Phone tab");
+        Assert.assertTrue(loginPage.isPhoneFieldVisible(), "Telefon tabına keçdikdən sonra nömrə sahəsi görünməlidir");
+        attachScreenshot("Telefon Nömrəsi ilə Giriş Forması");
 
-        // Switch back to Email tab
         loginPage.switchToEmailTab();
-        Assert.assertTrue(loginPage.hasEmailField(), "Email field should be restored after switching back to Email tab");
+        Assert.assertTrue(loginPage.hasEmailField(), "E-poçt tabına qayıtdıqda e-poçt sahəsi bərpa olunmalıdır");
     }
 }

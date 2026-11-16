@@ -27,11 +27,13 @@ public abstract class BaseTest {
         if (driver != null) {
             try {
                 if (result.getStatus() == ITestResult.FAILURE) {
-                    attachScreenshotToAllure(driver, result.getName());
+                    attachScreenshot("❌ Xəta anında ekran görüntüsü");
                     Path screenshot = ScreenshotUtil.captureFailure(driver, result.getName());
                     if (screenshot != null) {
                         result.setAttribute("screenshotPath", screenshot.toString());
                     }
+                } else if (result.getStatus() == ITestResult.SUCCESS) {
+                    attachScreenshot("📸 Uğurlu icra skrinşotu");
                 }
             } finally {
                 DriverFactory.quitDriver(driver);
@@ -40,10 +42,14 @@ public abstract class BaseTest {
         }
     }
 
-    @Attachment(value = "Failure Screenshot: {testName}", type = "image/png")
-    public byte[] attachScreenshotToAllure(WebDriver driver, String testName) {
+    @Attachment(value = "{title}", type = "image/png")
+    public byte[] attachScreenshot(String title) {
+        WebDriver driver = DRIVER_HOLDER.get();
         if (driver instanceof TakesScreenshot takesScreenshot) {
-            return takesScreenshot.getScreenshotAs(OutputType.BYTES);
+            try {
+                return takesScreenshot.getScreenshotAs(OutputType.BYTES);
+            } catch (Exception ignored) {
+            }
         }
         return new byte[0];
     }
