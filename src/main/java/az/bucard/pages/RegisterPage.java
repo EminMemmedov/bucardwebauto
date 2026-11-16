@@ -93,6 +93,16 @@ public final class RegisterPage extends BasePage {
         click(SUBMIT_BUTTON);
     }
 
+    @Step("Yeni istifadəçi qeydiyyatdan keçir: {email}")
+    public DashboardPage registerNewUser(String email, String password) {
+        fillCredentials(email, password);
+        submit();
+        try {
+            wait.until(org.openqa.selenium.support.ui.ExpectedConditions.urlContains("/dashboard"));
+        } catch (Exception ignored) {}
+        return new DashboardPage(driver);
+    }
+
     @Step("Xəta bildirişinin (errorAlert) mövcudluğunu yoxla")
     public boolean hasErrorAlert() {
         return isElementVisible(ERROR_ALERT);

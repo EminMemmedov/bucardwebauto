@@ -185,8 +185,14 @@ public final class DashboardPage extends BasePage {
     public NotificationsPage openNotifications() {
         waitForPreloaderToDisappear();
         dismissModalIfPresent();
-        if (isElementPresent(NOTIFICATION_ICON)) {
-            click(NOTIFICATION_ICON);
+        if (isElementVisible(NOTIFICATION_ICON)) {
+            try {
+                click(NOTIFICATION_ICON);
+            } catch (Exception e) {
+                try {
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", driver.findElement(NOTIFICATION_ICON));
+                } catch (Exception ignored) {}
+            }
         }
         return new NotificationsPage(driver);
     }

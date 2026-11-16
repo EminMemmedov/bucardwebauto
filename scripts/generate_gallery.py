@@ -13,6 +13,23 @@ import re
 import sys
 
 KNOWN_STEPS = {
+    "DYN-QEYD-01": [
+        "1. Ödənişsiz Temp-Mail REST API-yə qoşul",
+        "2. Unikal müvəqqəti test e-poçt ünvanı generasiya et",
+        "3. E-poçt formatının və domeninin (@sharklasers.com) düzgünlüyünü təsdiqlə"
+    ],
+    "DYN-QEYD-02": [
+        "1. /register səhifəsini aç və formu yoxla",
+        "2. Dinamik yaradılmış e-poçt və güclü şifrə daxil et",
+        "3. Qeydiyyatı təsdiqlə və /dashboard səhifəsinə yönləndirməni yoxla",
+        "4. Sessiyadan çıxış (Logout) et və /login səhifəsinə keçidi təsdiqlə"
+    ],
+    "DYN-QEYD-03": [
+        "1. /login səhifəsində yeni qeydiyyatdan keçmiş dinamik e-poçtu daxil et",
+        "2. Şifrəni daxil edərək Daxil ol düyməsinə kliklə",
+        "3. Sessiyanın bərpasını və /dashboard-a uğurlu təkrar girişi təsdiqlə"
+    ],
+
     "BIZ-P0-01": [
         "1. /login səhifəsini aç və etibarlı kredensiallarla daxil ol",
         "2. /dashboard səhifəsinin açıldığını təsdiqlə",
@@ -336,6 +353,7 @@ def generate_gallery(report_dir):
         "Qeydiyyat",
         "Şifrə Bərpası",
         "Neqativ və Təhlükəsizlik Ssenariləri",
+        "Dinamik Qeydiyyat və Giriş",
         "Biznes Funksionallıqları (P0, P1, P2)",
         "Digər Testlər"
     ]
@@ -379,7 +397,9 @@ def generate_gallery(report_dir):
         name_clean = name.strip()
 
         category = "Digər Testlər"
-        if name_clean.startswith("BIZ") or "business" in full_name.lower():
+        if name_clean.startswith("DYN") or "DynamicRegistration" in full_name:
+            category = "Dinamik Qeydiyyat və Giriş"
+        elif name_clean.startswith("BIZ") or "business" in full_name.lower():
             category = "Biznes Funksionallıqları (P0, P1, P2)"
         elif name_clean.startswith("NEQ") or "NegativeScenarios" in full_name:
             category = "Neqativ və Təhlükəsizlik Ssenariləri"

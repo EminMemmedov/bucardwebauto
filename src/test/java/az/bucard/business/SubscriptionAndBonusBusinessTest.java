@@ -1,5 +1,6 @@
 package az.bucard.business;
 
+import az.bucard.auth.DynamicCredentialsHolder;
 import az.bucard.base.BaseTest;
 import az.bucard.config.Config;
 import az.bucard.pages.BonusPage;
@@ -24,21 +25,26 @@ public class SubscriptionAndBonusBusinessTest extends BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void requireCredentials() {
-        if (!Config.isAuthAvailable()) {
-            throw new SkipException(
-                    "BUCARD_TEST_USER / BUCARD_TEST_PASSWORD təyin edilməyib. "
-                    + "PM tərəfindən test hesabı təqdim edildikdən sonra bu biznes testi canlı icra ediləcək."
-            );
+        if (!DynamicCredentialsHolder.isAvailable()) {
+            DynamicCredentialsHolder.ensureAccountRegistered(getDriver());
         }
     }
 
     private DashboardPage performLogin() {
         WebDriver driver = getDriver();
+        driver.get(Config.baseUrl() + "/dashboard");
+        DashboardPage page = new DashboardPage(driver);
+        page.waitForPreloaderToDisappear();
+        page.dismissModalIfPresent();
+
+        if (driver.getCurrentUrl().contains("/dashboard") && page.isLoaded()) {
+            return page;
+        }
+
         LoginPage loginPage = new LoginPage(driver);
         loginPage.open(Config.baseUrl());
-        loginPage.login(Config.testUser(), Config.testPassword());
+        loginPage.login(DynamicCredentialsHolder.getEffectiveUser(), DynamicCredentialsHolder.getEffectivePassword());
 
-        DashboardPage page = new DashboardPage(driver);
         page.waitForUrlContains("/dashboard");
         page.waitForPreloaderToDisappear();
         page.dismissModalIfPresent();

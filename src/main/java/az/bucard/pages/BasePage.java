@@ -29,7 +29,7 @@ public abstract class BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    protected boolean isElementVisible(By locator, Duration timeout) {
+    public boolean isElementVisible(By locator, Duration timeout) {
         try {
             new WebDriverWait(driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(locator));
             return true;
@@ -38,11 +38,11 @@ public abstract class BasePage {
         }
     }
 
-    protected boolean isElementVisible(By locator) {
+    public boolean isElementVisible(By locator) {
         return isElementVisible(locator, Duration.ofSeconds(Config.explicitTimeoutSeconds()));
     }
 
-    protected boolean isElementPresent(By locator) {
+    public boolean isElementPresent(By locator) {
         return !driver.findElements(locator).isEmpty();
     }
 

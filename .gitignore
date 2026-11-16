@@ -7,4 +7,7 @@ screenshots/
 .env
 .idea/
 .vscode/
+*.iml
+*.ipr
+*.iws
 .DS_Store
