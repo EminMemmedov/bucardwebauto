@@ -1,78 +1,78 @@
 # Bucard Web Automation
 
-Фреймворк автоматизированного тестирования веб-приложения [Bucard](https://bucard.az) на стеке **Java 17+ / Selenium WebDriver 4 / TestNG / Maven**.
+**Java 17+ / Selenium WebDriver 4 / TestNG / Maven** steki üzərində qurulmuş [Bucard](https://bucard.az) veb-tətbiqinin avtomatlaşdırılmış test freymvorku.
 
-Проект спроектирован для безопасных проверок доступности и read-only сценариев, с поддержкой локального запуска и CI (GitHub Actions), сбором артефактов при падениях (скриншоты) и уведомлениями в Telegram.
+Layihə əlçatanlığın təhlükəsiz yoxlanılması və "read-only" (yalnız oxuma) ssenariləri üçün layihələndirilib; lokal icranı və CI (GitHub Actions) mühitini, testlərin uğursuz olduğu hallarda artefaktların (skrinşotların) toplanmasını və Telegram bildirişlərini dəstəkləyir.
 
 ---
 
-## Архитектура и структура
+## Memarlıq və struktur
 
 ```text
 bucardwebauto/
 ├── .github/workflows/
-│   └── smoke.yml                  # CI workflow для GitHub Actions
+│   └── smoke.yml                  # GitHub Actions üçün CI workflow
 ├── docs/
-│   └── test-plan.md               # Детальный план тестирования и границы безопасности
-├── pom.xml                        # Maven-конфигурация (Java 17, Selenium 4, TestNG)
-├── README.md                      # Документация проекта
+│   └── test-plan.md               # Ətraflı test planı və təhlükəsizlik sərhədləri
+├── pom.xml                        # Maven konfiqurasiyası (Java 17, Selenium 4, TestNG)
+├── README.md                      # Layihənin sənədləşməsi
 └── src/
     ├── main/java/az/bucard/
     │   ├── config/
-    │   │   └── Config.java        # Чтение конфигурации из System properties и переменных окружения
+    │   │   └── Config.java        # Konfiqurasiyanın System properties və mühit dəyişənlərindən oxunması
     │   ├── driver/
-    │   │   └── DriverFactory.java # Фабрика WebDriver (Chrome headless/headed, таймауты, флаги безопасности)
-    │   ├── pages/                 # Page Objects (паттерн Page Object Model)
-    │   │   ├── BasePage.java      # Базовый класс страниц с явными ожиданиями (WebDriverWait)
-    │   │   ├── LoginPage.java     # Форма входа (/login)
-    │   │   ├── DashboardPage.java # Дашборд All Boxes / My Box
-    │   │   ├── SearchPage.java    # Поиск персональных и бизнес-профилей
-    │   │   ├── ProfilePage.java   # Страница профиля (Contact info, Portfolio, Experience и т.д.)
-    │   │   ├── BoxDetailsPage.java# Детали бокса (контакты, пустые состояния)
-    │   │   └── SettingsPage.java  # Разделы настроек (Account Center, Plan, Payments, Terms, Help)
+    │   │   └── DriverFactory.java # WebDriver fabriki (Chrome headless/headed, timeout-lar, təhlükəsizlik parametrləri)
+    │   ├── pages/                 # Page Objects (Page Object Model şablonu)
+    │   │   ├── BasePage.java      # Açıq gözləmələrlə (WebDriverWait) baza səhifə sinfi
+    │   │   ├── LoginPage.java     # Giriş forması (/login)
+    │   │   ├── DashboardPage.java # All Boxes / My Box idarəetmə paneli (dashboard)
+    │   │   ├── SearchPage.java    # Şəxsi və biznes profillərinin axtarışı
+    │   │   ├── ProfilePage.java   # Profil səhifəsi (Contact info, Portfolio, Experience və s.)
+    │   │   ├── BoxDetailsPage.java# Boks təfərrüatları (kontaktlar, boş vəziyyətlər)
+    │   │   └── SettingsPage.java  # Tənzimləmələr bölmələri (Account Center, Plan, Payments, Terms, Help)
     │   ├── reporting/
-    │   │   └── TelegramReporter.java # HTTP-клиент отправки сводки в Telegram Bot API
+    │   │   └── TelegramReporter.java # Nəticələri Telegram Bot API-yə göndərmək üçün HTTP müştəri
     │   └── utils/
-    │       └── ScreenshotUtil.java   # Снятие и сохранение скриншотов при сбоях (без PII)
+    │       └── ScreenshotUtil.java   # Uğursuzluqlar zamanı skrinşotların çəkilməsi və saxlanması (şəxsi məlumatlarsız)
     └── test/
         ├── java/az/bucard/
         │   ├── base/
-        │   │   └── BaseTest.java     # Жизненный цикл тестов, ThreadLocal WebDriver, снятие скриншотов
+        │   │   └── BaseTest.java     # Testlərin həyat dövrü, ThreadLocal WebDriver, skrinşotların çəkilməsi
         │   ├── reporting/
-        │   │   └── TelegramTestListener.java # Слушатель TestNG, сбор статистики и причин сбоев
+        │   │   └── TelegramTestListener.java # TestNG dinləyicisi, statistikanın və xəta səbəblərinin toplanması
         │   └── smoke/
-        │       ├── SiteAvailabilityTest.java         # Проверка доступности публичного сайта и title
-        │       ├── PublicRoutesSmokeTest.java       # Проверка публичных маршрутов (/login)
-        │       └── AuthenticatedNavigationSmokeTest.java # Read-only навигация (пропускается без credentials)
+        │       ├── SiteAvailabilityTest.java         # İctimai saytın və title-ın əlçatanlığının yoxlanması
+        │       ├── PublicRoutesSmokeTest.java       # İctimai marşrutların yoxlanması (/login)
+        │       └── AuthenticatedNavigationSmokeTest.java # Read-only naviqasiya (hesab məlumatları olmadıqda ötürülür)
         └── resources/
-            └── testng.xml             # Конфигурация тестовых наборов TestNG
+            └── testng.xml             # TestNG test dəstlərinin konfiqurasiyası
 ```
 
 ---
 
-## Требования к окружению
+## Mühit tələbləri
 
-- **JDK 17+** (протестировано на OpenJDK 17 / 21 / 25)
+- **JDK 17+** (OpenJDK 17 / 21 / 25 üzərində sınaqdan keçirilib)
 - **Maven 3.9+**
-- **Google Chrome** (Selenium Manager автоматически загружает и синхронизирует нужный `chromedriver`)
+- **Google Chrome** (Selenium Manager uyğun gələn `chromedriver`-i avtomatik yükləyir və sinxronlaşdırır)
 
 ---
 
-## Запуск тестов
+## Testlərin işə salınması
 
-### 1. Стандартный запуск (headless)
+### 1. Standart işə salma (headless)
 
 ```bash
 mvn test
 ```
 
-### 2. Переопределение параметров через System Properties
+### 2. Parametrlərin System Properties vasitəsilə təyin edilməsi
 
 ```bash
 mvn test -Dbucard.baseUrl=https://bucard.az -Dbrowser.headless=true -Dtimeout.pageload.seconds=45
 ```
 
-### 3. Переопределение параметров через переменные окружения
+### 3. Parametrlərin mühit dəyişənləri (Environment Variables) vasitəsilə təyin edilməsi
 
 ```bash
 export BUCARD_BASE_URL="https://bucard.az"
@@ -81,7 +81,7 @@ export TIMEOUT_EXPLICIT_SECONDS="15"
 mvn test
 ```
 
-### 4. Запуск только компиляции без браузера
+### 4. Yalnız kompilyasiya (brauzersiz)
 
 ```bash
 mvn test-compile
@@ -89,52 +89,52 @@ mvn test-compile
 
 ---
 
-## Конфигурационные параметры
+## Konfiqurasiya parametrləri
 
-| Параметр (Property) | Переменная окружения | Значение по умолчанию | Описание |
+| Parametr (Property) | Mühit dəyişəni | Standart dəyər | Təsvir |
 |---|---|---|---|
-| `bucard.baseUrl` | `BUCARD_BASE_URL` | `https://bucard.az` | Базовый URL тестируемого приложения |
-| `browser.headless` | `BROWSER_HEADLESS` | `true` | Запуск браузера в headless-режиме |
-| `browser.name` | `BROWSER_NAME` | `chrome` | Тип браузера (Chrome) |
-| `timeout.explicit.seconds` | `TIMEOUT_EXPLICIT_SECONDS` | `10` | Явное ожидание элементов (ExpectedConditions) |
-| `timeout.pageload.seconds` | `TIMEOUT_PAGELOAD_SECONDS` | `30` | Таймаут полной загрузки страниц |
-| `telegram.bot.token` | `TELEGRAM_BOT_TOKEN` | *не задан* | Токен бота Telegram для отправки отчёта |
-| `telegram.chat.id` | `TELEGRAM_CHAT_ID` | *не задан* | ID чата/канала для получения отчёта |
-| `bucard.test.user` | `BUCARD_TEST_USER` | *не задан* | Логин тестового аккаунта для read-only тестов |
-| `bucard.test.password` | `BUCARD_TEST_PASSWORD` | *не задан* | Пароль тестового аккаунта |
+| `bucard.baseUrl` | `BUCARD_BASE_URL` | `https://bucard.az` | Test olunan tətbiqin baza URL ünvanı |
+| `browser.headless` | `BROWSER_HEADLESS` | `true` | Brauzerin headless (arxa planda) rejimdə açılması |
+| `browser.name` | `BROWSER_NAME` | `chrome` | Brauzer növü (Chrome) |
+| `timeout.explicit.seconds` | `TIMEOUT_EXPLICIT_SECONDS` | `10` | Elementlərin açıq gözləmə müddəti (ExpectedConditions) |
+| `timeout.pageload.seconds` | `TIMEOUT_PAGELOAD_SECONDS` | `30` | Səhifənin tam yüklənməsi üçün timeout |
+| `telegram.bot.token` | `TELEGRAM_BOT_TOKEN` | *təyin edilməyib* | Hesabat göndərmək üçün Telegram bot tokeni |
+| `telegram.chat.id` | `TELEGRAM_CHAT_ID` | *təyin edilməyib* | Hesabatın göndəriləcəyi çat/kanal ID-si |
+| `bucard.test.user` | `BUCARD_TEST_USER` | *təyin edilməyib* | Read-only testlər üçün test hesabının loqini (telefon/email) |
+| `bucard.test.password` | `BUCARD_TEST_PASSWORD` | *təyin edilməyib* | Test hesabının şifrəsi |
 
 ---
 
-## Отчётность в Telegram
+## Telegram hesabatı
 
-По завершении тестового прогона `TelegramTestListener` формирует и отправляет сообщение с результатами:
-- Базовый URL стенда.
-- Количество успешных, упавших и пропущенных проверок.
-- Общая длительность выполнения.
-- При падениях: краткая безопасная причина ошибки (тип исключения + краткое описание, без токенов, паролей и персональных данных).
+Test icrası başa çatdıqdan sonra `TelegramTestListener` nəticələri əks etdirən mesaj formalaşdırır və göndərir:
+- Test stendinin baza URL-i.
+- Uğurlu, uğursuz və ötürülmüş yoxlamaların sayı.
+- Ümumi icra müddəti.
+- Uğursuzluqlar zamanı: xətanın qısa və təhlükəsiz səbəbi (istisna növü + qısa təsvir, tokenlər, şifrələr və fərdi məlumatlar olmadan).
 
-> **Примечание:** Если `TELEGRAM_BOT_TOKEN` или `TELEGRAM_CHAT_ID` не заданы, отправка отчёта **безопасно пропускается**, не прерывая выполнение и не вызывая ошибок сборки.
+> **Qeyd:** Əgər `TELEGRAM_BOT_TOKEN` və ya `TELEGRAM_CHAT_ID` təyin edilməyibsə, hesabatın göndərilməsi **təhlükəsiz şəkildə ötürülür**, icra kəsilmir və qurulma xətası yaranmır.
 
 ---
 
-## Скриншоты при ошибках
+## Xətalar zamanı skrinşotlar
 
-При падении любого теста `BaseTest` автоматически делает скриншот страницы в момент сбоя и сохраняет его в:
+İstənilən test uğursuz olduqda, `BaseTest` avtomatik olaraq həmin anın skrinşotunu çəkir və aşağıdakı ünvanda saxlayır:
 ```text
-target/screenshots/<ИмяТеста>_<ГГГГММДД_ЧЧММСС_МСС>.png
+target/screenshots/<TestAdı>_<İİİİAADD_SSDDSS_MSS>.png
 ```
-В GitHub Actions этот каталог автоматически архивируется в артефакты сборки (`failure-screenshots`).
+GitHub Actions daxilində bu qovluq avtomatik olaraq CI artefaktlarına (`failure-screenshots`) əlavə olunur.
 
 ---
 
-## Безопасность и границы проверок
+## Təhlükəsizlik və yoxlama sərhədləri
 
-1. **Строго Read-Only**: реализованы исключительно проверки доступности и чтения данных.
-2. **Запрещённые действия**: автотесты **не выполняют**:
-   - оформление заказов, платежи, смену тарифов и подписок;
-   - удаление или деактивацию аккаунта, боксов или контактов;
-   - изменение статуса приватности (Private -> Public);
-   - отправку реальных сообщений, шеринг или подтверждение email;
-   - обход MFA/OTP или капчи.
-3. **Безопасность секретов**: пароли, токены и cookies никогда не логируются и не сохраняются в репозитории.
-4. **Условный запуск авторизованных тестов**: тесты из класса `AuthenticatedNavigationSmokeTest` автоматически помечаются как `SKIPPED`, если в переменных окружения не переданы тестовые учётные данные.
+1. **Ciddi şəkildə Read-Only**: yalnız əlçatanlıq və məlumatların oxunması yoxlamaları həyata keçirilir.
+2. **Qadağan olunmuş əməliyyatlar**: autotestlər aşağıdakıları **etmir**:
+   - sifarişlərin rəsmiləşdirilməsi, ödənişlər, tarif və abunəliklərin dəyişdirilməsi;
+   - hesabın, boksların və ya kontaktların silinməsi/deaktiv edilməsi;
+   - məxfilik statusunun dəyişdirilməsi (Private -> Public);
+   - real mesajların göndərilməsi, paylaşım (share) və ya email təsdiqlənməsi;
+   - MFA/OTP və ya captcha-nın keçilməsi.
+3. **Məxfilik təhlükəsizliyi**: şifrələr, tokenlər və cookies heç vaxt loqlara yazılmır və repozitoriyada saxlanılmır.
+4. **Autentifikasiyalı testlərin şərti icrası**: `AuthenticatedNavigationSmokeTest` sinfindəki testlər mühit dəyişənlərində test hesabı məlumatları təyin edilmədikdə avtomatik olaraq `SKIPPED` kimi qeyd olunur.
