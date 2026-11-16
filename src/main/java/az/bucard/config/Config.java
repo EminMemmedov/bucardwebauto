@@ -43,6 +43,14 @@ public final class Config {
         }
     }
 
+    public static int slowdownMs() {
+        try {
+            return Integer.parseInt(getSetting("browser.slowdown.ms", "BROWSER_SLOWDOWN_MS", "0"));
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
     public static String telegramBotToken() {
         return getSetting("telegram.bot.token", "TELEGRAM_BOT_TOKEN", null);
     }

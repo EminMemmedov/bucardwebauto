@@ -46,9 +46,25 @@ public abstract class BasePage {
         return !driver.findElements(locator).isEmpty();
     }
 
+    private void visualFeedback(WebElement element) {
+        int delay = Config.slowdownMs();
+        if (delay > 0) {
+            try {
+                ((JavascriptExecutor) driver).executeScript(
+                        "arguments[0].style.outline = '3px solid #7c3aed';"
+                                + "arguments[0].style.transition = 'outline 0.2s';", element);
+                Thread.sleep(delay);
+            } catch (Exception ignored) {
+            }
+        }
+    }
+
     protected void click(By locator) {
+        WebElement el = null;
         try {
-            clickable(locator).click();
+            el = clickable(locator);
+            visualFeedback(el);
+            el.click();
         } catch (ElementClickInterceptedException e) {
             // Dismiss overlay or modal if present
             try {
@@ -61,19 +77,26 @@ public abstract class BasePage {
             }
             // Retry standard click or fallback to JavaScript click
             try {
-                clickable(locator).click();
+                el = clickable(locator);
+                visualFeedback(el);
+                el.click();
             } catch (Exception ex) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", visible(locator));
+                WebElement fallback = visible(locator);
+                visualFeedback(fallback);
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", fallback);
             }
         }
     }
 
     protected void type(By locator, String text) {
-        visible(locator).sendKeys(text);
+        WebElement el = visible(locator);
+        visualFeedback(el);
+        el.sendKeys(text);
     }
 
     protected void clearAndType(By locator, String text) {
         WebElement element = visible(locator);
+        visualFeedback(element);
         element.clear();
         element.sendKeys(text);
     }
