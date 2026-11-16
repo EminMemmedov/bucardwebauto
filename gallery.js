@@ -345,11 +345,12 @@
                     }
                 }
 
+                const isNegative = (item.name && item.name.startsWith('NEQ')) || item.category === 'Neqativ və Təhlükəsizlik Ssenariləri';
                 cardsHtml += `
                     <div class="bucard-card ${isFailed ? 'failed' : ''}" id="bucard-card-${item.uid}" data-uid="${item.uid}">
                         <div class="bucard-card-header">
-                            <span class="bucard-card-badge ${isFailed ? 'failed' : 'passed'}">
-                                ${isFailed ? 'XƏTA' : 'UĞURLU'}
+                            <span class="bucard-card-badge ${isFailed ? 'failed' : (isNegative ? 'negative' : 'passed')}">
+                                ${isFailed ? 'XƏTA' : (isNegative ? 'NEQATİV UĞUR' : 'UĞURLU')}
                             </span>
                             <span class="bucard-card-category">${item.category || 'SMOKE'}</span>
                             <span class="bucard-card-duration">${item.duration}s</span>
