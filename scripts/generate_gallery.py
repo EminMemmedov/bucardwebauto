@@ -13,6 +13,60 @@ import re
 import sys
 
 KNOWN_STEPS = {
+    "BIZ-P0-01": [
+        "1. /login səhifəsini aç və etibarlı kredensiallarla daxil ol",
+        "2. /dashboard səhifəsinin açıldığını təsdiqlə",
+        "3. Sistemdən çıxış (Logout) əməliyyatını icra et",
+        "4. Təkrar /login səhifəsinə yönləndirməni yoxla"
+    ],
+    "BIZ-P0-02": [
+        "1. Dashboard-dan istifadəçi profilini aç",
+        "2. Avatar və profil məlumatlarının əks olunduğunu yoxla",
+        "3. Profil redaktə rejiminə keç və Bio mətnini yenilə",
+        "4. Dəyişikliyi yadda saxla və əks olunduğunu təsdiqlə"
+    ],
+    "BIZ-P0-03": [
+        "1. İstifadəçi profilinin görünürlük statusunu (Public/Private) oxu",
+        "2. Status indikatorunun düzgün əks olunduğunu təsdiqlə"
+    ],
+    "BIZ-P0-04": [
+        "1. Dashboard-dan Search səhifəsinə keç",
+        "2. Axtarış xanasına istifadəçi sorğusu daxil et",
+        "3. Axtarış nəticələrinin gəldiyini təsdiqlə"
+    ],
+    "BIZ-P0-05": [
+        "1. İstifadəçi profilinin paylaşım linkini əldə et",
+        "2. Kuki və sessiyanı təmizləyərək anonim rejimdə linki aç",
+        "3. Paylaşılan profil kartının ictimai əlçatanlığını yoxla"
+    ],
+    "BIZ-P1-01": [
+        "1. Qutuların idarəetmə bölməsinə keç",
+        "2. AUTO_TEST_BOX adlı yeni qutu yarat",
+        "3. Qutunun siyahıda əks olunduğunu təsdiqlə",
+        "4. Qutunun detallarını aç və sınaqdan sonra qutunu sil"
+    ],
+    "BIZ-P1-02": [
+        "1. Qutu detalları bölməsini aç",
+        "2. Yeni test kontaktı (Ad, Telefon, Email) əlavə et",
+        "3. Kontaktın siyahıda göründüyünü yoxla",
+        "4. Test kontaktını sil və təmizlənməni təsdiqlə"
+    ],
+    "BIZ-P1-03": [
+        "1. Settings -> Plan / Abunəlik bölməsinə keç",
+        "2. Cari plan statusunu (Free / Pro) oxu",
+        "3. Mövcud tarifləri və paket limitlərini təsdiqlə"
+    ],
+    "BIZ-P1-04": [
+        "1. Dashboard-da bonus balansı indikatorunu yoxla",
+        "2. Bonus bölməsini aç və balans rəqəmini oxu",
+        "3. Əməliyyat tarixçəsi bölməsinin yükləndiyini təsdiqlə"
+    ],
+    "BIZ-P2-01": [
+        "1. Bildirişlər panelini (Notification Drawer) aç",
+        "2. Bildirişlərin siyahısını yoxla",
+        "3. Hamısını oxunmuş et əməliyyatını icra et və statusu yenilə"
+    ],
+
     "DİL-01": [
         "1. Bucard ana səhifəsini (/) aç",
         "2. Xederdə .selectLang dil elementini tap",
@@ -282,6 +336,7 @@ def generate_gallery(report_dir):
         "Qeydiyyat",
         "Şifrə Bərpası",
         "Neqativ və Təhlükəsizlik Ssenariləri",
+        "Biznes Funksionallıqları (P0, P1, P2)",
         "Digər Testlər"
     ]
 
@@ -324,7 +379,9 @@ def generate_gallery(report_dir):
         name_clean = name.strip()
 
         category = "Digər Testlər"
-        if name_clean.startswith("NEQ") or "NegativeScenarios" in full_name:
+        if name_clean.startswith("BIZ") or "business" in full_name.lower():
+            category = "Biznes Funksionallıqları (P0, P1, P2)"
+        elif name_clean.startswith("NEQ") or "NegativeScenarios" in full_name:
             category = "Neqativ və Təhlükəsizlik Ssenariləri"
         elif name_clean.startswith("DİL") or "Localization" in full_name:
             category = "Çoxdillilik (AZ / EN / RU)"

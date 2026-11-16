@@ -24,11 +24,12 @@
         </classes>
     </test>
 
-    <!-- Authenticated tests are placed in a separate suite until PM provides production test account credentials
-    <test name="Authenticated Read-Only Smoke">
+    <test name="Business Core Suites (P0, P1, P2)">
         <classes>
-            <class name="az.bucard.smoke.AuthenticatedNavigationSmokeTest"/>
+            <class name="az.bucard.business.AuthAndProfileBusinessTest"/>
+            <class name="az.bucard.business.BoxesAndContactsBusinessTest"/>
+            <class name="az.bucard.business.SubscriptionAndBonusBusinessTest"/>
+            <class name="az.bucard.business.NotificationsBusinessTest"/>
         </classes>
     </test>
-    -->
 </suite>

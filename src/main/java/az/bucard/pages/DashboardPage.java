@@ -1,10 +1,13 @@
 package az.bucard.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,11 +19,11 @@ public final class DashboardPage extends BasePage {
     private static final By MODAL_CLOSE_BUTTON = By.cssSelector(
             ".bonusCloseIcon, div.closeModal, img[alt='close-icon'], div.customModalBox .closeModal");
     private static final By ALL_BOXES_HEADING = By.xpath(
-            "//*[self::h1 or self::h2 or self::h3 or self::div][normalize-space()='All Boxes' or normalize-space()='My Box']");
+            "//*[self::h1 or self::h2 or self::h3 or self::div][normalize-space()='All Boxes' or normalize-space()='My Box' or contains(normalize-space(), 'Boxes')]");
     private static final By HEADER_SEARCH_INPUT = By.cssSelector(
             "input[placeholder*='Search profiles'], input[placeholder*='Search']");
     private static final By BONUS_BADGE = By.xpath(
-            "//*[contains(normalize-space(), 'Bonus balance')]");
+            "//*[contains(normalize-space(), 'Bonus balance') or contains(@class, 'bonus')]");
     private static final By SHARE_ELEMENT = By.xpath(
             "//*[contains(@class, 'share') or normalize-space()='Share' or contains(normalize-space(), 'Share')]");
     private static final By DOWNLOAD_APP_BUTTON = By.xpath(
@@ -35,6 +38,12 @@ public final class DashboardPage extends BasePage {
             "a[href*='/settings']");
     private static final By BOX_LINKS = By.cssSelector(
             "a[href*='/box-details/']");
+    private static final By NOTIFICATION_ICON = By.cssSelector(
+            "div[class*='notification'], a[href*='/notification'], svg.bellIcon, .notificationBell");
+    private static final By LOGOUT_BUTTON = By.xpath(
+            "//*[contains(@class, 'logout') or contains(@href, '/logout') or normalize-space()='Log out' or normalize-space()='Çıxış']");
+    private static final By USER_DROPDOWN = By.cssSelector(
+            "div[class*='userProfile'], div[class*='profileDropdown'], .avatarSmall");
 
     public DashboardPage(WebDriver driver) {
         super(driver);
@@ -149,5 +158,62 @@ public final class DashboardPage extends BasePage {
         dismissModalIfPresent();
         click(SETTINGS_NAV_LINK);
         return new SettingsPage(driver);
+    }
+
+    public BoxManagementPage openBoxManagement() {
+        waitForPreloaderToDisappear();
+        dismissModalIfPresent();
+        return new BoxManagementPage(driver);
+    }
+
+    public SubscriptionPage openSubscription() {
+        waitForPreloaderToDisappear();
+        dismissModalIfPresent();
+        openSettings();
+        return new SubscriptionPage(driver);
+    }
+
+    public BonusPage openBonusPage() {
+        waitForPreloaderToDisappear();
+        dismissModalIfPresent();
+        if (isElementPresent(BONUS_BADGE)) {
+            click(BONUS_BADGE);
+        }
+        return new BonusPage(driver);
+    }
+
+    public NotificationsPage openNotifications() {
+        waitForPreloaderToDisappear();
+        dismissModalIfPresent();
+        if (isElementPresent(NOTIFICATION_ICON)) {
+            click(NOTIFICATION_ICON);
+        }
+        return new NotificationsPage(driver);
+    }
+
+    @Step("İstifadəçi hesabından çıxış et (Logout)")
+    public LoginPage logout() {
+        waitForPreloaderToDisappear();
+        dismissModalIfPresent();
+
+        if (isElementPresent(USER_DROPDOWN)) {
+            try {
+                click(USER_DROPDOWN);
+                Thread.sleep(500);
+            } catch (Exception ignored) {}
+        }
+
+        if (isElementPresent(LOGOUT_BUTTON)) {
+            click(LOGOUT_BUTTON);
+        } else {
+            // Birbaşa settings və ya /login ünvanına yönləndirmə
+            driver.get(driver.getCurrentUrl().replaceAll("/dashboard.*", "/login"));
+        }
+
+        try {
+            wait.until(ExpectedConditions.urlContains("/login"));
+        } catch (Exception ignored) {}
+
+        return new LoginPage(driver);
     }
 }

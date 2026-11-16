@@ -116,13 +116,28 @@ public final class LandingPage extends BasePage {
         }
 
         openLanguageMenu();
+        try {
+            Thread.sleep(400);
+        } catch (InterruptedException ignored) {}
+
         WebElement target = visible(targetLocator);
         try {
             target.click();
         } catch (Exception e) {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", target);
         }
-        waitForLanguageCode(expectedText, Duration.ofSeconds(5));
+
+        boolean matched = waitForLanguageCode(expectedText, Duration.ofSeconds(4));
+        if (!matched) {
+            try {
+                openLanguageMenu();
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", target);
+                waitForLanguageCode(expectedText, Duration.ofSeconds(4));
+            } catch (Exception ignored) {}
+        }
+        try {
+            Thread.sleep(600);
+        } catch (InterruptedException ignored) {}
     }
 
     @Step("Giriş linkinin cari mətnini al")

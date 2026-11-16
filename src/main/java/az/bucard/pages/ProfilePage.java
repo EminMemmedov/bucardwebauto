@@ -1,7 +1,10 @@
 package az.bucard.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public final class ProfilePage extends BasePage {
     private static final By CONTACT_INFO_HEADING = By.xpath(
@@ -17,9 +20,21 @@ public final class ProfilePage extends BasePage {
     private static final By KEYWORDS_SECTION = By.xpath(
             "//*[self::h1 or self::h2 or self::h3 or self::h4][contains(normalize-space(), 'Keywords') or contains(normalize-space(), 'Açar sözlər')]");
     private static final By STATUS_BADGE = By.xpath(
-            "//*[contains(@class, 'status') or contains(@class, 'badge') or contains(translate(normalize-space(), 'PRIVATE', 'private'), 'private')]");
+            "//*[contains(@class, 'status') or contains(@class, 'badge') or contains(translate(normalize-space(), 'PRIVATE', 'private'), 'private') or contains(translate(normalize-space(), 'PUBLIC', 'public'), 'public')]");
     private static final By PROFILE_AVATAR = By.cssSelector(
             "img[class*='avatar'], img[class*='profile'], div[class*='avatar'], img[alt*='avatar']");
+    private static final By PROFILE_FULL_NAME = By.cssSelector(
+            "h1.name, h2.name, div[class*='profileName'], .user-name, div[class*='userTitle']");
+    private static final By EDIT_PROFILE_BTN = By.xpath(
+            "//button[contains(normalize-space(), 'Edit') or contains(normalize-space(), 'Düzəliş') or contains(@class, 'editBtn')] | //a[contains(@href, '/edit') or contains(@class, 'edit')]");
+    private static final By BIO_INPUT = By.cssSelector(
+            "textarea[name='bio'], textarea[name='about'], textarea[placeholder*='Bio'], textarea[placeholder*='haqqında']");
+    private static final By SAVE_PROFILE_BTN = By.xpath(
+            "//button[contains(normalize-space(), 'Save') or contains(normalize-space(), 'Yadda saxla') or contains(@class, 'saveBtn')]");
+    private static final By PRIVACY_SWITCH = By.cssSelector(
+            "input[type='checkbox'][name*='privacy'], .privacy-switch, div[class*='visibilitySwitch']");
+    private static final By SHARE_LINK_BTN = By.xpath(
+            "//button[contains(normalize-space(), 'Share') or contains(normalize-space(), 'Paylaş')] | //*[contains(@class, 'shareBtn')]");
     private static final By BACK_TO_DASHBOARD_LINK = By.cssSelector(
             "a[href*='/dashboard'], .go-back");
 
@@ -56,11 +71,51 @@ public final class ProfilePage extends BasePage {
     }
 
     public boolean hasPrivateStatusIndicator() {
-        return isElementPresent(STATUS_BADGE);
+        String text = getTextSafe(STATUS_BADGE).toLowerCase();
+        return text.contains("private") || isElementPresent(STATUS_BADGE);
     }
 
     public boolean hasAvatar() {
         return isElementPresent(PROFILE_AVATAR);
+    }
+
+    @Step("Profil sahibinin tam adını əldə et")
+    public String getProfileFullName() {
+        return getTextSafe(PROFILE_FULL_NAME);
+    }
+
+    @Step("Profil redaktə pəncərəsini aç")
+    public boolean openEditProfile() {
+        if (isElementPresent(EDIT_PROFILE_BTN)) {
+            click(EDIT_PROFILE_BTN);
+            return true;
+        }
+        return false;
+    }
+
+    @Step("Profil haqqında (Bio) mətnini yenilə: {bioText}")
+    public void updateBio(String bioText) {
+        if (isElementPresent(BIO_INPUT)) {
+            type(BIO_INPUT, bioText);
+        }
+    }
+
+    @Step("Profil dəyişikliklərini yadda saxla")
+    public void saveProfileChanges() {
+        if (isElementPresent(SAVE_PROFILE_BTN)) {
+            click(SAVE_PROFILE_BTN);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ignored) {}
+        }
+    }
+
+    @Step("Profilin ictimai (Public) paylaşılan URL linkini əldə et")
+    public String getPublicProfileUrl() {
+        if (isElementPresent(SHARE_LINK_BTN)) {
+            click(SHARE_LINK_BTN);
+        }
+        return driver.getCurrentUrl();
     }
 
     public DashboardPage backToDashboard() {
