@@ -347,6 +347,7 @@
 
                 const isNegative = (item.name && item.name.startsWith('NEQ')) || item.category === 'Neqativ və Təhlükəsizlik Ssenariləri';
                 const isBusiness = (item.name && item.name.startsWith('BIZ')) || (item.category && item.category.includes('Biznes'));
+                const isDynamic = (item.name && item.name.startsWith('DYN')) || (item.category && item.category.includes('Dinamik'));
                 let badgeClass = 'passed';
                 let badgeText = 'UĞURLU';
                 if (isFailed) {
@@ -355,6 +356,9 @@
                 } else if (isNegative) {
                     badgeClass = 'negative';
                     badgeText = 'NEQATİV UĞUR';
+                } else if (isDynamic) {
+                    badgeClass = 'dynamic';
+                    badgeText = 'DİNAMİK QEYDİYYAT';
                 } else if (isBusiness) {
                     badgeClass = 'business';
                     badgeText = item.name.includes('P0') ? 'BİZNES P0' : (item.name.includes('P1') ? 'BİZNES P1' : 'BİZNES P2');

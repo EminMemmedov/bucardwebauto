@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"b82a74d8d1d8ae0a36af31ebb9c38660","name":"Bucard Web Automation","statistic":{"failed":0,"broken":0,"skipped":10,"passed":52,"unknown":0,"total":62}}]}
+{"total":2,"items":[{"uid":"940a09faf31371a51747026c9d178f0a","name":"Surefire suite","statistic":{"failed":0,"broken":1,"skipped":3,"passed":0,"unknown":0,"total":4}},{"uid":"b82a74d8d1d8ae0a36af31ebb9c38660","name":"Bucard Web Automation","statistic":{"failed":0,"broken":0,"skipped":10,"passed":52,"unknown":0,"total":62}}]}
