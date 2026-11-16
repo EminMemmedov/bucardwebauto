@@ -108,6 +108,62 @@ public final class TelegramReporter {
         }
     }
 
+    public void sendDocument(Path docPath, String filename, String caption) {
+        String token = Config.telegramBotToken();
+        String chatId = Config.telegramChatId();
+        if (token == null || token.isBlank() || chatId == null || chatId.isBlank()) {
+            return;
+        }
+        if (docPath == null || !Files.exists(docPath)) {
+            return;
+        }
+
+        try {
+            String boundary = "===TelegramDocBoundary" + System.currentTimeMillis() + "===";
+            byte[] fileBytes = Files.readAllBytes(docPath);
+            String docName = (filename != null && !filename.isBlank()) ? filename : docPath.getFileName().toString();
+
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            // field: chat_id
+            baos.write(("--" + boundary + "\r\n").getBytes(StandardCharsets.UTF_8));
+            baos.write(("Content-Disposition: form-data; name=\"chat_id\"\r\n\r\n").getBytes(StandardCharsets.UTF_8));
+            baos.write((chatId + "\r\n").getBytes(StandardCharsets.UTF_8));
+
+            // field: parse_mode
+            baos.write(("--" + boundary + "\r\n").getBytes(StandardCharsets.UTF_8));
+            baos.write(("Content-Disposition: form-data; name=\"parse_mode\"\r\n\r\n").getBytes(StandardCharsets.UTF_8));
+            baos.write(("HTML\r\n").getBytes(StandardCharsets.UTF_8));
+
+            // field: caption
+            if (caption != null && !caption.isBlank()) {
+                baos.write(("--" + boundary + "\r\n").getBytes(StandardCharsets.UTF_8));
+                baos.write(("Content-Disposition: form-data; name=\"caption\"\r\n\r\n").getBytes(StandardCharsets.UTF_8));
+                baos.write((caption + "\r\n").getBytes(StandardCharsets.UTF_8));
+            }
+
+            // field: document
+            baos.write(("--" + boundary + "\r\n").getBytes(StandardCharsets.UTF_8));
+            baos.write(("Content-Disposition: form-data; name=\"document\"; filename=\"" + docName + "\"\r\n").getBytes(StandardCharsets.UTF_8));
+            baos.write(("Content-Type: text/html\r\n\r\n").getBytes(StandardCharsets.UTF_8));
+            baos.write(fileBytes);
+            baos.write(("\r\n--" + boundary + "--\r\n").getBytes(StandardCharsets.UTF_8));
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://api.telegram.org/bot" + token + "/sendDocument"))
+                    .timeout(Duration.ofSeconds(45))
+                    .header("Content-Type", "multipart/form-data; boundary=" + boundary)
+                    .POST(HttpRequest.BodyPublishers.ofByteArray(baos.toByteArray()))
+                    .build();
+
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() >= 300) {
+                System.err.println("Warning: Telegram sendDocument returned HTTP " + response.statusCode());
+            }
+        } catch (Exception e) {
+            System.err.println("Warning: Could not send Telegram document: " + e.getMessage());
+        }
+    }
+
     private static String encode(String value) {
         return URLEncoder.encode(value, StandardCharsets.UTF_8);
     }

@@ -99,7 +99,7 @@ public final class Config {
     }
 
     public static String allureReportUrl() {
-        return getSetting("allure.report.url", "ALLURE_REPORT_URL", "https://bucard-tech.github.io/bucardwebauto/");
+        return getSetting("allure.report.url", "ALLURE_REPORT_URL", "https://eminmemmedov.github.io/bucardwebauto/");
     }
 
     public static boolean isAuthAvailable() {
