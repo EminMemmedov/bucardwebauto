@@ -104,21 +104,21 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
         String progressBar = "🟩".repeat(greenBlocks) + "🟥".repeat(redBlocks);
 
         String statusHeader = failed == 0
-                ? "🟢 <b>Bucard Smoke Suite: УСПЕХ</b>"
-                : "🔴 <b>Bucard Smoke Suite: СБОИ (" + failed + ")</b>";
+                ? "🟢 <b>Bucard Smoke Suite: UĞURLU</b>"
+                : "🔴 <b>Bucard Smoke Suite: XƏTA (" + failed + ")</b>";
 
         StringBuilder sb = new StringBuilder();
         sb.append(statusHeader).append("\n");
-        sb.append("🎯 <b>Цель:</b> ").append(escapeHtml(Config.baseUrl())).append("\n");
-        sb.append("⏱ <b>Время:</b> ").append(String.format("%.1fs", totalSeconds))
-                .append(" | <b>Браузер:</b> ").append(escapeHtml(Config.browser()))
+        sb.append("🎯 <b>Hədəf:</b> ").append(escapeHtml(Config.baseUrl())).append("\n");
+        sb.append("⏱ <b>Müddət:</b> ").append(String.format("%.1fs", totalSeconds))
+                .append(" | <b>Brauzer:</b> ").append(escapeHtml(Config.browser()))
                 .append(Config.headless() ? " (headless)" : " (headed)").append("\n\n");
 
         sb.append("[").append(progressBar).append("] <b>").append(passPercent).append("%</b>\n");
-        sb.append("✅ ").append(passed).append(" Passed  |  ❌ ").append(failed)
-                .append(" Failed  |  ⚠️ ").append(skipped).append(" Skipped\n\n");
+        sb.append("✅ ").append(passed).append(" Uğurlu  |  ❌ ").append(failed)
+                .append(" Xətalı  |  ⚠️ ").append(skipped).append(" Ötürüldü\n\n");
 
-        sb.append("<b>Тесты:</b>\n");
+        sb.append("<b>Testlər:</b>\n");
         int maxListing = Math.min(10, TEST_RECORDS.size());
         for (int i = 0; i < maxListing; i++) {
             TestRecord rec = TEST_RECORDS.get(i);
@@ -128,7 +128,7 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
                     .append(String.format("%.1fs", rec.durationSeconds())).append(")\n");
         }
         if (TEST_RECORDS.size() > 10) {
-            sb.append("• ... и ещё ").append(TEST_RECORDS.size() - 10).append(" тестов\n");
+            sb.append("• ... və daha ").append(TEST_RECORDS.size() - 10).append(" test\n");
         }
 
         List<TestRecord> failedRecords = new ArrayList<>();
@@ -139,7 +139,7 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
         }
 
         if (!failedRecords.isEmpty()) {
-            sb.append("\n<b>⚠️ Причины сбоев:</b>\n");
+            sb.append("\n<b>⚠️ Xətaların səbəbləri:</b>\n");
             int maxFailures = Math.min(3, failedRecords.size());
             for (int i = 0; i < maxFailures; i++) {
                 TestRecord f = failedRecords.get(i);
@@ -147,25 +147,25 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
                         .append(escapeHtml(f.failureReason())).append("\n");
             }
             if (failedRecords.size() > 3) {
-                sb.append("• ... и ещё ").append(failedRecords.size() - 3).append(" сбоев\n");
+                sb.append("• ... və daha ").append(failedRecords.size() - 3).append(" xəta\n");
             }
         }
 
         String allureUrl = Config.allureReportUrl();
         if (allureUrl != null && !allureUrl.isBlank()) {
-            sb.append("\n📱 <a href=\"").append(escapeHtml(allureUrl))
-                    .append("\"><b>👉 Открыть детальный Allure-отчёт (Mobile)</b></a>");
+            sb.append("\n📊 <a href=\"").append(escapeHtml(allureUrl))
+                    .append("\"><b>👉 Ətraflı Allure hesabatına baxın</b></a>");
         }
 
         TelegramReporter reporter = new TelegramReporter();
         reporter.send(sb.toString().trim());
 
-        // Отправка скриншотов падений прямо в чат (до 2 штук, чтобы не спамить)
+        // Xəta baş verdikdə skrinşotların birbaşa qrupa göndərilməsi (ən çox 2 ədəd)
         int sentPhotos = 0;
         for (TestRecord f : failedRecords) {
             if (f.screenshotPath() != null && sentPhotos < 2) {
                 Path photo = Path.of(f.screenshotPath());
-                String caption = "❌ <b>Скриншот сбоя:</b> " + escapeHtml(f.className()) + "." + escapeHtml(f.methodName());
+                String caption = "❌ <b>Xəta skrinşotu:</b> " + escapeHtml(f.className()) + "." + escapeHtml(f.methodName());
                 reporter.sendPhoto(photo, caption);
                 sentPhotos++;
             }
