@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "uid": "d75742ccf30da8ba",
+    "name": "SAYT-01: Bucard əsas səhifəsinin açılması və başlıq yoxlanışı",
+    "feature": "Saytın Əlçatanlığı və İnfrastruktur",
+    "story": "Saytın Əsas Giriş Nöqtəsi",
+    "category": "İctimai Səhifələr və Naviqasiya",
+    "status": "passed",
+    "duration": 3.0,
+    "description": "Bucard platformasının aktivliyini, səhifə başlığında 'Bucard' sözünün olduğunu və #root SPA konteynerinin uğurla yükləndiyini təsdiqləyir.",
+    "steps": [
+      "1. https://bucard.az ünvanına HTTPS bağlantısını yoxla",
+      "2. Səhifənin 200 OK statusu ilə yükləndiyini təsdiqlə",
+      "3. HTML DOM və #root strukturunun qurulduğunu yoxla"
+    ],
+    "lastPassed": {
+      "uid": "d75742ccf30da8ba",
+      "formatted": "17.11.2026, 11:10",
+      "timestamp": 1794899451694
+    },
+    "images": [
+      {
+        "name": "Bucard əsas səhifəsinin ilkin görünüşü",
+        "src": "data/attachments/20c5f5b0cd336fc2.png",
+        "size": 190766
+      }
+    ]
+  }
+]
