@@ -69,6 +69,38 @@ public final class BoxManagementPage extends BasePage {
         return false;
     }
 
+    @Step("Mövcud qutunun adını dəyiş: '{oldName}' -> '{newName}'")
+    public boolean renameBox(String oldName, String newName) {
+        List<WebElement> boxes = driver.findElements(BOX_ITEMS);
+        for (WebElement box : boxes) {
+            try {
+                if (box.getText().contains(oldName)) {
+                    List<WebElement> menus = box.findElements(BOX_MENU_BUTTON);
+                    if (!menus.isEmpty()) {
+                        menus.get(0).click();
+                        if (isElementPresent(RENAME_BOX_OPTION)) {
+                            click(RENAME_BOX_OPTION);
+                            if (isElementPresent(BOX_NAME_INPUT)) {
+                                clearAndType(BOX_NAME_INPUT, newName);
+                                if (isElementPresent(SUBMIT_BOX_BUTTON)) {
+                                    click(SUBMIT_BOX_BUTTON);
+                                } else {
+                                    By saveBtn = By.xpath("//button[contains(normalize-space(), 'Save') or contains(normalize-space(), 'Yadda saxla') or contains(normalize-space(), 'Dəyiş') or contains(normalize-space(), 'Confirm')]");
+                                    if (isElementPresent(saveBtn)) {
+                                        click(saveBtn);
+                                    }
+                                }
+                                Thread.sleep(1200);
+                                return true;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception ignored) {}
+        }
+        return false;
+    }
+
     @Step("Mövcud qutunu sil: '{boxName}'")
     public boolean deleteBox(String boxName) {
         List<WebElement> boxes = driver.findElements(BOX_ITEMS);

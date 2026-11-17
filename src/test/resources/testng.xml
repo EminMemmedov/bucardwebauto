@@ -24,9 +24,10 @@
         </classes>
     </test>
 
-    <test name="Dynamic Temp-Mail Registration &amp; Auth">
+    <test name="Dynamic Temp-Mail Registration, Auth &amp; OTP Recovery">
         <classes>
             <class name="az.bucard.smoke.DynamicRegistrationSmokeTest"/>
+            <class name="az.bucard.smoke.ForgotPasswordOtpEndToEndTest"/>
         </classes>
     </test>
 

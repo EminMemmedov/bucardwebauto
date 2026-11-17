@@ -33,7 +33,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           BUCARD_TEST_USER: ${{ secrets.BUCARD_TEST_USER }}
           BUCARD_TEST_PASSWORD: ${{ secrets.BUCARD_TEST_PASSWORD }}
-          ALLURE_REPORT_URL: https://eminmemmedov.github.io/bucardwebauto/
+          ALLURE_REPORT_URL: https://bucard-tech.github.io/bucardwebauto/
         run: mvn --batch-mode test
 
       - name: Upload test failure screenshots

@@ -276,8 +276,8 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
         if (combined.contains("register") || combined.contains("qeyd")) {
             return "Qeydiyyat";
         }
-        if (combined.contains("forgotpassword") || combined.contains("bərpa")) {
-            return "Şifrə Bərpası";
+        if (combined.contains("otp") || combined.contains("recover") || combined.contains("forgotpassword") || combined.contains("bərpa")) {
+            return "Şifrə Bərpası və OTP";
         }
         if (combined.contains("negative") || combined.contains("neq")) {
             return "Neqativ və Təhlükəsizlik";
@@ -345,7 +345,7 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
                 props.setProperty("Brauzer (Browser)", Config.browser() + (Config.headless() ? " (headless)" : " (headed)"));
                 props.setProperty("Əməliyyat Sistemi (OS)", System.getProperty("os.name") + " " + System.getProperty("os.version"));
                 props.setProperty("Java Versiyası", System.getProperty("java.version"));
-                props.setProperty("Hesabat Portalı", "https://eminmemmedov.github.io/bucardwebauto/");
+                props.setProperty("Hesabat Portalı", Config.allureReportUrl());
                 try (var os = Files.newOutputStream(allureResults.resolve("environment.properties"))) {
                     props.store(os, "Allure Environment Properties");
                 }

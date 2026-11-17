@@ -71,7 +71,7 @@ public class DynamicRegistrationSmokeTest extends BaseTest {
         attachScreenshot("Çıxışdan Sonra Giriş Səhifəsi");
 
         // Bütün sonrakı biznes testlər üçün dinamik hesabı aktivləşdiririk
-        DynamicCredentialsHolder.setCredentials(dynamicAccount.address(), DEFAULT_PASSWORD);
+        DynamicCredentialsHolder.setCredentials(dynamicAccount.address(), DEFAULT_PASSWORD, dynamicAccount, new GuerrillaMailClient());
     }
 
     @Test(description = "DYN-QEYD-03: Yeni qeydiyyatdan keçmiş dinamik hesab ilə təkrar giriş (Login)", groups = {"dynamic", "registration"}, dependsOnMethods = "registerWithDynamicEmailVerifyDashboardAndLogout")

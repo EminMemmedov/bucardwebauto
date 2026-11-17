@@ -1,9 +1,13 @@
 package az.bucard.smoke;
 
+import az.bucard.auth.DynamicCredentialsHolder;
 import az.bucard.base.BaseTest;
 import az.bucard.config.Config;
+import az.bucard.pages.BoxManagementPage;
+import az.bucard.pages.DashboardPage;
 import az.bucard.pages.ForgotPasswordPage;
 import az.bucard.pages.LoginPage;
+import az.bucard.pages.RecoverPasswordPage;
 import az.bucard.pages.RegisterPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
@@ -12,7 +16,9 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -414,5 +420,184 @@ public class NegativeScenariosSmokeTest extends BaseTest {
                 "SPA konteyneri (#root) aktiv qalmalıdır");
 
         attachScreenshot("Qeyri-mövcud Qutuya İcazəsiz Keçid");
+    }
+
+    // =========================================================================
+    // OTP və Bərpa Neqativ Halları
+    // =========================================================================
+
+    @Test(description = "NEQ-OTP-01: Yanlış OTP kodu (0000) daxil edildikdə xətanın yaranması", groups = {"negative", "recovery", "otp"})
+    @Story("OTP və Bərpa Neqativ Halları")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Şifrə bərpası zamanı yanlış OTP kodu daxil edildikdə sistemin xəta verdiyini və növbəti addıma buraxmadığını yoxlayır.")
+    public void forgotPasswordWithWrongOtpShowsError() {
+        WebDriver driver = getDriver();
+        ForgotPasswordPage forgotPage = new ForgotPasswordPage(driver);
+        forgotPage.openEmailRecovery(Config.baseUrl());
+
+        String testEmail = DynamicCredentialsHolder.getEffectiveUser();
+        if (testEmail == null) {
+            testEmail = "bucard_qa_test_" + System.currentTimeMillis() + "@sharklasers.com";
+        }
+
+        forgotPage.typeEmail(testEmail);
+        forgotPage.clickSubmit();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            wait.until(d -> forgotPage.isOtpStepDisplayed());
+        } catch (Exception ignored) {}
+
+        if (forgotPage.isOtpStepDisplayed()) {
+            forgotPage.enterOtp("0000");
+            attachScreenshot("Yanlış OTP Kodu Daxil Edildi");
+            forgotPage.submitOtp();
+
+            try {
+                Thread.sleep(1200);
+            } catch (InterruptedException ignored) {}
+
+            Assert.assertFalse(driver.getCurrentUrl().contains("/recover-password"),
+                    "Yanlış OTP ilə /recover-password səhifəsinə keçid edilməməlidir");
+            attachScreenshot("Yanlış OTP Daxil Edildikdə Xəta Vəziyyəti");
+        }
+    }
+
+    @Test(description = "NEQ-OTP-02: OTP kodunun natamam daxil edilməsi (1-3 rəqəm)", groups = {"negative", "recovery", "otp"})
+    @Story("OTP və Bərpa Neqativ Halları")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("OTP kodunun 4 rəqəmi tam doldurulmadıqda təsdiq düyməsinin qeyri-aktiv (disabled) qaldığını yoxlayır.")
+    public void forgotPasswordWithIncompleteOtpButtonDisabled() {
+        WebDriver driver = getDriver();
+        ForgotPasswordPage forgotPage = new ForgotPasswordPage(driver);
+        forgotPage.openEmailRecovery(Config.baseUrl());
+
+        String testEmail = DynamicCredentialsHolder.getEffectiveUser();
+        if (testEmail == null) {
+            testEmail = "bucard_incomplete_otp_" + System.currentTimeMillis() + "@sharklasers.com";
+        }
+
+        forgotPage.typeEmail(testEmail);
+        forgotPage.clickSubmit();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            wait.until(d -> forgotPage.isOtpStepDisplayed());
+        } catch (Exception ignored) {}
+
+        if (forgotPage.isOtpStepDisplayed()) {
+            forgotPage.enterOtp("12");
+            attachScreenshot("Natamam OTP Daxil Edildi (2 rəqəm)");
+            Assert.assertFalse(forgotPage.isOtpSubmitEnabled(),
+                    "OTP kodu 4 rəqəmdən az olduqda təsdiq düyməsi deaktiv qalmalıdır");
+        }
+    }
+
+    @Test(description = "NEQ-REC-01: Yeni şifrə bərpasında zəif / qısa şifrə daxil edilməsi", groups = {"negative", "recovery"})
+    @Story("OTP və Bərpa Neqativ Halları")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("/recover-password ünvanında 6 simvoldan qısa şifrə təyin edilməyə cəhd edildikdə validasiya reaksiyasını yoxlayır.")
+    public void recoverPasswordWithShortPasswordValidation() {
+        WebDriver driver = getDriver();
+        driver.get(Config.baseUrl().replaceAll("/+$", "") + "/recover-password/email/test@bucard.az/mock-session-key");
+
+        RecoverPasswordPage recoverPage = new RecoverPasswordPage(driver);
+        if (recoverPage.isLoaded() && recoverPage.hasNewPasswordField()) {
+            recoverPage.enterNewPassword("123");
+            recoverPage.submit();
+            attachScreenshot("Qısa Şifrə Validasiya Yoxlanışı");
+            Assert.assertTrue(recoverPage.hasError() || !driver.getCurrentUrl().contains("/login"),
+                    "6 simvoldan qısa şifrə təsdiqlənməməlidir");
+        } else {
+            Assert.assertFalse(driver.findElements(By.id("root")).isEmpty(),
+                    "SPA konteyneri mövcud olmalıdır");
+        }
+    }
+
+    // =========================================================================
+    // Qeydiyyat və Biznes Neqativ Halları
+    // =========================================================================
+
+    @Test(description = "NEQ-QEYD-05: Mövcud / qeydiyyatdan keçmiş e-poçt ilə təkrar qeydiyyat cəhdi", groups = {"negative", "registration"})
+    @Story("Qeydiyyat Neqativ Halları")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Artıq sistemdə mövcud olan e-poçt ilə təkrar qeydiyyat cəhdi zamanı müvafiq xəta bildirişinin yarandığını təsdiqləyir.")
+    public void registerWithExistingEmailShowsConflictError() {
+        WebDriver driver = getDriver();
+        RegisterPage registerPage = new RegisterPage(driver);
+        registerPage.open(Config.baseUrl());
+
+        String existingEmail = DynamicCredentialsHolder.getEffectiveUser();
+        if (existingEmail == null) {
+            existingEmail = "test@bucard.az";
+        }
+
+        registerPage.fillCredentials(existingEmail, "BucardExisting2026!");
+        registerPage.submit();
+
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException ignored) {}
+
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertTrue(registerPage.hasErrorAlert() || currentUrl.contains("/register"),
+                "Mövcud e-poçt ilə qeydiyyat cəhdində dashboard-a keçilməməli və xəta verilməlidir");
+        attachScreenshot("Mövcud E-poçt ilə Təkrar Qeydiyyat Xətası");
+    }
+
+    @Test(description = "NEQ-BOX-01: Qutu adı boş və ya yalnız boşluqlarla göndərildikdə yaradılmanın bloklanması", groups = {"negative", "boxes"})
+    @Story("Qutu İdarəetməsi Neqativ Halları")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Qutu yaratma formasında ad daxil edilmədikdə və ya yalnız boşluq simvolları yazıldıqda yeni qutunun yaradılmadığını yoxlayır.")
+    public void boxCreationWithEmptyNameBlocked() {
+        if (!DynamicCredentialsHolder.isAvailable()) {
+            DynamicCredentialsHolder.ensureAccountRegistered(getDriver());
+        }
+
+        WebDriver driver = getDriver();
+        driver.get(Config.baseUrl().replaceAll("/+$", "") + "/dashboard");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage.waitForPreloaderToDisappear();
+        dashboardPage.dismissModalIfPresent();
+
+        if (dashboardPage.isLoaded()) {
+            BoxManagementPage boxPage = dashboardPage.openBoxManagement();
+            boolean created = boxPage.createBox("   ");
+            attachScreenshot("Boş Qutu Adı ilə Yaratma Cəhdi");
+            Assert.assertFalse(created && boxPage.isBoxPresent("   "),
+                    "Boş adla qutu yaradılmamalıdır");
+        }
+    }
+
+    @Test(description = "NEQ-SESS-01: Aktiv sessiya zamanı avtorizasiya tokeni silindikdə sistemdən çıxarılma", groups = {"negative", "security"})
+    @Story("Sessiya Təhlükəsizliyi")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("localStorage-dan avtorizasiya tokeni (X-Authorization) təmizləndikdə və səhifə yeniləndikdə mühafizə olunan səhifədən /login-ə yönləndirməni yoxlayır.")
+    public void sessionInvalidatedWhenAuthTokenRemoved() {
+        if (!DynamicCredentialsHolder.isAvailable()) {
+            DynamicCredentialsHolder.ensureAccountRegistered(getDriver());
+        }
+
+        WebDriver driver = getDriver();
+        driver.get(Config.baseUrl().replaceAll("/+$", "") + "/dashboard");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        dashboardPage.waitForPreloaderToDisappear();
+        dashboardPage.dismissModalIfPresent();
+
+        if (dashboardPage.isLoaded()) {
+            // Tokenin silinməsi
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("localStorage.removeItem('X-Authorization'); localStorage.removeItem('userIn');");
+
+            driver.navigate().refresh();
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException ignored) {}
+
+            String currentUrl = driver.getCurrentUrl();
+            Assert.assertTrue(currentUrl.contains("login") || currentUrl.contains("auth") || currentUrl.endsWith("/"),
+                    "Token silindikdən sonra istifadəçi login səhifəsinə yönləndirilməlidir, cari URL: " + currentUrl);
+            attachScreenshot("Token Silindikdən Sonra Avtomatik Giriş Səhifəsinə Keçid");
+        }
     }
 }

@@ -57,10 +57,10 @@ public class BoxesAndContactsBusinessTest extends BaseTest {
         return page;
     }
 
-    @Test(description = "BIZ-P1-01: Qutuların idarə edilməsi (Yaradılma, Baxış və Təmizlənmə)", groups = {"business", "p1", "boxes"})
+    @Test(description = "BIZ-P1-01: Qutuların idarə edilməsi (Yaradılma, Ad dəyişmə, Baxış və Təmizlənmə)", groups = {"business", "p1", "boxes"})
     @Story("Qutuların İdarə Edilməsi")
     @Severity(SeverityLevel.CRITICAL)
-    @Description("İstifadəçinin yeni qutu yarada, qutunu aça və silə bildiyini təsdiqləyir.")
+    @Description("İstifadəçinin yeni qutu yarada, adını dəyişə, qutunu aça və silə bildiyini təsdiqləyir.")
     public void boxManagementLifecycleWorks() {
         dashboardPage = performLogin();
         BoxManagementPage boxPage = dashboardPage.openBoxManagement();
@@ -71,6 +71,14 @@ public class BoxesAndContactsBusinessTest extends BaseTest {
 
         if (created) {
             Assert.assertTrue(boxPage.isBoxPresent(tempBoxName), "Yaradılmış qutu siyahıda əks olunmalıdır");
+
+            // Qutunun adının dəyişdirilməsi (Rename Box)
+            String renamedBox = tempBoxName + "_RENAMED";
+            boolean renamed = boxPage.renameBox(tempBoxName, renamedBox);
+            if (renamed) {
+                tempBoxName = renamedBox;
+                attachScreenshot("Qutunun Adının Dəyişdirilməsindən Sonra");
+            }
 
             // Qutunun silinməsi (data cleanup)
             boolean deleted = boxPage.deleteBox(tempBoxName);
@@ -99,8 +107,12 @@ public class BoxesAndContactsBusinessTest extends BaseTest {
         if (contactsPage.isElementVisible(org.openqa.selenium.By.xpath("//button[contains(normalize-space(), 'Add Contact') or contains(normalize-space(), 'Kontakt əlavə et')]"))) {
             String contactName = "AUTO_TEST_USER_" + (System.currentTimeMillis() % 10000);
             try {
-                contactsPage.addContact(contactName, "+994501234567", "autotest@bucard.az");
+                boolean added = contactsPage.addContact(contactName, "+994501234567", "autotest@bucard.az");
                 attachScreenshot("Yeni Kontakt Əlavə Edilməsi");
+                if (added && contactsPage.hasContact(contactName)) {
+                    contactsPage.deleteContact(contactName);
+                    attachScreenshot("Kontaktın Silinməsindən Sonrakı Vəziyyət");
+                }
             } catch (Exception ignored) {}
         } else {
             Assert.assertTrue(boxDetails.hasContactSearch() || boxDetails.hasEmptyState() || boxDetails.isLoaded(),

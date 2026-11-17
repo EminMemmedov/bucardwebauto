@@ -29,6 +29,14 @@ KNOWN_STEPS = {
         "2. Şifrəni daxil edərək Daxil ol düyməsinə kliklə",
         "3. Sessiyanın bərpasını və /dashboard-a uğurlu təkrar girişi təsdiqlə"
     ],
+    "BƏRPA-E2E-01": [
+        "1. /forgot-password/email səhifəsini aç və dinamik e-poçtu daxil et",
+        "2. Təsdiq düyməsinə kliklə və 4-rəqəmli OTP formasının açıldığını yoxla",
+        "3. REST API vasitəsilə müvəqqəti poçt qutusundan OTP kodunu oxu",
+        "4. Kodu 4 xanaya daxil et və təsdiqlə",
+        "5. /recover-password səhifəsində yeni güclü şifrə təyin et",
+        "6. /login səhifəsində yeni şifrə ilə uğurlu girişi təsdiqlə"
+    ],
 
     "BIZ-P0-01": [
         "1. /login səhifəsini aç və etibarlı kredensiallarla daxil ol",

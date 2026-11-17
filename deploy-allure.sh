@@ -14,9 +14,13 @@ else
 fi
 
 DEPLOY_DIR="/tmp/allure-deploy"
+REPO_URL=$(git config --get remote.origin.url || echo "git@github.com:bucard-tech/bucardwebauto.git")
+
 if [ ! -d "$DEPLOY_DIR/.git" ]; then
     rm -rf "$DEPLOY_DIR"
-    git clone git@github.com:EminMemmedov/bucardwebauto.git "$DEPLOY_DIR"
+    git clone "$REPO_URL" "$DEPLOY_DIR"
+else
+    git -C "$DEPLOY_DIR" remote set-url origin "$REPO_URL" || true
 fi
 
 echo "=== Copying generated report to deploy directory ==="
@@ -54,10 +58,5 @@ git checkout gh-pages || git checkout -b gh-pages
 git add -A
 git commit -m "deploy: update live Allure report with latest smoke suite" || true
 git push origin gh-pages --force
-
-echo "=== Syncing main branch on public repo ==="
-git checkout main
-git reset --hard gh-pages
-git push origin main --force
 
 echo "=== Deployment complete! ==="

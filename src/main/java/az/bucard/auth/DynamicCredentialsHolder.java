@@ -13,12 +13,29 @@ public final class DynamicCredentialsHolder {
     private static final AtomicReference<DynamicAccount> ACTIVE_ACCOUNT = new AtomicReference<>();
     public static final String DEFAULT_PASSWORD = "BucardTest2026!";
 
-    public record DynamicAccount(String email, String password, boolean registered) {}
+    public record DynamicAccount(
+            String email,
+            String password,
+            boolean registered,
+            EmailAccount emailAccount,
+            TempEmailService emailService
+    ) {}
 
     private DynamicCredentialsHolder() {}
 
     public static void setCredentials(String email, String password) {
-        ACTIVE_ACCOUNT.set(new DynamicAccount(email, password, true));
+        setCredentials(email, password, null, null);
+    }
+
+    public static void setCredentials(String email, String password, EmailAccount emailAccount, TempEmailService emailService) {
+        ACTIVE_ACCOUNT.set(new DynamicAccount(email, password, true, emailAccount, emailService));
+    }
+
+    public static void updatePassword(String newPassword) {
+        DynamicAccount curr = ACTIVE_ACCOUNT.get();
+        if (curr != null) {
+            ACTIVE_ACCOUNT.set(new DynamicAccount(curr.email(), newPassword, curr.registered(), curr.emailAccount(), curr.emailService()));
+        }
     }
 
     public static boolean hasDynamicCredentials() {
@@ -48,6 +65,19 @@ public final class DynamicCredentialsHolder {
         return DEFAULT_PASSWORD;
     }
 
+    public static EmailAccount getEmailAccount() {
+        DynamicAccount acc = ACTIVE_ACCOUNT.get();
+        return acc != null ? acc.emailAccount() : null;
+    }
+
+    public static TempEmailService getEmailService() {
+        DynamicAccount acc = ACTIVE_ACCOUNT.get();
+        if (acc != null && acc.emailService() != null) {
+            return acc.emailService();
+        }
+        return new GuerrillaMailClient();
+    }
+
     public static boolean isAvailable() {
         return Config.isAuthAvailable() || hasDynamicCredentials();
     }
@@ -59,7 +89,7 @@ public final class DynamicCredentialsHolder {
             RegisterPage registerPage = new RegisterPage(driver);
             registerPage.open(Config.baseUrl());
             registerPage.registerNewUser(account.address(), DEFAULT_PASSWORD);
-            setCredentials(account.address(), DEFAULT_PASSWORD);
+            setCredentials(account.address(), DEFAULT_PASSWORD, account, emailService);
         }
     }
 
