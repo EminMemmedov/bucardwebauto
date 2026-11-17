@@ -361,6 +361,15 @@ public final class TelegramTestListener implements ITestListener, IExecutionList
 
     private void deployAllureReport() {
         try {
+            boolean hasUiTests = TEST_RECORDS.stream()
+                    .anyMatch(r -> !"unit".equalsIgnoreCase(r.featureName())
+                            && !r.className().contains("Config")
+                            && !r.className().contains("Sanitizer"));
+            if (!hasUiTests) {
+                System.out.println("ℹ️ Yalnız Unit testlər icra edildiyi üçün Allure hesabatının GitHub Pages-ə göndərilməsi ötürülür.");
+                return;
+            }
+
             Path deployScript = Path.of("deploy-allure.sh");
             if (Files.exists(deployScript)) {
                 System.out.println("🔄 Allure veb hesabatı Telegram bildirişindən əvvəl generasiya olunur və GitHub Pages-ə göndərilir...");
