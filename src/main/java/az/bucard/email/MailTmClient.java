@@ -134,7 +134,12 @@ public final class MailTmClient implements TempEmailService {
     @Override
     public String extractVerificationCode(String emailContent) {
         if (emailContent == null) return null;
-        Pattern pattern = Pattern.compile("\\b(\\d{4,6})\\b");
+        Pattern contextPattern = Pattern.compile("(?:kod|code|otp|şifrə|parol|təsdiq)[^\\d]*?(\\d{4})\\b", Pattern.CASE_INSENSITIVE);
+        Matcher contextMatcher = contextPattern.matcher(emailContent);
+        if (contextMatcher.find()) {
+            return contextMatcher.group(1);
+        }
+        Pattern pattern = Pattern.compile("\\b(\\d{4})\\b");
         Matcher matcher = pattern.matcher(emailContent);
         if (matcher.find()) {
             return matcher.group(1);

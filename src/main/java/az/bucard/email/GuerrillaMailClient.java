@@ -61,17 +61,30 @@ public final class GuerrillaMailClient implements TempEmailService {
                 JsonNode root = MAPPER.readTree(resp.body());
                 JsonNode list = root.path("list");
                 if (list.isArray() && !list.isEmpty()) {
-                    String mailId = list.get(0).path("mail_id").asText();
+                    for (JsonNode item : list) {
+                        String from = item.path("mail_from").asText("");
+                        String subject = item.path("mail_subject").asText("");
+                        int mailId = item.path("mail_id").asInt(0);
 
-                    HttpRequest fetchReq = HttpRequest.newBuilder()
-                            .uri(URI.create(API_URL + "?f=fetch_email&email_id=" + mailId + "&sid_token=" + account.token()))
-                            .header("User-Agent", "BucardAutomatedTest/1.0")
-                            .GET()
-                            .build();
+                        // Skip default welcome email from Guerrilla Mail
+                        if (from.contains("guerrillamail.com") || subject.toLowerCase().contains("welcome to guerrilla") || mailId == 1) {
+                            continue;
+                        }
 
-                    HttpResponse<String> fetchResp = HTTP_CLIENT.send(fetchReq, HttpResponse.BodyHandlers.ofString());
-                    JsonNode mailJson = MAPPER.readTree(fetchResp.body());
-                    return mailJson.path("mail_body").asText("");
+                        String fetchId = item.path("mail_id").asText();
+                        HttpRequest fetchReq = HttpRequest.newBuilder()
+                                .uri(URI.create(API_URL + "?f=fetch_email&email_id=" + fetchId + "&sid_token=" + account.token()))
+                                .header("User-Agent", "BucardAutomatedTest/1.0")
+                                .GET()
+                                .build();
+
+                        HttpResponse<String> fetchResp = HTTP_CLIENT.send(fetchReq, HttpResponse.BodyHandlers.ofString());
+                        JsonNode mailJson = MAPPER.readTree(fetchResp.body());
+                        String body = mailJson.path("mail_body").asText("");
+                        if (!body.isBlank()) {
+                            return body;
+                        }
+                    }
                 }
                 Thread.sleep(2500);
             } catch (InterruptedException e) {
@@ -97,7 +110,12 @@ public final class GuerrillaMailClient implements TempEmailService {
     @Override
     public String extractVerificationCode(String emailContent) {
         if (emailContent == null) return null;
-        Pattern pattern = Pattern.compile("\\b(\\d{4,6})\\b");
+        Pattern contextPattern = Pattern.compile("(?:kod|code|otp|şifrə|parol|təsdiq)[^\\d]*?(\\d{4})\\b", Pattern.CASE_INSENSITIVE);
+        Matcher contextMatcher = contextPattern.matcher(emailContent);
+        if (contextMatcher.find()) {
+            return contextMatcher.group(1);
+        }
+        Pattern pattern = Pattern.compile("\\b(\\d{4})\\b");
         Matcher matcher = pattern.matcher(emailContent);
         if (matcher.find()) {
             return matcher.group(1);

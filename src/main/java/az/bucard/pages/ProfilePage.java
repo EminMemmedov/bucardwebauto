@@ -112,8 +112,12 @@ public final class ProfilePage extends BasePage {
 
     @Step("Profilin ictimai (Public) paylaşılan URL linkini əldə et")
     public String getPublicProfileUrl() {
-        if (isElementPresent(SHARE_LINK_BTN)) {
-            click(SHARE_LINK_BTN);
+        try {
+            if (isElementVisible(SHARE_LINK_BTN, java.time.Duration.ofSeconds(2))) {
+                click(SHARE_LINK_BTN);
+            }
+        } catch (Exception ignored) {
+            // Share button might not be present or not require clicking to get profile URL
         }
         return driver.getCurrentUrl();
     }
