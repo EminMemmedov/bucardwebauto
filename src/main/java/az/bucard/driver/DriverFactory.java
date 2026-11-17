@@ -6,8 +6,16 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public final class DriverFactory {
+    static {
+        System.setProperty("webdriver.chrome.silentOutput", "true");
+        Logger.getLogger("org.openqa.selenium").setLevel(Level.SEVERE);
+        Logger.getLogger("org.openqa.selenium.devtools").setLevel(Level.OFF);
+    }
+
     private DriverFactory() {}
 
     public static WebDriver createDriver() {
@@ -32,7 +40,9 @@ public final class DriverFactory {
                 "--remote-allow-origins=*",
                 "--disable-search-engine-choice-screen",
                 "--disable-extensions",
-                "--disable-background-networking"
+                "--disable-background-networking",
+                "--log-level=3",
+                "--silent"
         );
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Config.pageLoadTimeoutSeconds()));
