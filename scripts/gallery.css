@@ -297,6 +297,12 @@
     border: 1px solid #a7f3d0;
 }
 
+.bucard-card-badge.unit {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
 .bucard-card-badge.failed {
     background: #fee2e2;
     color: #991b1b;
@@ -393,6 +399,25 @@
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
+}
+
+.bucard-thumb-container.bucard-no-img-box {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.bucard-no-img-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .bucard-thumb-img {

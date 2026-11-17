@@ -58,5 +58,6 @@ git checkout gh-pages || git checkout -b gh-pages
 git add -A
 git commit -m "deploy: update live Allure report with latest smoke suite" || true
 git push origin gh-pages --force
+git push git@github.com:eminmemmedov/bucardwebauto.git gh-pages --force || true
 
 echo "=== Deployment complete! ==="

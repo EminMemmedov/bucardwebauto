@@ -18,8 +18,7 @@
         return fetch('data/gallery.json')
             .then(res => res.json())
             .then(data => {
-                // Filter out any entries that have no screenshots
-                galleryData = data.filter(item => item.images && item.images.length > 0);
+                galleryData = data;
                 return galleryData;
             })
             .catch(err => {
@@ -348,6 +347,7 @@
                 const isNegative = (item.name && item.name.startsWith('NEQ')) || item.category === 'Neqativ və Təhlükəsizlik Ssenariləri';
                 const isBusiness = (item.name && item.name.startsWith('BIZ')) || (item.category && item.category.includes('Biznes'));
                 const isDynamic = (item.name && item.name.startsWith('DYN')) || (item.category && item.category.includes('Dinamik'));
+                const isUnit = item.category === 'Vahid (Unit) Testlər' || (item.fullName && item.fullName.includes('unit'));
                 let badgeClass = 'passed';
                 let badgeText = 'UĞURLU';
                 if (isFailed) {
@@ -362,6 +362,9 @@
                 } else if (isBusiness) {
                     badgeClass = 'business';
                     badgeText = item.name.includes('P0') ? 'BİZNES P0' : (item.name.includes('P1') ? 'BİZNES P1' : 'BİZNES P2');
+                } else if (isUnit) {
+                    badgeClass = 'unit';
+                    badgeText = 'VAHİD TEST';
                 }
                 cardsHtml += `
                     <div class="bucard-card ${isFailed ? 'failed' : ''}" id="bucard-card-${item.uid}" data-uid="${item.uid}">
@@ -388,7 +391,20 @@
                                     </div>
                                 </div>
                                 <div class="bucard-thumb-caption" id="bucard-caption-${item.uid}" title="${imgCaption}">${imgCaption}</div>
-                            ` : ''}
+                            ` : `
+                                <div class="bucard-thumb-container bucard-no-img-box">
+                                    <div class="bucard-no-img-content">
+                                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        </svg>
+                                        <span>Avtomatlaşdırılmış Java / API Təsdiqi</span>
+                                    </div>
+                                </div>
+                                <div class="bucard-thumb-caption">Sübut: İnterfeys xətası olmadan daxili icra təsdiqləndi</div>
+                            `}
 
                             ${stepsHtml}
                         </div>
@@ -427,7 +443,7 @@
                     <div class="bucard-stats-badges">
                         <span class="bucard-stat-badge success">100% Uğurlu</span>
                         <span class="bucard-stat-badge accent">${totalScreenshots} Ekran Görüntüsü</span>
-                        <span class="bucard-stat-badge">${totalTests} Smoke Test</span>
+                        <span class="bucard-stat-badge">${totalTests} Test</span>
                     </div>
                 </div>
                 ${toolbarHtml}
