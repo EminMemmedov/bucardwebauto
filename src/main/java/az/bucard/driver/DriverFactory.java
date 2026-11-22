@@ -5,9 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.Duration;
+import java.util.Comparator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Stream;
 
 public final class DriverFactory {
     static {
@@ -27,7 +32,7 @@ public final class DriverFactory {
         return createChrome();
     }
 
-    public static WebDriver createChrome() {
+    private static ChromeOptions buildChromeOptions() {
         ChromeOptions options = new ChromeOptions();
         if (Config.headless()) {
             options.addArguments("--headless=new");
@@ -44,9 +49,43 @@ public final class DriverFactory {
                 "--log-level=3",
                 "--silent"
         );
+        return options;
+    }
+
+    public static WebDriver createChrome() {
+        WebDriver driver = new ChromeDriver(buildChromeOptions());
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Config.pageLoadTimeoutSeconds()));
+        return driver;
+    }
+
+    /**
+     * Starts a Chrome instance backed by a persistent profile directory so cookies,
+     * localStorage, and browser state survive across full browser restarts.
+     */
+    public static WebDriver createChromeWithProfile(Path userDataDir) {
+        ChromeOptions options = buildChromeOptions();
+        if (userDataDir != null) {
+            options.addArguments("--user-data-dir=" + userDataDir.toAbsolutePath());
+        }
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Config.pageLoadTimeoutSeconds()));
         return driver;
+    }
+
+    public static void deleteProfileDirQuietly(Path userDataDir) {
+        if (userDataDir == null || !Files.exists(userDataDir)) {
+            return;
+        }
+        try (Stream<Path> walk = Files.walk(userDataDir)) {
+            walk.sorted(Comparator.reverseOrder())
+                    .forEach(path -> {
+                        try {
+                            Files.deleteIfExists(path);
+                        } catch (IOException ignored) {
+                        }
+                    });
+        } catch (IOException ignored) {
+        }
     }
 
     public static void quitDriver(WebDriver driver) {

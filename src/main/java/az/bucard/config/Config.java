@@ -107,4 +107,48 @@ public final class Config {
         String pass = testPassword();
         return user != null && !user.isBlank() && pass != null && !pass.isBlank();
     }
+
+    public static String proUser() {
+        return getSetting("bucard.pro.user", "BUCARD_PRO_USER", null);
+    }
+
+    public static String proPassword() {
+        return getSetting("bucard.pro.password", "BUCARD_PRO_PASSWORD", null);
+    }
+
+    public static String proUsername() {
+        return getSetting("bucard.pro.username", "BUCARD_PRO_USERNAME", null);
+    }
+
+    public static String proFullName() {
+        return getSetting("bucard.pro.fullName", "BUCARD_PRO_FULLNAME", null);
+    }
+
+    public static String proQrImageUrl() {
+        return getSetting("bucard.pro.qrImageUrl", "BUCARD_PRO_QR_IMAGE_URL", null);
+    }
+
+    public static String proShareUrl() {
+        String explicitUrl = getSetting("bucard.pro.shareUrl", "BUCARD_PRO_SHARE_URL", null);
+        if (explicitUrl != null && !explicitUrl.isBlank()) {
+            return explicitUrl.trim();
+        }
+        String username = proUsername();
+        if (username != null && !username.isBlank()) {
+            String cleanBase = baseUrl().replaceAll("/+$", "");
+            return cleanBase + "/shared-user/" + username.trim();
+        }
+        return null;
+    }
+
+    public static boolean isProLoginAvailable() {
+        String user = proUser();
+        String pass = proPassword();
+        return user != null && !user.isBlank() && pass != null && !pass.isBlank();
+    }
+
+    public static boolean isProShareTargetAvailable() {
+        String shareUrl = proShareUrl();
+        return (shareUrl != null && !shareUrl.isBlank()) || isProLoginAvailable();
+    }
 }

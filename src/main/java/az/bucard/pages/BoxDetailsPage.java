@@ -1,7 +1,12 @@
 package az.bucard.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+import java.util.Locale;
 
 public final class BoxDetailsPage extends BasePage {
     private static final By BOX_HEADING = By.xpath(
@@ -43,6 +48,64 @@ public final class BoxDetailsPage extends BasePage {
 
     public int getContactCount() {
         return driver.findElements(CONTACT_ITEMS).size();
+    }
+
+    @Step("Qutunun başlığını əldə et")
+    public String getBoxTitleText() {
+        return getTextSafe(BOX_HEADING);
+    }
+
+    @Step("Qutuda profilin mövcudluğunu yoxla: '{expectedFullName}' / '{expectedUsername}'")
+    public boolean containsProfile(String expectedFullName, String expectedUsername) {
+        String nameLower = expectedFullName == null ? "" : expectedFullName.trim().toLowerCase(Locale.ROOT);
+        String userLower = expectedUsername == null ? "" : expectedUsername.trim().toLowerCase(Locale.ROOT);
+
+        if (nameLower.isEmpty() && userLower.isEmpty()) {
+            return false;
+        }
+
+        List<WebElement> contacts = driver.findElements(CONTACT_ITEMS);
+        for (WebElement item : contacts) {
+            try {
+                String text = item.getText().toLowerCase(Locale.ROOT);
+                String hrefAttr = item.getAttribute("innerHTML");
+                String combined = text + " " + (hrefAttr == null ? "" : hrefAttr.toLowerCase(Locale.ROOT));
+                if ((!nameLower.isEmpty() && combined.contains(nameLower))
+                        || (!userLower.isEmpty() && combined.contains(userLower))) {
+                    return true;
+                }
+            } catch (Exception ignored) {}
+        }
+
+        try {
+            String bodyText = driver.findElement(By.tagName("body")).getText().toLowerCase(Locale.ROOT);
+            if ((!nameLower.isEmpty() && bodyText.contains(nameLower))
+                    || (!userLower.isEmpty() && bodyText.contains(userLower))) {
+                return true;
+            }
+        } catch (Exception ignored) {}
+
+        return false;
+    }
+
+    public boolean containsOnlyUser(String unexpectedEmailOrName) {
+        if (unexpectedEmailOrName == null || unexpectedEmailOrName.isBlank()) {
+            return false;
+        }
+        String unexpectedLower = unexpectedEmailOrName.trim().toLowerCase(Locale.ROOT);
+        List<WebElement> contacts = driver.findElements(CONTACT_ITEMS);
+        if (contacts.isEmpty()) {
+            return false;
+        }
+        for (WebElement item : contacts) {
+            try {
+                String text = item.getText().toLowerCase(Locale.ROOT);
+                if (!text.isBlank() && !text.contains(unexpectedLower)) {
+                    return false;
+                }
+            } catch (Exception ignored) {}
+        }
+        return true;
     }
 
     public DashboardPage backToDashboard() {

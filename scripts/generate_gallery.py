@@ -363,6 +363,7 @@ def generate_gallery(report_dir):
         "Neqativ və Təhlükəsizlik Ssenariləri",
         "Dinamik Qeydiyyat və Giriş",
         "Biznes Funksionallıqları (P0, P1, P2)",
+        "Paylaşım və QR (E2E)",
         "Vahid (Unit) Testlər",
         "Digər Testlər"
     ]
@@ -402,10 +403,12 @@ def generate_gallery(report_dir):
         name_clean = name.strip()
 
         category = "Digər Testlər"
-        if "unit" in full_name.lower() or "ConfigTest" in full_name or "SanitizerTest" in full_name:
+        if "unit" in full_name.lower() or "ConfigTest" in full_name or "SanitizerTest" in full_name or "QrCodeDecoderTest" in full_name:
             category = "Vahid (Unit) Testlər"
         elif name_clean.startswith("DYN") or "DynamicRegistration" in full_name:
             category = "Dinamik Qeydiyyat və Giriş"
+        elif name_clean.startswith("E2E-") or "ProfileShareAndQr" in full_name:
+            category = "Paylaşım və QR (E2E)"
         elif name_clean.startswith("BIZ") or "business" in full_name.lower() or "BoxesAndContacts" in full_name or "AuthAndProfile" in full_name or "SubscriptionAndBonus" in full_name or "Notifications" in full_name:
             category = "Biznes Funksionallıqları (P0, P1, P2)"
         elif name_clean.startswith("NEQ") or "NegativeScenarios" in full_name:

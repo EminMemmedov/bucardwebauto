@@ -4,6 +4,7 @@
         <classes>
             <class name="az.bucard.unit.ConfigTest"/>
             <class name="az.bucard.unit.SanitizerTest"/>
+            <class name="az.bucard.unit.QrCodeDecoderTest"/>
         </classes>
     </test>
 
@@ -37,6 +38,12 @@
             <class name="az.bucard.business.BoxesAndContactsBusinessTest"/>
             <class name="az.bucard.business.SubscriptionAndBonusBusinessTest"/>
             <class name="az.bucard.business.NotificationsBusinessTest"/>
+        </classes>
+    </test>
+
+    <test name="Share &amp; QR Code E2E (P1)">
+        <classes>
+            <class name="az.bucard.business.ProfileShareAndQrE2ETest"/>
         </classes>
     </test>
 </suite>

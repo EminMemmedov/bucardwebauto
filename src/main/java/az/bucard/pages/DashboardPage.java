@@ -44,6 +44,18 @@ public final class DashboardPage extends BasePage {
             "//*[contains(@class, 'logout') or contains(@href, '/logout') or normalize-space()='Log out' or normalize-space()='Çıxış']");
     private static final By USER_DROPDOWN = By.cssSelector(
             "div[class*='userProfile'], div[class*='profileDropdown'], .avatarSmall");
+    private static final By SHARE_HEADER_ICON = By.cssSelector(
+            ".dashboardHeader .shareIcon");
+    private static final By SHARED_PROFILE_MODAL = By.cssSelector(
+            ".sharedProfileModal.active");
+    private static final By SHARED_MODAL_LINK = By.cssSelector(
+            ".sharedProfileModal .sharedLink");
+    private static final By SHARED_MODAL_QR_IMG = By.cssSelector(
+            ".sharedProfileModal .qrCode img");
+    private static final By SHARED_MODAL_OVERLAY = By.cssSelector(
+            ".sharedProfileModal .modalOverlay");
+
+    public record ShareProfileInfo(String shareLink, String qrImageUrl, String username) {}
 
     public DashboardPage(WebDriver driver) {
         super(driver);
@@ -221,5 +233,58 @@ public final class DashboardPage extends BasePage {
         } catch (Exception ignored) {}
 
         return new LoginPage(driver);
+    }
+
+    @Step("Paylaşım modalını aç və link/QR məlumatlarını əldə et")
+    public ShareProfileInfo openShareModalAndExtractInfo() {
+        waitForPreloaderToDisappear();
+        dismissModalIfPresent();
+
+        if (isElementVisible(SHARE_HEADER_ICON, Duration.ofSeconds(5))) {
+            click(SHARE_HEADER_ICON);
+        } else {
+            click(SHARE_ELEMENT);
+        }
+
+        visible(SHARED_PROFILE_MODAL);
+
+        String shareLink = "";
+        try {
+            WebElement linkEl = visible(SHARED_MODAL_LINK);
+            shareLink = linkEl.getAttribute("href");
+            if (shareLink == null || shareLink.isBlank()) {
+                shareLink = linkEl.getText().trim();
+            }
+        } catch (Exception ignored) {}
+
+        String qrImageUrl = "";
+        try {
+            if (isElementVisible(SHARED_MODAL_QR_IMG, Duration.ofSeconds(5))) {
+                qrImageUrl = visible(SHARED_MODAL_QR_IMG).getAttribute("src");
+            }
+        } catch (Exception ignored) {}
+
+        String username = extractUsernameFromUrl(shareLink);
+
+        try {
+            if (isElementVisible(SHARED_MODAL_OVERLAY, Duration.ofSeconds(2))) {
+                click(SHARED_MODAL_OVERLAY);
+            }
+        } catch (Exception ignored) {}
+
+        return new ShareProfileInfo(
+                shareLink == null ? "" : shareLink.trim(),
+                qrImageUrl == null ? "" : qrImageUrl.trim(),
+                username
+        );
+    }
+
+    private String extractUsernameFromUrl(String url) {
+        if (url == null || url.isBlank()) {
+            return "";
+        }
+        String clean = url.split("[?#]")[0].replaceAll("/+$", "");
+        int idx = clean.lastIndexOf('/');
+        return idx >= 0 && idx < clean.length() - 1 ? clean.substring(idx + 1).trim() : "";
     }
 }
