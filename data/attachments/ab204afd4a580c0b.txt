@@ -1,0 +1,1 @@
+Backend Endpoint Mismatch (/box-details API 404): GET /api/v1/boxes/abbd9c8e-4485-4765-bab2-62f74ab0d1e6/profiles?limit=10&page=1 returns 404 on api.bucard.az while GET /api/v1/boxes/abbd9c8e-4485-4765-bab2-62f74ab0d1e6 returns 200 OK with Profile A saved (savedInBox=true, profilesCount=1).
