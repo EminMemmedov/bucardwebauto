@@ -345,6 +345,8 @@
                 }
 
                 const isNegative = (item.name && item.name.startsWith('NEQ')) || item.category === 'Neqativ və Təhlükəsizlik Ssenariləri';
+                const is3H = item.category && item.category.includes('Every 3H');
+                const is24H = item.category && item.category.includes('Every 24H');
                 const isShareE2E = (item.name && item.name.startsWith('E2E-')) || (item.category && item.category.includes('Paylaşım və QR'));
                 const isBusiness = (item.name && item.name.startsWith('BIZ')) || (item.category && item.category.includes('Biznes'));
                 const isDynamic = (item.name && item.name.startsWith('DYN')) || (item.category && item.category.includes('Dinamik'));
@@ -354,6 +356,12 @@
                 if (isFailed) {
                     badgeClass = 'failed';
                     badgeText = 'XƏTA';
+                } else if (is3H) {
+                    badgeClass = 'business';
+                    badgeText = '3 SAATLIQ';
+                } else if (is24H) {
+                    badgeClass = 'dynamic';
+                    badgeText = '24 SAATLIQ';
                 } else if (isNegative) {
                     badgeClass = 'negative';
                     badgeText = 'NEQATİV UĞUR';
