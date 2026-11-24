@@ -1,36 +1,36 @@
 [
   {
-    "uid": "5c97789db5c9d65f",
+    "uid": "2dbcb89979c24118",
     "name": "E2E-001: Yeni qeydiyyat, Free profil, sabit qutular, çıxış və yenidən giriş",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 9.9,
+    "duration": 10.2,
     "description": "Təzə email ilə OTP-siz qeydiyyat, Personal/Companies sabit qutularının yaranması, Free profil, Sign out və yenidən daxil olma axınını yoxlayır.",
     "steps": [
       "1. Təzə email ilə OTP-siz qeydiyyat, Personal/Companies sabit qutularının yaranması, Free profil, Sign out və yenidən daxil olma axınını yoxlayır."
     ],
     "lastPassed": {
-      "uid": "5c97789db5c9d65f",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521630377
+      "uid": "2dbcb89979c24118",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522031019
     },
     "images": [
       {
         "name": "E2E-001 — Yeni Free Profil",
-        "src": "data/attachments/df87f79c968de12a.png",
-        "size": 8379
+        "src": "data/attachments/6fa505000863801a.png",
+        "size": 8103
       },
       {
         "name": "E2E-001 — Yenidən Giriş Sonrası Qutular",
-        "src": "data/attachments/5e9322fd95cde4ac.png",
-        "size": 58893
+        "src": "data/attachments/65d51c9458eb6632.png",
+        "size": 58892
       }
     ]
   },
   {
-    "uid": "490cd105a16b0bd6",
+    "uid": "13d93d2f6bdb6fa3",
     "name": "TC-AUTH-001: Email və şifrə ilə OTP-siz uğurlu qeydiyyat",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -44,26 +44,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "490cd105a16b0bd6",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521635109
+      "uid": "13d93d2f6bdb6fa3",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522035774
     },
     "images": [
       {
         "name": "TC-AUTH-001 — Uğurlu Qeydiyyat",
-        "src": "data/attachments/e1907ad9cf239952.png",
-        "size": 59331
+        "src": "data/attachments/689f786d50a55a1a.png",
+        "size": 59260
       }
     ]
   },
   {
-    "uid": "e19bc2c744c308d3",
+    "uid": "b01024ebaa60ba7b",
     "name": "TC-AUTH-003: Şifrə sərhədi — tam 8 simvol (Ab1!abcd) qəbul edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.5,
+    "duration": 4.7,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -71,15 +71,36 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "e19bc2c744c308d3",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521639255
+      "uid": "b01024ebaa60ba7b",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522041202
     },
     "images": []
   },
   {
-    "uid": "5f2d61151efc38c0",
+    "uid": "682f82e682e47e13",
     "name": "TC-AUTH-004: Şifrə 7 simvol (Ab1!abc) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 6.2,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "682f82e682e47e13",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522048070
+    },
+    "images": []
+  },
+  {
+    "uid": "b76aab5660592478",
+    "name": "TC-AUTH-005: Şifrədə böyük hərf yoxdur (abcd1234!) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
@@ -92,15 +113,15 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "5f2d61151efc38c0",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521642650
+      "uid": "b76aab5660592478",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522051448
     },
     "images": []
   },
   {
-    "uid": "300e306153359dc7",
-    "name": "TC-AUTH-005: Şifrədə böyük hərf yoxdur (abcd1234!) rədd edilir",
+    "uid": "769fccde79c78e6e",
+    "name": "TC-AUTH-006: Şifrədə kiçik hərf yoxdur (ABCD1234!) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
@@ -113,15 +134,15 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "300e306153359dc7",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521646156
+      "uid": "769fccde79c78e6e",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522054913
     },
     "images": []
   },
   {
-    "uid": "f52bc5bbea32c813",
-    "name": "TC-AUTH-006: Şifrədə kiçik hərf yoxdur (ABCD1234!) rədd edilir",
+    "uid": "4005de59d9c7c344",
+    "name": "TC-AUTH-007: Şifrədə rəqəm yoxdur (Abcdefg!x) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
@@ -134,20 +155,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "f52bc5bbea32c813",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521649764
+      "uid": "4005de59d9c7c344",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522058450
     },
     "images": []
   },
   {
-    "uid": "56f9b137be821196",
-    "name": "TC-AUTH-007: Şifrədə rəqəm yoxdur (Abcdefg!x) rədd edilir",
+    "uid": "f2bb059e31f5987e",
+    "name": "TC-AUTH-008: Şifrədə xüsusi simvol yoxdur (Abcd1234) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 2.8,
+    "duration": 4.2,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -155,15 +176,57 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "56f9b137be821196",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521653167
+      "uid": "f2bb059e31f5987e",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522063300
     },
     "images": []
   },
   {
-    "uid": "3d1f72cbc2564215",
-    "name": "TC-AUTH-008: Şifrədə xüsusi simvol yoxdur (Abcd1234) rədd edilir",
+    "uid": "21986d39bc012ce9",
+    "name": "TC-AUTH-009 & TC-AUTH-049: Boş Email / Password kombinasiyaları rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 5.5,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "21986d39bc012ce9",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522069456
+    },
+    "images": []
+  },
+  {
+    "uid": "d3d4739e3ac3d314",
+    "name": "TC-AUTH-010: Yanlış email formatı (test@, test.com) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 4.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "d3d4739e3ac3d314",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522074149
+    },
+    "images": []
+  },
+  {
+    "uid": "ffbff7e242061f1b",
+    "name": "TC-AUTH-011: Artıq qeydiyyatdan keçmiş email ilə qeydiyyat rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
@@ -176,89 +239,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "3d1f72cbc2564215",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521656622
-    },
-    "images": []
-  },
-  {
-    "uid": "1d8f4a4cd61d3c9",
-    "name": "TC-AUTH-009 & TC-AUTH-049: Boş Email / Password kombinasiyaları rədd edilir",
-    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
-    "story": "",
-    "category": "3 Saatlıq Yoxlama (Every 3H)",
-    "status": "passed",
-    "duration": 5.4,
-    "description": "",
-    "steps": [
-      "1. Test səhifəsini aç",
-      "2. UI elementlərini yoxla",
-      "3. Nəticəni təsdiqlə"
-    ],
-    "lastPassed": {
-      "uid": "1d8f4a4cd61d3c9",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521662661
-    },
-    "images": []
-  },
-  {
-    "uid": "8d30fe06fd3c4920",
-    "name": "TC-AUTH-010: Yanlış email formatı (test@, test.com) rədd edilir",
-    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
-    "story": "",
-    "category": "3 Saatlıq Yoxlama (Every 3H)",
-    "status": "passed",
-    "duration": 4.1,
-    "description": "",
-    "steps": [
-      "1. Test səhifəsini aç",
-      "2. UI elementlərini yoxla",
-      "3. Nəticəni təsdiqlə"
-    ],
-    "lastPassed": {
-      "uid": "8d30fe06fd3c4920",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521667404
-    },
-    "images": []
-  },
-  {
-    "uid": "184a3c92b4887bb1",
-    "name": "TC-AUTH-011: Artıq qeydiyyatdan keçmiş email ilə qeydiyyat rədd edilir",
-    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
-    "story": "",
-    "category": "3 Saatlıq Yoxlama (Every 3H)",
-    "status": "passed",
-    "duration": 2.8,
-    "description": "",
-    "steps": [
-      "1. Test səhifəsini aç",
-      "2. UI elementlərini yoxla",
-      "3. Nəticəni təsdiqlə"
-    ],
-    "lastPassed": {
-      "uid": "184a3c92b4887bb1",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521670925
+      "uid": "ffbff7e242061f1b",
+      "formatted": "24.11.2026, 16:07",
+      "timestamp": 1795522077600
     },
     "images": [
       {
         "name": "TC-AUTH-011 — Dublikat Email Xətası",
-        "src": "data/attachments/4fd724c3ba7dc8d6.png",
+        "src": "data/attachments/138a3528ea082d64.png",
         "size": 296535
       }
     ]
   },
   {
-    "uid": "173f31cfc6462814",
+    "uid": "9f8dbb1fbad36052",
     "name": "TC-AUTH-012: E-poçtu təsdiqlənməmiş istifadəçi əsas ekranlardan (Home, Search, Share) istifadə edir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 9.6,
+    "duration": 9.7,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -266,26 +266,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "173f31cfc6462814",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521681439
+      "uid": "9f8dbb1fbad36052",
+      "formatted": "24.11.2026, 16:08",
+      "timestamp": 1795522087924
     },
     "images": [
       {
         "name": "TC-AUTH-012 — Təsdiqsiz İstifadəçidə Search",
-        "src": "data/attachments/2f2fbc970cd834ff.png",
-        "size": 156850
+        "src": "data/attachments/2c43c8e1bbe7e837.png",
+        "size": 156635
       }
     ]
   },
   {
-    "uid": "1d4b70db55959edc",
+    "uid": "c5242c000c6a5c1d",
     "name": "TC-AUTH-013: Mövcud hesabla düzgün email və şifrə ilə giriş",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.1,
+    "duration": 3.0,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -293,20 +293,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "1d4b70db55959edc",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521685216
+      "uid": "c5242c000c6a5c1d",
+      "formatted": "24.11.2026, 16:08",
+      "timestamp": 1795522091707
     },
     "images": [
       {
         "name": "TC-AUTH-013 — Mövcud Hesabla Giriş",
-        "src": "data/attachments/1c3d599d887a30da.png",
+        "src": "data/attachments/d5b14b2d15653dc5.png",
         "size": 8966
       }
     ]
   },
   {
-    "uid": "f392f741369c22a",
+    "uid": "ec5d1673e417cd9d",
     "name": "TC-AUTH-015: Yanlış şifrə ilə giriş rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -320,20 +320,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "f392f741369c22a",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521688552
+      "uid": "ec5d1673e417cd9d",
+      "formatted": "24.11.2026, 16:08",
+      "timestamp": 1795522095045
     },
     "images": []
   },
   {
-    "uid": "b74a72999b804804",
+    "uid": "9ace1c6b9c117f69",
     "name": "TC-AUTH-016: Mövcud olmayan email və nömrə ilə giriş rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.6,
+    "duration": 3.7,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -341,20 +341,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "b74a72999b804804",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521692852
+      "uid": "9ace1c6b9c117f69",
+      "formatted": "24.11.2026, 16:08",
+      "timestamp": 1795522099567
     },
     "images": []
   },
   {
-    "uid": "d234348ff03daaa3",
+    "uid": "95b5c160b20dd901",
     "name": "TC-AUTH-017: Sign In ekranının elementləri (Email/Phone, Password, Forgot password, OAuth)",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 1.3,
+    "duration": 1.5,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -362,53 +362,49 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "d234348ff03daaa3",
-      "formatted": "24.11.2026, 16:01",
-      "timestamp": 1795521694814
+      "uid": "95b5c160b20dd901",
+      "formatted": "24.11.2026, 16:08",
+      "timestamp": 1795522101740
     },
     "images": [
       {
         "name": "TC-AUTH-017 — Sign In UI Elementləri",
-        "src": "data/attachments/8ac808168f1f3fb0.png",
+        "src": "data/attachments/7fe73d079999fb05.png",
         "size": 229762
       }
     ]
   },
   {
-    "uid": "57321bddd0c102e0",
+    "uid": "a18dab9e6d209725",
     "name": "TC-AUTH-018 & TC-AUTH-020: Şifrənin OTP ilə tam bərpası və Yenidən Göndər seçimi",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
-    "status": "passed",
-    "duration": 38.5,
+    "status": "failed",
+    "duration": 59.7,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
       "2. UI elementlərini yoxla",
       "3. Nəticəni təsdiqlə"
     ],
-    "lastPassed": {
-      "uid": "57321bddd0c102e0",
-      "formatted": "24.11.2026, 16:02",
-      "timestamp": 1795521733951
-    },
+    "lastPassed": null,
     "images": [
       {
         "name": "TC-AUTH-018 — OTP Daxiletmə Addımı",
-        "src": "data/attachments/d72980882ed48764.png",
+        "src": "data/attachments/63a522d5644e9384.png",
         "size": 263689
       }
     ]
   },
   {
-    "uid": "a52342dd6b07b2dd",
+    "uid": "d7eaf147c3e71d8e",
     "name": "TC-AUTH-019 & TC-AUTH-053: Şifrə bərpasında yanlış/natamam/hərf OTP rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 7.1,
+    "duration": 7.3,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -416,20 +412,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "a52342dd6b07b2dd",
-      "formatted": "24.11.2026, 16:02",
-      "timestamp": 1795521741777
+      "uid": "d7eaf147c3e71d8e",
+      "formatted": "24.11.2026, 16:09",
+      "timestamp": 1795522170254
     },
     "images": []
   },
   {
-    "uid": "4b0b9a53d73f98d9",
+    "uid": "aa9ad5aa293a4f1",
     "name": "TC-AUTH-022 & TC-AUTH-023: Forgot Password elementləri və qeydiyyatsız email ilə davranış",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 2.5,
+    "duration": 2.7,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -437,14 +433,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "4b0b9a53d73f98d9",
-      "formatted": "24.11.2026, 16:02",
-      "timestamp": 1795521745042
+      "uid": "aa9ad5aa293a4f1",
+      "formatted": "24.11.2026, 16:09",
+      "timestamp": 1795522173570
     },
     "images": []
   },
   {
-    "uid": "25077090e922d63f",
+    "uid": "f936e1b307591950",
     "name": "TC-AUTH-050: Təsdiqsiz telefonla giriş verilmir, hesabın emaili ilə açılır",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -458,20 +454,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "25077090e922d63f",
-      "formatted": "24.11.2026, 16:02",
-      "timestamp": 1795521749960
+      "uid": "f936e1b307591950",
+      "formatted": "24.11.2026, 16:09",
+      "timestamp": 1795522178495
     },
     "images": []
   },
   {
-    "uid": "4f78e71377221f72",
+    "uid": "5dbdb8c504a79610",
     "name": "TC-BOX-002: Yeni/Free hesabda 2 sabit qutu (Personal və Companies) mövcuddur",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.9,
+    "duration": 4.0,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -479,20 +475,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "4f78e71377221f72",
-      "formatted": "24.11.2026, 16:02",
-      "timestamp": 1795521757599
+      "uid": "5dbdb8c504a79610",
+      "formatted": "24.11.2026, 16:09",
+      "timestamp": 1795522184718
     },
     "images": [
       {
         "name": "TC-BOX-002 — Sabit Qutular",
-        "src": "data/attachments/c010ad20f99fa76c.png",
-        "size": 63557
+        "src": "data/attachments/31e01d9432dfca58.png",
+        "size": 63608
       }
     ]
   },
   {
-    "uid": "596a4d706c8b2acd",
+    "uid": "f1ab35206f12da58",
     "name": "TC-BOX-007: Fərdi qutu yaratmaq və yenilənmədən sonra saxlanması",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -506,26 +502,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "596a4d706c8b2acd",
-      "formatted": "24.11.2026, 16:02",
-      "timestamp": 1795521766233
+      "uid": "f1ab35206f12da58",
+      "formatted": "24.11.2026, 16:09",
+      "timestamp": 1795522193237
     },
     "images": [
       {
         "name": "TC-BOX-007 — Yeni Fərdi Qutu",
-        "src": "data/attachments/65306c7180f032af.png",
-        "size": 42758
+        "src": "data/attachments/ee27bac771003678.png",
+        "size": 43226
       }
     ]
   },
   {
-    "uid": "ac88e36c136d4eff",
+    "uid": "de3f25c5ee03dd5c",
     "name": "TC-BOX-009 & TC-BOX-016: Fərdi qutuya Persons siyahısından '+' ilə əlavə etmə",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "failed",
-    "duration": 35.1,
+    "duration": 70.1,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -536,13 +532,13 @@
     "images": []
   },
   {
-    "uid": "e73823883430b66b",
+    "uid": "82ac0d25324cf87",
     "name": "TC-BOX-017: Personal qutusunda '+' düyməsi Search-ə yönləndirir",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 5.0,
+    "duration": 5.5,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -550,26 +546,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "e73823883430b66b",
-      "formatted": "24.11.2026, 16:03",
-      "timestamp": 1795521808630
+      "uid": "82ac0d25324cf87",
+      "formatted": "24.11.2026, 16:11",
+      "timestamp": 1795522270310
     },
     "images": [
       {
         "name": "TC-BOX-017 — Personal '+' ilə Search",
-        "src": "data/attachments/1baddfc704648854.png",
-        "size": 165354
+        "src": "data/attachments/33da81d6c14355c6.png",
+        "size": 168850
       }
     ]
   },
   {
-    "uid": "e2e46405882a5200",
+    "uid": "f73376b0d5676eb9",
     "name": "TC-PROF-001: Free profil ekranının elementləri (avatar, ad/soyad)",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 4.5,
+    "duration": 5.1,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -577,26 +573,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "e2e46405882a5200",
-      "formatted": "24.11.2026, 16:03",
-      "timestamp": 1795521813940
+      "uid": "f73376b0d5676eb9",
+      "formatted": "24.11.2026, 16:11",
+      "timestamp": 1795522276049
     },
     "images": [
       {
         "name": "TC-PROF-001 — Free Profil Ekranı",
-        "src": "data/attachments/925e469f0169f8dd.png",
-        "size": 9104
+        "src": "data/attachments/47869e89a7be74b5.png",
+        "size": 9189
       }
     ]
   },
   {
-    "uid": "b8abee5a95a3e178",
+    "uid": "b0232d433a3ccfca",
     "name": "TC-PROF-023: Pro hesabda Profile Status (Public/Private) idarəetməsi",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 13.6,
+    "duration": 14.4,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -604,26 +600,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "b8abee5a95a3e178",
-      "formatted": "24.11.2026, 16:03",
-      "timestamp": 1795521828257
+      "uid": "b0232d433a3ccfca",
+      "formatted": "24.11.2026, 16:11",
+      "timestamp": 1795522291101
     },
     "images": [
       {
         "name": "TC-PROF-023 — Pro Profile Status",
-        "src": "data/attachments/c6ea52dbfa244fcb.png",
-        "size": 54339
+        "src": "data/attachments/c4195501860d7063.png",
+        "size": 54274
       }
     ]
   },
   {
-    "uid": "5d993705bc54b845",
+    "uid": "f81319730ce2e1f0",
     "name": "TC-SHR-003: Share modalında link formatının yoxlanması və açılması",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 8.8,
+    "duration": 12.9,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -631,20 +627,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "5d993705bc54b845",
-      "formatted": "24.11.2026, 16:03",
-      "timestamp": 1795521837823
+      "uid": "f81319730ce2e1f0",
+      "formatted": "24.11.2026, 16:11",
+      "timestamp": 1795522304649
     },
     "images": [
       {
         "name": "TC-SHR-003 — Paylaşım Linki Formatı",
-        "src": "data/attachments/47968a6cd46f1bd4.png",
+        "src": "data/attachments/ab8d2b5511baea1c.png",
         "size": 7522
       }
     ]
   },
   {
-    "uid": "20b15c67338a95f2",
+    "uid": "9b04cf2730bc3641",
     "name": "TC-SHR-005: Paylaşılan Public Pro linki başqa alıcıda açılır",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -656,20 +652,20 @@
       "1. Anonim brauzer sessiyasında Public Pro linkini açır və göndərənin username/adının göründüyünü yoxlayır."
     ],
     "lastPassed": {
-      "uid": "20b15c67338a95f2",
-      "formatted": "24.11.2026, 16:04",
-      "timestamp": 1795521840448
+      "uid": "9b04cf2730bc3641",
+      "formatted": "24.11.2026, 16:11",
+      "timestamp": 1795522307226
     },
     "images": [
       {
         "name": "TC-SHR-005 — Alıcıda Açılan Public Pro Profil",
-        "src": "data/attachments/6b37b4bb90cbfd7c.png",
-        "size": 9101
+        "src": "data/attachments/104443ed6ceb9c78.png",
+        "size": 8886
       }
     ]
   },
   {
-    "uid": "f17869f09b4bb182",
+    "uid": "eb983414584a3967",
     "name": "TC-SRCH-001: Ad üzrə axtarışda Public Pro profil nəticələrdə görünür",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -683,20 +679,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "f17869f09b4bb182",
-      "formatted": "24.11.2026, 16:04",
-      "timestamp": 1795521847102
+      "uid": "eb983414584a3967",
+      "formatted": "24.11.2026, 16:11",
+      "timestamp": 1795522313901
     },
     "images": [
       {
         "name": "TC-SRCH-001 — Ad üzrə Axtarış Nəticəsi",
-        "src": "data/attachments/ab2678416529de3c.png",
-        "size": 67462
+        "src": "data/attachments/60282a7240aa3054.png",
+        "size": 67397
       }
     ]
   },
   {
-    "uid": "253b2ba069143e",
+    "uid": "a05077ce551aa90",
     "name": "TC-SRCH-006: Free profil axtarış nəticələrində görünmür",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -710,26 +706,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "253b2ba069143e",
-      "formatted": "24.11.2026, 16:04",
-      "timestamp": 1795521853820
+      "uid": "a05077ce551aa90",
+      "formatted": "24.11.2026, 16:12",
+      "timestamp": 1795522320526
     },
     "images": [
       {
         "name": "TC-SRCH-006 — Free Profil Axtarışda Gizlidir",
-        "src": "data/attachments/8f9e850a5098e67c.png",
+        "src": "data/attachments/7b2d083ae4db3388.png",
         "size": 75168
       }
     ]
   },
   {
-    "uid": "82c5c3716ee7636d",
+    "uid": "acd99329d4c500ef",
     "name": "TC-SRCH-007: Private Pro profil axtarış nəticələrində görünmür",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 32.3,
+    "duration": 7.0,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -737,26 +733,26 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "82c5c3716ee7636d",
-      "formatted": "24.11.2026, 16:04",
-      "timestamp": 1795521886804
+      "uid": "acd99329d4c500ef",
+      "formatted": "24.11.2026, 16:12",
+      "timestamp": 1795522328172
     },
     "images": [
       {
         "name": "TC-SRCH-007 — Private Pro Axtarışda Gizlidir",
-        "src": "data/attachments/3e9d680e511d5a49.png",
+        "src": "data/attachments/39a075ed967fbce.png",
         "size": 74996
       }
     ]
   },
   {
-    "uid": "27fc5f43fd86516f",
+    "uid": "f75f75c69c84050d",
     "name": "TC-SRCH-010: Free və Pro istifadəçilər Public Pro-nu tapır, Private gizli qalır",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 17.4,
+    "duration": 17.2,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -764,100 +760,80 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "27fc5f43fd86516f",
-      "formatted": "24.11.2026, 16:05",
-      "timestamp": 1795521907290
+      "uid": "f75f75c69c84050d",
+      "formatted": "24.11.2026, 16:12",
+      "timestamp": 1795522346084
     },
     "images": []
   },
   {
-    "uid": "41e3c63ed34ac77f",
+    "uid": "aed1eed81d1f8e13",
     "name": "E2E-009 [Link]: Mövcud istifadəçi paylaşılan profili qutuya əlavə edir",
     "feature": "Paylaşım və QR E2E (E2E-009 — E2E-012)",
     "story": "E2E-009: Daxil olmuş istifadəçinin profili qutuya əlavə etməsi",
     "category": "Paylaşım və QR (E2E)",
-    "status": "passed",
-    "duration": 13.8,
+    "status": "failed",
+    "duration": 47.0,
     "description": "Təzə daxil olmuş B istifadəçisi A-nın paylaşım linkini açır, məlumatları müqayisə edir və A-nı qutuya əlavə edir.",
     "steps": [
       "1. Təzə daxil olmuş B istifadəçisi A-nın paylaşım linkini açır, məlumatları müqayisə edir və A-nı qutuya əlavə edir."
     ],
-    "lastPassed": {
-      "uid": "41e3c63ed34ac77f",
-      "formatted": "24.11.2026, 16:05",
-      "timestamp": 1795521922876
-    },
-    "images": [
-      {
-        "name": "E2E-009 [Link] — Açılan Profil A",
-        "src": "data/attachments/71b92758522d3ce4.png",
-        "size": 8787
-      },
-      {
-        "name": "E2E-009 [Link] — Qutu seçimi modalı",
-        "src": "data/attachments/8e6863b72b013fc4.png",
-        "size": 130473
-      },
-      {
-        "name": "E2E-009 [Link] — Dashboard qutu yenilənməsi (1 profil)",
-        "src": "data/attachments/fd66a80da0c29122.png",
-        "size": 59151
-      }
-    ]
+    "lastPassed": null,
+    "images": []
   },
   {
-    "uid": "445c2b5ab3568f1d",
+    "uid": "b18fa85a23da8f77",
     "name": "E2E-010 [Link]: Yeni istifadəçi qeydiyyatdan sonra paylaşılan profilə qayıdır",
     "feature": "Paylaşım və QR E2E (E2E-009 — E2E-012)",
     "story": "E2E-010: Qeydiyyatdan sonra paylaşılan profilə qayıdış",
     "category": "Paylaşım və QR (E2E)",
     "status": "passed",
-    "duration": 26.1,
+    "duration": 15.3,
     "description": "Anonim B paylaşım linkindən 'Add to Box' seçərək qeydiyyatdan keçir və avtomatik A-nın profilinə qayıdıb qutuya əlavə edir.",
     "steps": [
       "1. Anonim B paylaşım linkindən 'Add to Box' seçərək qeydiyyatdan keçir və avtomatik A-nın profilinə qayıdıb qutuya əlavə edir."
     ],
     "lastPassed": {
-      "uid": "445c2b5ab3568f1d",
-      "formatted": "24.11.2026, 16:05",
-      "timestamp": 1795521949682
+      "uid": "b18fa85a23da8f77",
+      "formatted": "24.11.2026, 16:13",
+      "timestamp": 1795522410793
     },
     "images": [
       {
         "name": "E2E-010 [Link] — Anonim baxış",
-        "src": "data/attachments/a6aecb94cb6d1242.png",
-        "size": 8909
+        "src": "data/attachments/e8999bd5bc87fc2.png",
+        "size": 9332
       },
       {
         "name": "E2E-010 [Link] — Qeydiyyatdan sonra A-ya qayıdış",
-        "src": "data/attachments/219b61fd38e29ae6.png",
-        "size": 8719
+        "src": "data/attachments/b5a1f8e7973c4249.png",
+        "size": 8885
       },
       {
         "name": "E2E-010 [Link] — Qutu seçimi modalı",
-        "src": "data/attachments/54debaf8ed24d782.png",
-        "size": 130472
+        "src": "data/attachments/8bd5c4f127523929.png",
+        "size": 130450
       },
       {
         "name": "E2E-010 [Link] — Dashboard qutu yenilənməsi (1 profil)",
-        "src": "data/attachments/123ebc018011a701.png",
-        "size": 59059
+        "src": "data/attachments/99e462e0d7f2525f.png",
+        "size": 59055
       },
       {
         "name": "E2E-010 [Link] — İlkin linkdən təkrar yoxlama",
-        "src": "data/attachments/51d3a76e8964e376.png",
+        "src": "data/attachments/f8c7b47db7d6762d.png",
         "size": 7522
       }
     ]
   },
   {
-    "uid": "cd0a963b1e11a85b",
+    "uid": "ad2487c230f92f7b",
     "name": "Verify QrCodeDecoder decodes generated QR PNG payload accurately",
     "feature": "QR Code Decoding",
     "story": "",
     "category": "Vahid (Unit) Testlər",
     "status": "passed",
-    "duration": 0.2,
+    "duration": 0.1,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -865,14 +841,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "cd0a963b1e11a85b",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521619095
+      "uid": "ad2487c230f92f7b",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018694
     },
     "images": []
   },
   {
-    "uid": "a5d95a184099c9d3",
+    "uid": "fac9debddf15137e",
     "name": "Verify QrCodeDecoder rejects non-image bytes",
     "feature": "QR Code Decoding",
     "story": "",
@@ -886,14 +862,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "a5d95a184099c9d3",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521619098
+      "uid": "fac9debddf15137e",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018696
     },
     "images": []
   },
   {
-    "uid": "e2921b2b0e186f0c",
+    "uid": "9fae0f6f329786c4",
     "name": "Verify QrCodeDecoder rejects null bytes",
     "feature": "QR Code Decoding",
     "story": "",
@@ -907,14 +883,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "e2921b2b0e186f0c",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521619100
+      "uid": "9fae0f6f329786c4",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018698
     },
     "images": []
   },
   {
-    "uid": "46af63c73cbd3ec8",
+    "uid": "96aa1246dece9bca",
     "name": "Verify default base URL is https://bucard.az",
     "feature": "Framework Configuration",
     "story": "",
@@ -928,14 +904,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "46af63c73cbd3ec8",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618895
+      "uid": "96aa1246dece9bca",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018529
     },
     "images": []
   },
   {
-    "uid": "970dd708bde557b",
+    "uid": "e1b9b86ed834aa03",
     "name": "Verify default timeouts have positive values",
     "feature": "Framework Configuration",
     "story": "",
@@ -949,14 +925,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "970dd708bde557b",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618918
+      "uid": "e1b9b86ed834aa03",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018554
     },
     "images": []
   },
   {
-    "uid": "fe307fd24a63931f",
+    "uid": "ac7696ee7e30469e",
     "name": "Verify isAuthAvailable returns false when credentials are not configured",
     "feature": "Framework Configuration",
     "story": "",
@@ -970,14 +946,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "fe307fd24a63931f",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618920
+      "uid": "ac7696ee7e30469e",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018556
     },
     "images": []
   },
   {
-    "uid": "65a86cb55602fe47",
+    "uid": "e91ee3795235bc44",
     "name": "Verify long messages are truncated without exceeding limits",
     "feature": "Security & Sanitization",
     "story": "",
@@ -991,14 +967,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "65a86cb55602fe47",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618929
+      "uid": "e91ee3795235bc44",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018565
     },
     "images": []
   },
   {
-    "uid": "8fabc77cbd95ac3e",
+    "uid": "6260125140d42d23",
     "name": "Verify null or empty messages are handled gracefully",
     "feature": "Security & Sanitization",
     "story": "",
@@ -1012,14 +988,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "8fabc77cbd95ac3e",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618925
+      "uid": "6260125140d42d23",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018560
     },
     "images": []
   },
   {
-    "uid": "6d7dd866245f63a5",
+    "uid": "e8bd836c5df88c74",
     "name": "Verify password and token parameters are redacted",
     "feature": "Security & Sanitization",
     "story": "",
@@ -1033,14 +1009,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "6d7dd866245f63a5",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618928
+      "uid": "e8bd836c5df88c74",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018564
     },
     "images": []
   },
   {
-    "uid": "75bc263af8813d1c",
+    "uid": "1dd85e71fcbba716",
     "name": "Verify proShareUrl derives shared-user URL from pro.username when shareUrl is unset",
     "feature": "Framework Configuration",
     "story": "",
@@ -1054,14 +1030,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "75bc263af8813d1c",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618923
+      "uid": "1dd85e71fcbba716",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018557
     },
     "images": []
   },
   {
-    "uid": "b80c5d94736f50ae",
+    "uid": "983f9c545e6cadf1",
     "name": "Verify sensitive URLs with query parameters are redacted",
     "feature": "Security & Sanitization",
     "story": "",
@@ -1075,9 +1051,9 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "b80c5d94736f50ae",
-      "formatted": "24.11.2026, 16:00",
-      "timestamp": 1795521618927
+      "uid": "983f9c545e6cadf1",
+      "formatted": "24.11.2026, 16:06",
+      "timestamp": 1795522018562
     },
     "images": []
   }
