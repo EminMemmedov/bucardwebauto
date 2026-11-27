@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"7ec51d53997b4d09f6903633e595d8a6","name":"Ötürülmüş Testlər (Skipped)","statistic":{"failed":0,"broken":0,"skipped":14,"passed":0,"unknown":0,"total":14}}]}
+{"total":2,"items":[{"uid":"24b023e2105ae84a71d0553b9b1c52dd","name":"Məhsul və Funksional Xətalar (Assertion Failures)","statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1}},{"uid":"7ec51d53997b4d09f6903633e595d8a6","name":"Ötürülmüş Testlər (Skipped)","statistic":{"failed":0,"broken":0,"skipped":18,"passed":0,"unknown":0,"total":18}}]}

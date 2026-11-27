@@ -1,72 +1,248 @@
 [
   {
-    "uid": "171c1b9674ca1276",
-    "name": "TC-BOX-003 & TC-BOX-004: Sabit Personal və Companies qutularını redaktə və silmək olmur",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "efcedb454f8acee4",
+    "name": "E2E-001: Yeni qeydiyyat, Free profil, sabit qutular, çıxış və yenidən giriş",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
-    "status": "skipped",
-    "duration": 0.0,
-    "description": "",
-    "steps": [
-      "1. Test səhifəsini aç",
-      "2. UI elementlərini yoxla",
-      "3. Nəticəni təsdiqlə"
-    ],
-    "lastPassed": null,
-    "images": []
-  },
-  {
-    "uid": "394b19a8d50cea81",
-    "name": "TC-BOX-024: Boş Persons ilə fərdi qutuda '+' kliklədikdə say 0 qalır",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
-    "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
-    "status": "skipped",
-    "duration": 33.2,
-    "description": "",
-    "steps": [
-      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: xmghokzz@guerrillamailblock.com",
-      "Yeni qutu yarat: 'QA_EMPTY_4002'",
-      "Adı üzrə qutunu aç: 'QA_EMPTY_4002'"
-    ],
-    "lastPassed": {
-      "uid": "9143ac617ee49d27",
-      "formatted": "27.11.2026, 13:28",
-      "timestamp": 1795786110479
-    },
-    "images": []
-  },
-  {
-    "uid": "9143ac617ee49d27",
-    "name": "TC-BOX-024: Boş Persons ilə fərdi qutuda '+' kliklədikdə say 0 qalır",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
-    "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 8.8,
+    "duration": 26.0,
+    "description": "Təzə email ilə OTP-siz qeydiyyat, Personal/Companies sabit qutularının yaranması, Free profil, Sign out və yenidən daxil olma axınını yoxlayır.",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "Yeni istifadəçi qeydiyyatdan keçir: yfeuletg@guerrillamailblock.com",
+      "Sabit 'Personal' və 'Companies' qutularının mövcudluğunu yoxla",
+      "İstifadəçi hesabından çıxış et (Logout)",
+      "Open login page at https://bucard.az/login",
+      "Log in with user/phone: yfeuletg@guerrillamailblock.com",
+      "Sabit 'Personal' və 'Companies' qutularının mövcudluğunu yoxla"
+    ],
+    "lastPassed": {
+      "uid": "efcedb454f8acee4",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796231321
+    },
+    "images": [
+      {
+        "name": "E2E-001 — Yeni Free Profil",
+        "src": "data/attachments/8cee6083432a0959.png",
+        "size": 8828
+      },
+      {
+        "name": "E2E-001 — Yenidən Giriş Sonrası Qutular",
+        "src": "data/attachments/2ed9767ab7ddfc9e.png",
+        "size": 58683
+      }
+    ]
+  },
+  {
+    "uid": "6b82e3548368b925",
+    "name": "TC-AUTH-001: Email və şifrə ilə OTP-siz uğurlu qeydiyyat",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 5.4,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: awdfjsgm@guerrillamailblock.com",
-      "Yeni qutu yarat: 'QA_EMPTY_2267'",
-      "Adı üzrə qutunu aç: 'QA_EMPTY_2267'",
-      "Qutu daxilində '+' düyməsinə kliklə"
+      "Yeni istifadəçi qeydiyyatdan keçir: kvjzcnwl@guerrillamailblock.com"
     ],
     "lastPassed": {
-      "uid": "9143ac617ee49d27",
-      "formatted": "27.11.2026, 13:28",
-      "timestamp": 1795786110479
+      "uid": "6b82e3548368b925",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796237442
+    },
+    "images": [
+      {
+        "name": "TC-AUTH-001 — Uğurlu Qeydiyyat",
+        "src": "data/attachments/67c812b3917a818d.png",
+        "size": 8776
+      }
+    ]
+  },
+  {
+    "uid": "be2174bebd515f61",
+    "name": "TC-AUTH-003: Şifrə sərhədi — tam 8 simvol (Ab1!abcd) qəbul edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 5.4,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "Yeni istifadəçi qeydiyyatdan keçir: hzxdpdmk@guerrillamailblock.com"
+    ],
+    "lastPassed": {
+      "uid": "be2174bebd515f61",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796243584
     },
     "images": []
   },
   {
-    "uid": "b6b751ac6b265af0",
-    "name": "TC-GEN-010: Hesab dəyişəndə (Pro -> Free) əvvəlki hesabın keşi görünmür",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "638cb0c7516d1b5b",
+    "name": "TC-AUTH-004: Şifrə 7 simvol (Ab1!abc) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 3.8,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər"
+    ],
+    "lastPassed": {
+      "uid": "638cb0c7516d1b5b",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796248087
+    },
+    "images": []
+  },
+  {
+    "uid": "769b124f53b0b9b8",
+    "name": "TC-AUTH-005: Şifrədə böyük hərf yoxdur (abcd1234!) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 3.8,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər"
+    ],
+    "lastPassed": {
+      "uid": "769b124f53b0b9b8",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796252604
+    },
+    "images": []
+  },
+  {
+    "uid": "421c03c12c8cff2",
+    "name": "TC-AUTH-006: Şifrədə kiçik hərf yoxdur (ABCD1234!) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 3.9,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər"
+    ],
+    "lastPassed": {
+      "uid": "421c03c12c8cff2",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796257177
+    },
+    "images": []
+  },
+  {
+    "uid": "7491233e36e0b2de",
+    "name": "TC-AUTH-007: Şifrədə rəqəm yoxdur (Abcdefg!x) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 3.8,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər"
+    ],
+    "lastPassed": {
+      "uid": "7491233e36e0b2de",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796261777
+    },
+    "images": []
+  },
+  {
+    "uid": "ef412501bf275d8d",
+    "name": "TC-AUTH-008: Şifrədə xüsusi simvol yoxdur (Abcd1234) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 4.4,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər"
+    ],
+    "lastPassed": {
+      "uid": "ef412501bf275d8d",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796266855
+    },
+    "images": []
+  },
+  {
+    "uid": "1a07c01034a9beae",
+    "name": "TC-AUTH-009 & TC-AUTH-049: Boş Email / Password kombinasiyaları rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 7.3,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər",
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər",
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər"
+    ],
+    "lastPassed": {
+      "uid": "1a07c01034a9beae",
+      "formatted": "27.11.2026, 16:17",
+      "timestamp": 1795796274892
+    },
+    "images": []
+  },
+  {
+    "uid": "a9936612f01ea08e",
+    "name": "TC-AUTH-010: Yanlış email formatı (test@, test.com) rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 5.4,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər",
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "E-poçt və şifrə daxil et",
+      "Qeydiyyat formasını göndər"
+    ],
+    "lastPassed": {
+      "uid": "a9936612f01ea08e",
+      "formatted": "27.11.2026, 16:18",
+      "timestamp": 1795796281033
+    },
+    "images": []
+  },
+  {
+    "uid": "9ff02d646c6ebf3",
+    "name": "TC-AUTH-011: Artıq qeydiyyatdan keçmiş email ilə qeydiyyat rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -79,11 +255,38 @@
     "images": []
   },
   {
-    "uid": "834442bf6205f2f9",
-    "name": "TC-PROF-007: Free istifadəçi profil statusunu (Public/Private) dəyişə bilmir",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "1e07fbdd97533200",
+    "name": "TC-AUTH-012: E-poçtu təsdiqlənməmiş istifadəçi əsas ekranlardan (Home, Search, Share) istifadə edir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 13.1,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "Yeni istifadəçi qeydiyyatdan keçir: uaqwjnbt@guerrillamailblock.com",
+      "Paylaşım modalını aç və link/QR məlumatlarını əldə et"
+    ],
+    "lastPassed": {
+      "uid": "1e07fbdd97533200",
+      "formatted": "27.11.2026, 16:18",
+      "timestamp": 1795796294866
+    },
+    "images": [
+      {
+        "name": "TC-AUTH-012 — Təsdiqsiz İstifadəçidə Search",
+        "src": "data/attachments/2b273136fd58c281.png",
+        "size": 8915
+      }
+    ]
+  },
+  {
+    "uid": "38eab7813d811477",
+    "name": "TC-AUTH-013: Mövcud hesabla düzgün email və şifrə ilə giriş",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -96,11 +299,11 @@
     "images": []
   },
   {
-    "uid": "e8a46967e3076d59",
-    "name": "TC-PROF-008: Pro profil ekranının geniş bölmələri",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "c448fb129a3f97f",
+    "name": "TC-AUTH-015: Yanlış şifrə ilə giriş rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -113,11 +316,156 @@
     "images": []
   },
   {
-    "uid": "1a97459d0cf70eaf",
-    "name": "TC-SET-001 & TC-SET-002: Settings əsas menyusu və Account center bölmələri",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "c82b5dcc1c819eed",
+    "name": "TC-AUTH-016: Mövcud olmayan email və nömrə ilə giriş rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 5.6,
+    "description": "",
+    "steps": [
+      "Open login page at https://bucard.az/login",
+      "Log in with user/phone: nonexistent_1795796297601@guerrillamailblock.com",
+      "Open login page at https://bucard.az/login",
+      "Log in with phone: 509998877"
+    ],
+    "lastPassed": {
+      "uid": "c82b5dcc1c819eed",
+      "formatted": "27.11.2026, 16:18",
+      "timestamp": 1795796301178
+    },
+    "images": []
+  },
+  {
+    "uid": "d4eb0eced70becb8",
+    "name": "TC-AUTH-017: Sign In ekranının elementləri (Email/Phone, Password, Forgot password, OAuth)",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 2.3,
+    "description": "",
+    "steps": [
+      "Open login page at https://bucard.az/login"
+    ],
+    "lastPassed": {
+      "uid": "d4eb0eced70becb8",
+      "formatted": "27.11.2026, 16:18",
+      "timestamp": 1795796304149
+    },
+    "images": [
+      {
+        "name": "TC-AUTH-017 — Sign In UI Elementləri",
+        "src": "data/attachments/6258c636c742818f.png",
+        "size": 230939
+      }
+    ]
+  },
+  {
+    "uid": "ff9cf81e7d8153b7",
+    "name": "TC-AUTH-018 & TC-AUTH-020: Şifrənin OTP ilə tam bərpası və Yenidən Göndər seçimi",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 34.0,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "Yeni istifadəçi qeydiyyatdan keçir: ursgctqg@guerrillamailblock.com",
+      "İstifadəçi hesabından çıxış et (Logout)",
+      "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
+      "Şifrə bərpası səhifəsinin yükləndiyini yoxla",
+      "E-poçt sahəsinə mətn daxil et: ursgctqg@guerrillamailblock.com",
+      "Təsdiq / Göndər düyməsinə kliklə",
+      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
+      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
+      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
+      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
+      "OTP xanalarının sayını al",
+      "OTP taymerinin mətnini oxu",
+      "4-rəqəmli OTP kodunu daxil et: '8118'",
+      "OTP təsdiq düyməsinə kliklə",
+      "Yeni şifrə təyini səhifəsinin (/recover-password) yükləndiyini yoxla",
+      "Yeni şifrəni təyin et və göndər: 'BucardReset2026!'",
+      "Open login page at https://bucard.az/login",
+      "Log in with user/phone: ursgctqg@guerrillamailblock.com"
+    ],
+    "lastPassed": {
+      "uid": "ff9cf81e7d8153b7",
+      "formatted": "27.11.2026, 16:18",
+      "timestamp": 1795796338861
+    },
+    "images": [
+      {
+        "name": "TC-AUTH-018 — OTP Daxiletmə Addımı",
+        "src": "data/attachments/66dabfa0ab1b05e5.png",
+        "size": 263377
+      }
+    ]
+  },
+  {
+    "uid": "6d59088542b7bbab",
+    "name": "TC-AUTH-019 & TC-AUTH-053: Şifrə bərpasında yanlış/natamam/hərf OTP rədd edilir",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 10.1,
+    "description": "",
+    "steps": [
+      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
+      "Yeni istifadəçi qeydiyyatdan keçir: cggnucxp@guerrillamailblock.com",
+      "İstifadəçi hesabından çıxış et (Logout)",
+      "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
+      "E-poçt sahəsinə mətn daxil et: cggnucxp@guerrillamailblock.com",
+      "Təsdiq / Göndər düyməsinə kliklə",
+      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
+      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
+      "4-rəqəmli OTP kodunu daxil et: '12'",
+      "OTP təsdiq düyməsinin aktivlik vəziyyətini yoxla",
+      "OTP xanalarını təmizlə",
+      "4-rəqəmli OTP kodunu daxil et: '0000'",
+      "OTP təsdiq düyməsinin aktivlik vəziyyətini yoxla",
+      "OTP təsdiq düyməsinə kliklə"
+    ],
+    "lastPassed": {
+      "uid": "6d59088542b7bbab",
+      "formatted": "27.11.2026, 16:19",
+      "timestamp": 1795796349702
+    },
+    "images": []
+  },
+  {
+    "uid": "887a8436db5ac7b1",
+    "name": "TC-AUTH-022 & TC-AUTH-023: Forgot Password elementləri və qeydiyyatsız email ilə davranış",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "passed",
+    "duration": 3.7,
+    "description": "",
+    "steps": [
+      "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
+      "E-poçt daxiletmə sahəsinin mövcudluğunu yoxla",
+      "Təsdiq / Göndər düyməsinin mövcudluğunu yoxla",
+      "E-poçt sahəsinə mətn daxil et: nonexistent_1795796352636@guerrillamailblock.com",
+      "Təsdiq / Göndər düyməsinə kliklə"
+    ],
+    "lastPassed": {
+      "uid": "887a8436db5ac7b1",
+      "formatted": "27.11.2026, 16:19",
+      "timestamp": 1795796354147
+    },
+    "images": []
+  },
+  {
+    "uid": "82762819157429d1",
+    "name": "TC-AUTH-050: Təsdiqsiz telefonla giriş verilmir, hesabın emaili ilə açılır",
+    "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -130,26 +478,11 @@
     "images": []
   },
   {
-    "uid": "99bd6d73cb6904e5",
-    "name": "TC-SET-004, TC-SET-005 & TC-SET-006: Şifrə dəyişmədə neqativ hallar rədd edilir (hesab qorunur)",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "24860b6c5b31efcb",
+    "name": "TC-BOX-002: Yeni/Free hesabda 2 sabit qutu (Personal və Companies) mövcuddur",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
-    "status": "skipped",
-    "duration": 0.0,
-    "description": "Yanlış cari şifrə, uyğun olmayan təkrar şifrə və zəif şifrə sınanır; hesabın real şifrəsi dəyişməz qalır.",
-    "steps": [
-      "1. Yanlış cari şifrə, uyğun olmayan təkrar şifrə və zəif şifrə sınanır; hesabın real şifrəsi dəyişməz qalır."
-    ],
-    "lastPassed": null,
-    "images": []
-  },
-  {
-    "uid": "477e251f22b1e71b",
-    "name": "TC-SET-017, TC-SET-019, TC-BON-013 & TC-GEN-005: Free vs Pro Plan və Payment History fərqləri",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
-    "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -162,11 +495,11 @@
     "images": []
   },
   {
-    "uid": "1bf9d4d19611b1c",
-    "name": "TC-SET-020: Settings Language bölməsində AZ / EN / RU dil dəyişimi",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "86289e61067a3883",
+    "name": "TC-BOX-007: Fərdi qutu yaratmaq və yenilənmədən sonra saxlanması",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -179,11 +512,28 @@
     "images": []
   },
   {
-    "uid": "7d89b9e2eb5957bb",
-    "name": "TC-SET-027: Sign out sessiyanı bitirir və Back düyməsi hesaba qaytarmır",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "8c714dbb4ae07234",
+    "name": "TC-BOX-009 & TC-BOX-016: Fərdi qutuya Persons siyahısından '+' ilə əlavə etmə",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "skipped",
+    "duration": 0.7,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": null,
+    "images": []
+  },
+  {
+    "uid": "55ed0deb5d4baf6d",
+    "name": "TC-BOX-017: Personal qutusunda '+' düyməsi Search-ə yönləndirir",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -196,11 +546,11 @@
     "images": []
   },
   {
-    "uid": "43c61404f41483d1",
-    "name": "TC-SHR-004: Paylaşım modalı eyni kanonik /shared-user/ linkindən istifadə edir",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "684edd8737852721",
+    "name": "TC-PROF-001: Free profil ekranının elementləri (avatar, ad/soyad)",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -213,11 +563,11 @@
     "images": []
   },
   {
-    "uid": "1c17368b05f7ae22",
-    "name": "TC-SRCH-002: Soyad üzrə axtarışda Public Pro profil tapılır",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "f25c60d2b41f39ae",
+    "name": "TC-PROF-023: Pro hesabda Profile Status (Public/Private) idarəetməsi",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -230,11 +580,11 @@
     "images": []
   },
   {
-    "uid": "ea31ab84d8df7387",
-    "name": "TC-SRCH-011 & TC-SRCH-012: Search UI elementləri və nəticə tapılmayan sorğu",
-    "feature": "Gündəlik Reqressiya: Profil, Qutular, Axtarış, Ayarlar və Bonus",
+    "uid": "aea80d93801a3751",
+    "name": "TC-SHR-003: Share modalında link formatının yoxlanması və açılması",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
-    "category": "24 Saatlıq Reqressiya (Every 24H)",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
     "duration": 0.0,
     "description": "",
@@ -247,47 +597,155 @@
     "images": []
   },
   {
-    "uid": "13be241274a637f3",
+    "uid": "635fd45da61d31b0",
+    "name": "TC-SHR-005: Paylaşılan Public Pro linki başqa alıcıda açılır",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "skipped",
+    "duration": 6.2,
+    "description": "Anonim brauzer sessiyasında Public Pro linkini açır və göndərənin username/adının göründüyünü yoxlayır.",
+    "steps": [
+      "İctimai profil səhifəsini aç: 'https://bucard.az/shared-user/Raminakbarov'",
+      "Açılan profilin gözlənilən istifadəçiyə aid olduğunu yoxla: 'Raminakbarov' / 'Ramin Akbarov'"
+    ],
+    "lastPassed": {
+      "uid": "7a3221c4be0fa9cd",
+      "formatted": "27.11.2026, 08:37",
+      "timestamp": 1795768642229
+    },
+    "images": []
+  },
+  {
+    "uid": "ee4f23fa2c87e5a3",
+    "name": "TC-SHR-005: Paylaşılan Public Pro linki başqa alıcıda açılır",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "failed",
+    "duration": 3.1,
+    "description": "Anonim brauzer sessiyasında Public Pro linkini açır və göndərənin username/adının göründüyünü yoxlayır.",
+    "steps": [
+      "İctimai profil səhifəsini aç: 'https://bucard.az/shared-user/Raminakbarov'",
+      "Açılan profilin gözlənilən istifadəçiyə aid olduğunu yoxla: 'Raminakbarov' / 'Ramin Akbarov'"
+    ],
+    "lastPassed": {
+      "uid": "7a3221c4be0fa9cd",
+      "formatted": "27.11.2026, 08:37",
+      "timestamp": 1795768642229
+    },
+    "images": []
+  },
+  {
+    "uid": "96720dea1eea22d6",
+    "name": "TC-SRCH-001: Ad üzrə axtarışda Public Pro profil nəticələrdə görünür",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "skipped",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": null,
+    "images": []
+  },
+  {
+    "uid": "966ece2f7d52bedd",
+    "name": "TC-SRCH-006: Free profil axtarış nəticələrində görünmür",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "skipped",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": null,
+    "images": []
+  },
+  {
+    "uid": "9f7473c2ad443504",
+    "name": "TC-SRCH-007: Private Pro profil axtarış nəticələrində görünmür",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "skipped",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": null,
+    "images": []
+  },
+  {
+    "uid": "21f413bec16c60f5",
+    "name": "TC-SRCH-010: Free və Pro istifadəçilər Public Pro-nu tapır, Private gizli qalır",
+    "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
+    "story": "",
+    "category": "3 Saatlıq Yoxlama (Every 3H)",
+    "status": "skipped",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": null,
+    "images": []
+  },
+  {
+    "uid": "72be0abdd7ad239f",
     "name": "API-01: Backend əlçatanlıq və ictimai tarif endpointləri 200 qaytarır",
     "feature": "REST API Sağlamlıq və Kontrakt",
     "story": "",
     "category": "API Kontrakt Yoxlaması",
     "status": "passed",
-    "duration": 4.0,
+    "duration": 2.0,
     "description": "Backend əlçatanlığını və ictimai tarif API endpointlərinin işləkliyini yoxlayır.",
     "steps": [
       "1. Backend sağlamlıq və ictimai tarif (/api/v1/plans) endpointlərini çağır",
       "2. HTTP 200 və valid JSON strukturunu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "13be241274a637f3",
-      "formatted": "27.11.2026, 13:27",
-      "timestamp": 1795786067102
+      "uid": "72be0abdd7ad239f",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796204519
     },
     "images": []
   },
   {
-    "uid": "917326c2931a3938",
+    "uid": "ec680139f60bc1f",
     "name": "API-02: İctimai profil endpointi (/api/v1/profile/{username}/) işləkdir",
     "feature": "REST API Sağlamlıq və Kontrakt",
     "story": "",
     "category": "API Kontrakt Yoxlaması",
     "status": "passed",
-    "duration": 0.6,
+    "duration": 0.8,
     "description": "",
     "steps": [
       "1. Public Pro profil adını əldə et",
       "2. GET /api/v1/profile/{username}/ endpointinin 200 və düzgün username qaytardığını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "917326c2931a3938",
-      "formatted": "27.11.2026, 13:27",
-      "timestamp": 1795786067761
+      "uid": "ec680139f60bc1f",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796205342
     },
     "images": []
   },
   {
-    "uid": "2b8ed8960e0e1c1d",
+    "uid": "b04b25d665acb05",
     "name": "API-03: Autentifikasiyalı profil, QR, sözlüklər, abunəlik, bildiriş və PDF endpointləri işləkdir",
     "feature": "REST API Sağlamlıq və Kontrakt",
     "story": "",
@@ -303,915 +761,306 @@
     "images": []
   },
   {
-    "uid": "29e81e229f9d1921",
-    "name": "DİL-01: Dil seçim menyusunun mövcudluğu və ilkin dil vəziyyəti",
-    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
-    "story": "Dil Seçimi Elementi",
-    "category": "Çoxdillilik (AZ / EN / RU)",
-    "status": "passed",
-    "duration": 2.9,
-    "description": "Ana səhifədə dil seçim düyməsinin (.selectLang) mövcud olduğunu və ilkin dil göstəricisinin təyin edildiyini yoxlayır.",
+    "uid": "ab8808e7e9da8e2f",
+    "name": "E2E-009 [Link]: Mövcud istifadəçi paylaşılan profili qutuya əlavə edir",
+    "feature": "Paylaşım və QR E2E (E2E-009 — E2E-012)",
+    "story": "E2E-009: Daxil olmuş istifadəçinin profili qutuya əlavə etməsi",
+    "category": "Paylaşım və QR (E2E)",
+    "status": "skipped",
+    "duration": 0.0,
+    "description": "Təzə daxil olmuş B istifadəçisi A-nın paylaşım linkini açır, məlumatları müqayisə edir və A-nı qutuya əlavə edir.",
     "steps": [
-      "Open landing page at https://bucard.az",
-      "Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')"
+      "1. Təzə daxil olmuş B istifadəçisi A-nın paylaşım linkini açır, məlumatları müqayisə edir və A-nı qutuya əlavə edir."
     ],
-    "lastPassed": {
-      "uid": "29e81e229f9d1921",
-      "formatted": "27.11.2026, 13:28",
-      "timestamp": 1795786120522
-    },
-    "images": [
-      {
-        "name": "İlkin Dil Vəziyyəti: EN",
-        "src": "data/attachments/a6b1b7bb94d76792.png",
-        "size": 189207
-      }
-    ]
+    "lastPassed": null,
+    "images": []
   },
   {
-    "uid": "e6c1d8468ed7cbaf",
-    "name": "DİL-02: Dili İngilis dilinə (EN) dəyişmə və interfeysin uyğunlaşması",
-    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
-    "story": "İngilis Dili (EN)",
-    "category": "Çoxdillilik (AZ / EN / RU)",
-    "status": "passed",
-    "duration": 4.1,
-    "description": "Dil menyusundan 'English' seçdikdə dil kodunun 'EN' olduğunu və interfeysin ingilis dilinə keçdiyini təsdiqləyir.",
+    "uid": "e746c3eeb2d6019f",
+    "name": "E2E-010 [Link]: Yeni istifadəçi qeydiyyatdan sonra paylaşılan profilə qayıdır",
+    "feature": "Paylaşım və QR E2E (E2E-009 — E2E-012)",
+    "story": "E2E-010: Qeydiyyatdan sonra paylaşılan profilə qayıdış",
+    "category": "Paylaşım və QR (E2E)",
+    "status": "skipped",
+    "duration": 0.0,
+    "description": "Anonim B paylaşım linkindən 'Add to Box' seçərək qeydiyyatdan keçir və avtomatik A-nın profilinə qayıdıb qutuya əlavə edir.",
     "steps": [
-      "Open landing page at https://bucard.az",
-      "Dili dəyiş: en ('az', 'en', 'ru')",
-      "Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')"
+      "1. Anonim B paylaşım linkindən 'Add to Box' seçərək qeydiyyatdan keçir və avtomatik A-nın profilinə qayıdıb qutuya əlavə edir."
     ],
-    "lastPassed": {
-      "uid": "e6c1d8468ed7cbaf",
-      "formatted": "27.11.2026, 13:28",
-      "timestamp": 1795786131835
-    },
-    "images": [
-      {
-        "name": "İngilis Dili İnterfeysi (EN)",
-        "src": "data/attachments/f519781c9f5b8b7d.png",
-        "size": 189206
-      }
-    ]
+    "lastPassed": null,
+    "images": []
   },
   {
-    "uid": "4c54e6bd5e4feb7b",
-    "name": "DİL-03: Dili Rus dilinə (RU) dəyişmə və interfeysin uyğunlaşması",
-    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
-    "story": "Rus Dili (RU)",
-    "category": "Çoxdillilik (AZ / EN / RU)",
+    "uid": "a35792f6d7f64422",
+    "name": "Müvəqqəti e-poçt domenləri avtomatik silinməyə icazəli olmalıdır",
+    "feature": "",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
     "status": "passed",
-    "duration": 4.6,
-    "description": "Dil menyusundan 'Русский' seçdikdə dil kodunun 'РУ' olduğunu və interfeysin rus dilinə keçdiyini təsdiqləyir.",
+    "duration": 0.0,
+    "description": "",
     "steps": [
-      "Open landing page at https://bucard.az",
-      "Dili dəyiş: ru ('az', 'en', 'ru')",
-      "Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')"
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "4c54e6bd5e4feb7b",
-      "formatted": "27.11.2026, 13:28",
-      "timestamp": 1795786137063
-    },
-    "images": [
-      {
-        "name": "Rus Dili İnterfeysi (RU)",
-        "src": "data/attachments/9e89bfa89703f57c.png",
-        "size": 164592
-      }
-    ]
-  },
-  {
-    "uid": "ab44b8e96065f837",
-    "name": "DİL-04: Dili Azərbaycan dilinə (AZ) geri qaytarılması",
-    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
-    "story": "Azərbaycan Dili (AZ)",
-    "category": "Çoxdillilik (AZ / EN / RU)",
-    "status": "passed",
-    "duration": 5.9,
-    "description": "Fərqli dildən yenidən 'Azərbaycan -ca' seçdikdə əsas dil kodunun 'AZ' olaraq bərpa olunduğunu yoxlayır.",
-    "steps": [
-      "Open landing page at https://bucard.az",
-      "Dili dəyiş: en ('az', 'en', 'ru')",
-      "Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')",
-      "Dili dəyiş: az ('az', 'en', 'ru')",
-      "Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')"
-    ],
-    "lastPassed": {
-      "uid": "ab44b8e96065f837",
-      "formatted": "27.11.2026, 13:28",
-      "timestamp": 1795786127050
-    },
-    "images": [
-      {
-        "name": "1. İngilis Dilinə Keçid (EN)",
-        "src": "data/attachments/8e7d72a903c3089a.png",
-        "size": 189206
-      },
-      {
-        "name": "2. Azərbaycan Dilinə Geri Qayıdış (AZ)",
-        "src": "data/attachments/40f0dc0f3f6e9560.png",
-        "size": 203484
-      }
-    ]
-  },
-  {
-    "uid": "5ee09bc9efdc8e7d",
-    "name": "DİL-05: Səhifə yeniləndikdə (Page Reload) seçilmiş dilin saxlanılması",
-    "feature": "Lokalizasiya və Çoxdillilik (AZ / EN / RU)",
-    "story": "Dilin Saxlanması (Persistence)",
-    "category": "Çoxdillilik (AZ / EN / RU)",
-    "status": "passed",
-    "duration": 5.7,
-    "description": "Dil dəyişdirildikdən sonra səhifəni yenilədikdə (F5) seçilmiş dil parametrinin itmədiyini təsdiqləyir.",
-    "steps": [
-      "Open landing page at https://bucard.az",
-      "Dili dəyiş: en ('az', 'en', 'ru')",
-      "Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')",
-      "Seçilmiş dil göstəricisinin 'EN' olmasını gözlə",
-      "Cari seçilmiş dil kodunu oxu (məs. 'AZ', 'EN', 'РУ')"
-    ],
-    "lastPassed": {
-      "uid": "5ee09bc9efdc8e7d",
-      "formatted": "27.11.2026, 13:28",
-      "timestamp": 1795786116943
-    },
-    "images": [
-      {
-        "name": "Səhifə Yeniləndikdən Sonra Dilin Saxlanması Təsdiqi",
-        "src": "data/attachments/56e8ed77542cc9c7.png",
-        "size": 189207
-      }
-    ]
-  },
-  {
-    "uid": "d33b7658e25384a3",
-    "name": "NEQ-AUTH-01: Qonaq istifadəçinin birbaşa /dashboard ünvanına keçid cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Mühafizə Olunan Marşrutlar",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.9,
-    "description": "Giriş etməmiş istifadəçi birbaşa /dashboard açmağa cəhd etdikdə Protected Route Guard-ın işə düşdüyünü və /login səhifəsinə yönləndirildiyini təsdiqləyir.",
-    "steps": [
-      "1. Qonaq sessiyasında birbaşa /dashboard ünvanına keçid et",
-      "2. Protected Route Guard tərəfindən icazəsiz girişin bloklandığını yoxla",
-      "3. İstifadəçinin avtomatik /login səhifəsinə yönləndirildiyini təsdiqlə"
-    ],
-    "lastPassed": {
-      "uid": "d33b7658e25384a3",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786250353
-    },
-    "images": [
-      {
-        "name": "Dashboard-a İcazəsiz Girişin Bloklanması",
-        "src": "data/attachments/3a013254c3322eea.png",
-        "size": 230934
-      }
-    ]
-  },
-  {
-    "uid": "ca680d1b3bbcbea8",
-    "name": "NEQ-AUTH-02: Qonaq istifadəçinin birbaşa /profile ünvanına keçid cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Mühafizə Olunan Marşrutlar",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 10.4,
-    "description": "Giriş etməmiş istifadəçi birbaşa /profile ünvanını açdıqda fərdi məlumat sızmasının olmadığını və /login səhifəsinə yönləndirildiyini yoxlayır.",
-    "steps": [
-      "1. Qonaq sessiyasında birbaşa /profile ünvanına keçid et",
-      "2. Şəxsi məlumatların sızmadığını yoxla",
-      "3. /login səhifəsinə yönləndirməni təsdiqlə"
-    ],
-    "lastPassed": {
-      "uid": "ca680d1b3bbcbea8",
-      "formatted": "27.11.2026, 13:31",
-      "timestamp": 1795786264812
-    },
-    "images": [
-      {
-        "name": "Profile-a İcazəsiz Girişin Bloklanması",
-        "src": "data/attachments/748c870e5a15378d.png",
-        "size": 11271
-      }
-    ]
-  },
-  {
-    "uid": "9764819901a3a2f",
-    "name": "NEQ-AUTH-03: Qonaq istifadəçinin birbaşa /settings ünvanına keçid cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Mühafizə Olunan Marşrutlar",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.8,
-    "description": "Giriş etməmiş istifadəçinin tənzimləmələr bölməsinə (/settings) keçidinin qarşısının alındığını və /login səhifəsinə yönləndirildiyini təsdiqləyir.",
-    "steps": [
-      "1. Qonaq sessiyasında birbaşa /settings ünvanına keçid et",
-      "2. Tənzimləmələrə girişin məhdudlaşdırıldığını yoxla",
-      "3. /login səhifəsinə yönləndirməni təsdiqlə"
-    ],
-    "lastPassed": {
-      "uid": "9764819901a3a2f",
-      "formatted": "27.11.2026, 13:31",
-      "timestamp": 1795786268255
-    },
-    "images": [
-      {
-        "name": "Settings-ə İcazəsiz Girişin Bloklanması",
-        "src": "data/attachments/56f4d5f4d6c9a3d1.png",
-        "size": 230919
-      }
-    ]
-  },
-  {
-    "uid": "d4effc93af9260c3",
-    "name": "NEQ-AUTH-04: Qonaq istifadəçinin mövcud olmayan qutuya (/boxes/invalid-id-999) keçidi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Mühafizə Olunan Marşrutlar",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.8,
-    "description": "İstifadəçi mövcud olmayan bir qutu ID-si açmağa cəhd etdikdə ağ ekran (white screen) baş vermədiyini və təhlükəsiz şəkildə yönləndirildiyini yoxlayır.",
-    "steps": [
-      "1. Qonaq sessiyasında mövcud olmayan qutuya (/boxes/invalid-id-999) keç",
-      "2. Ağ ekranın (white screen) baş vermədiyini yoxla",
-      "3. Təhlükəsiz vəziyyətin qorunduğunu təsdiqlə"
-    ],
-    "lastPassed": {
-      "uid": "d4effc93af9260c3",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786253788
-    },
-    "images": [
-      {
-        "name": "Qeyri-mövcud Qutuya İcazəsiz Keçid",
-        "src": "data/attachments/e27d45b2a5db69d8.png",
-        "size": 20982
-      }
-    ]
-  },
-  {
-    "uid": "e457eac4c877ae65",
-    "name": "NEQ-BOX-01: Qutu adı boş və ya yalnız boşluqlarla göndərildikdə yaradılmanın bloklanması",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Qutu İdarəetməsi Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 16.1,
-    "description": "Qutu yaratma formasında ad daxil edilmədikdə və ya yalnız boşluq simvolları yazıldıqda yeni qutunun yaradılmadığını yoxlayır.",
-    "steps": [
-      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: pzdebmgp@guerrillamailblock.com",
-      "Yeni qutu yarat: '   '"
-    ],
-    "lastPassed": {
-      "uid": "e457eac4c877ae65",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786153778
-    },
-    "images": [
-      {
-        "name": "Boş Qutu Adı ilə Yaratma Cəhdi",
-        "src": "data/attachments/7da0fcc6fd485334.png",
-        "size": 62595
-      }
-    ]
-  },
-  {
-    "uid": "c59e687e3f802230",
-    "name": "NEQ-BƏRPA-01: Sistemdə mövcud olmayan e-poçt üçün bərpa sorğusu",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Şifrə Bərpası Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 3.2,
-    "description": "Bucard sistemində qeydiyyatdan keçməmiş e-poçt ünvanı ilə bərpa sorğusu göndərildikdə sistemin çökmədiyini (500 xətası yaranmadığını) təsdiqləyir.",
-    "steps": [
-      "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
-      "E-poçt sahəsinə mətn daxil et: nobody_registered_99999@bucard.az",
-      "Təsdiq düyməsinin aktivlik vəziyyətini yoxla (enabled/disabled)",
-      "Təsdiq / Göndər düyməsinə kliklə",
-      "Şifrə bərpası səhifəsinin yükləndiyini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "c59e687e3f802230",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786171378
-    },
-    "images": [
-      {
-        "name": "Mövcud Olmayan E-poçt ilə Şifrə Bərpası",
-        "src": "data/attachments/2c6654797fdf2f00.png",
-        "size": 263127
-      }
-    ]
-  },
-  {
-    "uid": "3f1eb241d6bbdced",
-    "name": "NEQ-BƏRPA-02: Yanlış/natamam telefon nömrəsi ilə bərpa cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Şifrə Bərpası Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 13.1,
-    "description": "Telefonla bərpa səhifəsində nömrə sahəsi boş və ya natamam ikən 'Təsdiqlə' düyməsinin qeyri-aktiv (disabled) qaldığını yoxlayır.",
-    "steps": [
-      "Şifrə bərpası səhifəsini aç (phone): https://bucard.az/forgot-password/phone",
-      "Şifrə bərpası səhifəsinin yükləndiyini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "3f1eb241d6bbdced",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786167550
-    },
-    "images": [
-      {
-        "name": "Natamam Telefon ilə Şifrə Bərpası",
-        "src": "data/attachments/f4fbf7114da88774.png",
-        "size": 250055
-      }
-    ]
-  },
-  {
-    "uid": "4046165434a47460",
-    "name": "NEQ-BƏRPA-03: XSS inyeksiya simvolları ilə bərpa cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Təhlükəsizlik və Sanitiyasiya",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.7,
-    "description": "Bərpa sahəsinə zərərli XSS inyeksiyası yazıldıqda sahənin təhlükəsiz emal olunduğunu və skriptin icra olunmadığını yoxlayır.",
-    "steps": [
-      "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
-      "E-poçt sahəsinə mətn daxil et: <svg/onload=alert('xss')>",
-      "Təsdiq düyməsinin aktivlik vəziyyətini yoxla (enabled/disabled)",
-      "Təsdiq / Göndər düyməsinə kliklə",
-      "Şifrə bərpası səhifəsinin yükləndiyini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "4046165434a47460",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786183814
-    },
-    "images": [
-      {
-        "name": "XSS Simvolları ilə Bərpa Cəhdi",
-        "src": "data/attachments/289db06be78db7d8.png",
-        "size": 252852
-      }
-    ]
-  },
-  {
-    "uid": "d208dd2995214f0",
-    "name": "NEQ-GİRİŞ-01: Yanlış istifadəçi e-poçtu və ya şifrəsi ilə daxil olma cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Giriş Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 3.2,
-    "description": "Mövcud olmayan və ya yanlış e-poçt/şifrə daxil edildikdə sistemin dashboard-a keçmədiyini və xəta reaksiyası verdiyini yoxlayır.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Enter email: nonexistent.qa.test@bucard.az",
-      "Submit login form"
-    ],
-    "lastPassed": {
-      "uid": "d208dd2995214f0",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786195692
-    },
-    "images": [
-      {
-        "name": "Yanlış Giriş Məlumatları Xətası",
-        "src": "data/attachments/398f95892205685c.png",
-        "size": 237147
-      }
-    ]
-  },
-  {
-    "uid": "676182b9eac795cb",
-    "name": "NEQ-GİRİŞ-02: Qeyri-valid formatlı e-poçt ilə daxil olma cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Giriş Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.8,
-    "description": "E-poçt formatı düzgün olmadıqda (məs. @ simvolu olmadan) HTML5/React validasiyasının forma göndərişini blokladığını yoxlayır.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Enter email: invalid_email_without_at",
-      "Submit login form"
-    ],
-    "lastPassed": {
-      "uid": "676182b9eac795cb",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786199148
-    },
-    "images": [
-      {
-        "name": "Qeyri-valid Formatlı E-poçt ilə Giriş",
-        "src": "data/attachments/720f7e2df0744bcc.png",
-        "size": 235838
-      }
-    ]
-  },
-  {
-    "uid": "7ee841ccdc95ad4",
-    "name": "NEQ-GİRİŞ-03: Natamam telefon nömrəsi ilə daxil olma cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Giriş Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.9,
-    "description": "Telefon tabında natamam nömrə (məs. cəmi 4 rəqəm) yazıldıqda girişin qarşısının alındığını təsdiqləyir.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Switch to Phone tab",
-      "Submit login form"
-    ],
-    "lastPassed": {
-      "uid": "7ee841ccdc95ad4",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786191792
-    },
-    "images": [
-      {
-        "name": "Natamam Telefon Nömrəsi ilə Giriş",
-        "src": "data/attachments/a1cd7a83f1adad01.png",
-        "size": 228564
-      }
-    ]
-  },
-  {
-    "uid": "4b36b947f93c43dd",
-    "name": "NEQ-GİRİŞ-04: SQL Injection və XSS təhlükəsizlik simvolları ilə giriş cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Təhlükəsizlik və Sanitiyasiya",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 3.0,
-    "description": "Giriş sahələrinə SQL Injection və XSS skript simvolları yazıldıqda sistemin çökmədiyini (500 xətası olmadığını) və daxiletmələrin təhlükəsiz emal olunduğunu yoxlayır.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Enter email: ' OR '1'='1' --",
-      "Submit login form"
-    ],
-    "lastPassed": {
-      "uid": "4b36b947f93c43dd",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786202863
-    },
-    "images": [
-      {
-        "name": "SQLi və XSS Simvolları ilə Giriş Cəhdi",
-        "src": "data/attachments/23bc2d52dd0e0d13.png",
-        "size": 233632
-      }
-    ]
-  },
-  {
-    "uid": "b693fa55af01be57",
-    "name": "NEQ-GİRİŞ-05: Həddindən artıq uzun mətnlə (500+ simvol) forma dayanıqlığı",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Təhlükəsizlik və Sanitiyasiya",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 3.7,
-    "description": "E-poçt xanasına 500+ simvoldan ibarət uzun mətn daxil edildikdə CSS vərəqinin sınmadığını və formanın sabit qaldığını təsdiqləyir.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Enter email: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bucard.az"
-    ],
-    "lastPassed": {
-      "uid": "b693fa55af01be57",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786188222
-    },
-    "images": [
-      {
-        "name": "500+ Simvolluq Mətnlə Forma Dayanıqlığı",
-        "src": "data/attachments/778a50455fb96d2b.png",
-        "size": 229207
-      }
-    ]
-  },
-  {
-    "uid": "67443a5289117b5a",
-    "name": "NEQ-OTP-01: Yanlış OTP kodu (0000) daxil edildikdə xətanın yaranması",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "OTP və Bərpa Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 4.4,
-    "description": "Şifrə bərpası zamanı yanlış OTP kodu daxil edildikdə sistemin xəta verdiyini və növbəti addıma buraxmadığını yoxlayır.",
-    "steps": [
-      "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
-      "E-poçt sahəsinə mətn daxil et: pzdebmgp@guerrillamailblock.com",
-      "Təsdiq / Göndər düyməsinə kliklə",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "4-rəqəmli OTP kodunu daxil et: '0000'",
-      "OTP təsdiq düyməsinə kliklə"
-    ],
-    "lastPassed": {
-      "uid": "67443a5289117b5a",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786180505
-    },
-    "images": [
-      {
-        "name": "Yanlış OTP Kodu Daxil Edildi",
-        "src": "data/attachments/57652e0eec87ad57.png",
-        "size": 265909
-      },
-      {
-        "name": "Yanlış OTP Daxil Edildikdə Xəta Vəziyyəti",
-        "src": "data/attachments/11ba7aec6c4eab94.png",
-        "size": 252876
-      }
-    ]
-  },
-  {
-    "uid": "beb2b1331acc3d65",
-    "name": "NEQ-OTP-02: OTP kodunun natamam daxil edilməsi (1-3 rəqəm)",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "OTP və Bərpa Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 3.5,
-    "description": "OTP kodunun 4 rəqəmi tam doldurulmadıqda təsdiq düyməsinin qeyri-aktiv (disabled) qaldığını yoxlayır.",
-    "steps": [
-      "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
-      "E-poçt sahəsinə mətn daxil et: pzdebmgp@guerrillamailblock.com",
-      "Təsdiq / Göndər düyməsinə kliklə",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
-      "4-rəqəmli OTP kodunu daxil et: '12'",
-      "OTP təsdiq düyməsinin aktivlik vəziyyətini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "beb2b1331acc3d65",
-      "formatted": "27.11.2026, 13:29",
-      "timestamp": 1795786175508
-    },
-    "images": [
-      {
-        "name": "Natamam OTP Daxil Edildi (2 rəqəm)",
-        "src": "data/attachments/7d9b96e0c22faec4.png",
-        "size": 264498
-      }
-    ]
-  },
-  {
-    "uid": "a69fd8d9f830ce69",
-    "name": "NEQ-QEYD-01: Zəif / qısa şifrə ilə qeydiyyat cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Qeydiyyat Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.8,
-    "description": "Qeydiyyat zamanı tələblərə cavab verməyən zəif şifrə ('123') yazıldıqda qeydiyyatın tamamlanmadığını yoxlayır.",
-    "steps": [
-      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "E-poçt və şifrə daxil et",
-      "Qeydiyyat formasını göndər",
-      "Qeydiyyat səhifəsinin yükləndiyini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "a69fd8d9f830ce69",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786223809
-    },
-    "images": [
-      {
-        "name": "Zəif Şifrə ilə Qeydiyyat Cəhdi",
-        "src": "data/attachments/c8a90d4ab6308143.png",
-        "size": 297190
-      }
-    ]
-  },
-  {
-    "uid": "694f184cadd0621d",
-    "name": "NEQ-QEYD-02: Qeydiyyat formasının boş saxlanılaraq göndərilməsi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Qeydiyyat Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.6,
-    "description": "Qeydiyyat sahələri doldurulmadan 'Qeydiyyatdan keç' düyməsinə basıldıqda formanın göndərilmədiyini təsdiqləyir.",
-    "steps": [
-      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Qeydiyyat formasını göndər",
-      "Qeydiyyat səhifəsinin yükləndiyini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "694f184cadd0621d",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786212462
-    },
-    "images": [
-      {
-        "name": "Boş Sahələrlə Qeydiyyat Cəhdi",
-        "src": "data/attachments/662e879f576f2119.png",
-        "size": 300524
-      }
-    ]
-  },
-  {
-    "uid": "e760b1e6e05c85e9",
-    "name": "NEQ-QEYD-03: Qeyri-valid sintaksisli e-poçt formatı ilə submit cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Qeydiyyat Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 3.0,
-    "description": "Qeydiyyat zamanı ikiqat @ və ya yanlış domen formatı daxil edildikdə sistemin xəta reaksiyasını yoxlayır.",
-    "steps": [
-      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "E-poçt və şifrə daxil et",
-      "Qeydiyyat formasını göndər",
-      "Qeydiyyat səhifəsinin yükləndiyini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "e760b1e6e05c85e9",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786220270
-    },
-    "images": [
-      {
-        "name": "Qeyri-valid E-poçt ilə Qeydiyyat",
-        "src": "data/attachments/ac94de4e5977fdd9.png",
-        "size": 296092
-      }
-    ]
-  },
-  {
-    "uid": "3def160369bf44f7",
-    "name": "NEQ-QEYD-04: Yalnız e-poçt doldurulub şifrə sahəsi boş buraxıldıqda",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Qeydiyyat Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.8,
-    "description": "E-poçt yazılıb lakin şifrə boş saxlanıldıqda qeydiyyatın bloklandığını təsdiqləyir.",
-    "steps": [
-      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "E-poçt və şifrə daxil et",
-      "Qeydiyyat formasını göndər",
-      "Qeydiyyat səhifəsinin yükləndiyini yoxla"
-    ],
-    "lastPassed": {
-      "uid": "3def160369bf44f7",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786209231
-    },
-    "images": [
-      {
-        "name": "Şifrəsiz Qeydiyyat Cəhdi",
-        "src": "data/attachments/b38e08cd92d7a2fb.png",
-        "size": 297802
-      }
-    ]
-  },
-  {
-    "uid": "d28ef83d43384f75",
-    "name": "NEQ-QEYD-05: Mövcud / qeydiyyatdan keçmiş e-poçt ilə təkrar qeydiyyat cəhdi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Qeydiyyat Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 3.5,
-    "description": "Artıq sistemdə mövcud olan e-poçt ilə təkrar qeydiyyat cəhdi zamanı müvafiq xəta bildirişinin yarandığını təsdiqləyir.",
-    "steps": [
-      "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "E-poçt və şifrə daxil et",
-      "Qeydiyyat formasını göndər",
-      "Xəta bildirişinin (errorAlert) mövcudluğunu yoxla"
-    ],
-    "lastPassed": {
-      "uid": "d28ef83d43384f75",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786216627
-    },
-    "images": [
-      {
-        "name": "Mövcud E-poçt ilə Təkrar Qeydiyyat Xətası",
-        "src": "data/attachments/f59d86cb665ab37a.png",
-        "size": 298035
-      }
-    ]
-  },
-  {
-    "uid": "6f6fac24559c414b",
-    "name": "NEQ-REC-01: Yeni şifrə bərpasında zəif / qısa şifrə daxil edilməsi",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "OTP və Bərpa Neqativ Halları",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 2.2,
-    "description": "/recover-password ünvanında 6 simvoldan qısa şifrə təyin edilməyə cəhd edildikdə validasiya reaksiyasını yoxlayır.",
-    "steps": [
-      "Yeni şifrə təyini səhifəsinin (/recover-password) yükləndiyini yoxla",
-      "Yeni şifrə sahəsinin mövcudluğunu yoxla",
-      "Yeni şifrə daxil et: '123'",
-      "Yeni şifrəni təsdiqlə və göndər",
-      "Xəta bildirişinin (errorAlert) mövcudluğunu yoxla"
-    ],
-    "lastPassed": {
-      "uid": "6f6fac24559c414b",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786205783
-    },
-    "images": [
-      {
-        "name": "Qısa Şifrə Validasiya Yoxlanışı",
-        "src": "data/attachments/c599f74428aa18f6.png",
-        "size": 51133
-      }
-    ]
-  },
-  {
-    "uid": "fb4dcd40b5951709",
-    "name": "NEQ-SESS-01: Aktiv sessiya zamanı avtorizasiya tokeni silindikdə sistemdən çıxarılma",
-    "feature": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "story": "Sessiya Təhlükəsizliyi",
-    "category": "Neqativ və Təhlükəsizlik Ssenariləri",
-    "status": "passed",
-    "duration": 22.4,
-    "description": "localStorage-dan avtorizasiya tokeni (X-Authorization) təmizləndikdə və səhifə yeniləndikdə mühafizə olunan səhifədən /login-ə yönləndirməni yoxlayır.",
-    "steps": [
-      "1. localStorage-dan avtorizasiya tokeni (X-Authorization) təmizləndikdə və səhifə yeniləndikdə mühafizə olunan səhifədən /login-ə yönləndirməni yoxlayır."
-    ],
-    "lastPassed": {
-      "uid": "fb4dcd40b5951709",
-      "formatted": "27.11.2026, 13:30",
-      "timestamp": 1795786246834
+      "uid": "a35792f6d7f64422",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796202417
     },
     "images": []
   },
   {
-    "uid": "d3126f5faf86cbf3",
-    "name": "BIZ-P1-01: Qutuların idarə edilməsi (Yaradılma, Ad dəyişmə, Baxış və Təmizlənmə)",
-    "feature": "P1: Qutuların və Kontaktların İdarə Edilməsi",
-    "story": "Qutuların İdarə Edilməsi",
-    "category": "Biznes Funksionallıqları (P0, P1, P2)",
+    "uid": "6bfdf3372571d3dc",
+    "name": "Paylaşılan Pro/Free/real e-poçt ünvanları heç vaxt silinməyə buraxılmamalıdır",
+    "feature": "",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
     "status": "passed",
-    "duration": 15.6,
-    "description": "İstifadəçinin yeni qutu yarada, adını dəyişə, qutunu aça və silə bildiyini təsdiqləyir.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Log in with user/phone: pzdebmgp@guerrillamailblock.com",
-      "Yeni qutu yarat: 'AUTO_TEST_BOX_1795786273679'"
-    ],
-    "lastPassed": {
-      "uid": "d3126f5faf86cbf3",
-      "formatted": "27.11.2026, 13:31",
-      "timestamp": 1795786284466
-    },
-    "images": [
-      {
-        "name": "Yeni Qutu Yaradılması Əməliyyatı",
-        "src": "data/attachments/20ddadf39c0bfafd.png",
-        "size": 63637
-      },
-      {
-        "name": "Mövcud Qutunun Detal Görünüşü",
-        "src": "data/attachments/67a3e95781358498.png",
-        "size": 40869
-      }
-    ]
-  },
-  {
-    "uid": "d2826baa954ad7b8",
-    "name": "BIZ-P1-02: Kontaktların idarə edilməsi (Əlavə etmə, baxış və silinmə)",
-    "feature": "P1: Qutuların və Kontaktların İdarə Edilməsi",
-    "story": "Kontaktların İdarə Edilməsi",
-    "category": "Biznes Funksionallıqları (P0, P1, P2)",
-    "status": "passed",
-    "duration": 16.2,
-    "description": "İstifadəçinin qutuya kontakt əlavə edə, mövcud kontaktlara baxa və onları silə bildiyini yoxlayır.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Log in with user/phone: pzdebmgp@guerrillamailblock.com"
-    ],
-    "lastPassed": {
-      "uid": "d2826baa954ad7b8",
-      "formatted": "27.11.2026, 13:31",
-      "timestamp": 1795786301819
-    },
-    "images": [
-      {
-        "name": "Kontaktlar Bölməsinin İlkin Vəziyyəti",
-        "src": "data/attachments/d19655da9913ca8.png",
-        "size": 8885
-      }
-    ]
-  },
-  {
-    "uid": "e1a7f225e7e5246e",
-    "name": "BIZ-P1-03: Abunəlik və planlar (Free və Pro funksionallıq və limitləri)",
-    "feature": "P1: Abunəlik, Planlar və Bonus Sistemi",
-    "story": "Abunəlik və Planlar",
-    "category": "Biznes Funksionallıqları (P0, P1, P2)",
-    "status": "passed",
-    "duration": 16.0,
-    "description": "Free və Pro istifadəçilərin müvafiq funksionallıqlara çıxışını və cari plan məlumatlarını yoxlayır.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Log in with user/phone: pzdebmgp@guerrillamailblock.com",
-      "Cari abunəlik planının adını oxu"
-    ],
-    "lastPassed": {
-      "uid": "e1a7f225e7e5246e",
-      "formatted": "27.11.2026, 13:32",
-      "timestamp": 1795786335266
-    },
-    "images": [
-      {
-        "name": "Cari Abunəlik Planı və Məhdudiyyətlər",
-        "src": "data/attachments/90941ba79234f2c1.png",
-        "size": 51082
-      }
-    ]
-  },
-  {
-    "uid": "aa481eb2ed155b53",
-    "name": "BIZ-P1-04: Bonus sistemi (Balans və bonus tarixçəsinin göstərilməsi)",
-    "feature": "P1: Abunəlik, Planlar və Bonus Sistemi",
-    "story": "Bonus Sistemi",
-    "category": "Biznes Funksionallıqları (P0, P1, P2)",
-    "status": "passed",
-    "duration": 15.6,
-    "description": "Bonus balansının və bonus tarixçəsinin düzgün yükləndiyini və göstərildiyini yoxlayır.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Log in with user/phone: pzdebmgp@guerrillamailblock.com"
-    ],
-    "lastPassed": {
-      "uid": "aa481eb2ed155b53",
-      "formatted": "27.11.2026, 13:31",
-      "timestamp": 1795786318648
-    },
-    "images": [
-      {
-        "name": "Dashboard Bonus Balansı İndikatoru",
-        "src": "data/attachments/d084f0faa6d5a0d2.png",
-        "size": 9181
-      },
-      {
-        "name": "Bonus Tarixçəsi və Əməliyyatlar Bölməsi",
-        "src": "data/attachments/1e4be8afdec82cdd.png",
-        "size": 40632
-      }
-    ]
-  },
-  {
-    "uid": "92e61f2b5eaa11d7",
-    "name": "BIZ-P2-01: Bildirişlərin göstərilməsi və oxunma statusunun yenilənməsi",
-    "feature": "P2: Bildirişlər Sistemi",
-    "story": "Bildirişlər (Notifications)",
-    "category": "Biznes Funksionallıqları (P0, P1, P2)",
-    "status": "passed",
-    "duration": 16.5,
-    "description": "Bildirişlərin düzgün göstərildiyini və oxunma statusunun uğurla yeniləndiyini yoxlayır.",
-    "steps": [
-      "Open login page at https://bucard.az/login",
-      "Log in with user/phone: pzdebmgp@guerrillamailblock.com"
-    ],
-    "lastPassed": {
-      "uid": "92e61f2b5eaa11d7",
-      "formatted": "27.11.2026, 13:32",
-      "timestamp": 1795786352398
-    },
-    "images": [
-      {
-        "name": "Bildirişlər Bölməsi Vəziyyəti",
-        "src": "data/attachments/b0f40939cb172323.png",
-        "size": 89233
-      }
-    ]
-  },
-  {
-    "uid": "62da7ec4898b1458",
-    "name": "E2E-011 [Link]: Qeydiyyatda səhifə yenilənəndə paylaşılan profil itmir",
-    "feature": "Paylaşım və QR E2E (E2E-009 — E2E-012)",
-    "story": "E2E-011: Səhifə yeniləndikdə paylaşım kontekstinin qorunması",
-    "category": "Paylaşım və QR (E2E)",
-    "status": "skipped",
     "duration": 0.0,
-    "description": "Qeydiyyat zamanı səhifəni yenilədikdən (Refresh) sonra B qeydiyyatı tamamlayır və A-nın profilinə qayıdır.",
+    "description": "",
     "steps": [
-      "1. Qeydiyyat zamanı səhifəni yenilədikdən (Refresh) sonra B qeydiyyatı tamamlayır və A-nın profilinə qayıdır."
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
     ],
-    "lastPassed": null,
+    "lastPassed": {
+      "uid": "6bfdf3372571d3dc",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796202440
+    },
+    "images": []
+  },
+  {
+    "uid": "f05248fdd7d8bac3",
+    "name": "Verify QrCodeDecoder decodes generated QR PNG payload accurately",
+    "feature": "QR Code Decoding",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 2.3,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "f05248fdd7d8bac3",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796202403
+    },
+    "images": []
+  },
+  {
+    "uid": "251899423f319dd3",
+    "name": "Verify QrCodeDecoder rejects non-image bytes",
+    "feature": "QR Code Decoding",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "251899423f319dd3",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796202408
+    },
+    "images": []
+  },
+  {
+    "uid": "8144d346ad703d8e",
+    "name": "Verify QrCodeDecoder rejects null bytes",
+    "feature": "QR Code Decoding",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "8144d346ad703d8e",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796202411
+    },
+    "images": []
+  },
+  {
+    "uid": "b2152cd522d57a92",
+    "name": "Verify default base URL is https://bucard.az",
+    "feature": "Framework Configuration",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "b2152cd522d57a92",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796199948
+    },
+    "images": []
+  },
+  {
+    "uid": "3ec1ae0bd51fa27",
+    "name": "Verify default timeouts have positive values",
+    "feature": "Framework Configuration",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "3ec1ae0bd51fa27",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796200088
+    },
+    "images": []
+  },
+  {
+    "uid": "91e3dd5e808c1d1d",
+    "name": "Verify isAuthAvailable returns false when credentials are not configured",
+    "feature": "Framework Configuration",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "91e3dd5e808c1d1d",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796200094
+    },
+    "images": []
+  },
+  {
+    "uid": "38754f39d9e9a19c",
+    "name": "Verify long messages are truncated without exceeding limits",
+    "feature": "Security & Sanitization",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "38754f39d9e9a19c",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796200115
+    },
+    "images": []
+  },
+  {
+    "uid": "aa69e031ec2d6b90",
+    "name": "Verify null or empty messages are handled gracefully",
+    "feature": "Security & Sanitization",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "aa69e031ec2d6b90",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796200102
+    },
+    "images": []
+  },
+  {
+    "uid": "39bed19cfb82a405",
+    "name": "Verify password and token parameters are redacted",
+    "feature": "Security & Sanitization",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "39bed19cfb82a405",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796200111
+    },
+    "images": []
+  },
+  {
+    "uid": "f8de1da7b22f6f3c",
+    "name": "Verify proShareUrl derives shared-user URL from pro.username when shareUrl is unset",
+    "feature": "Framework Configuration",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "f8de1da7b22f6f3c",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796200098
+    },
+    "images": []
+  },
+  {
+    "uid": "9ddc2836493fb89a",
+    "name": "Verify sensitive URLs with query parameters are redacted",
+    "feature": "Security & Sanitization",
+    "story": "",
+    "category": "Vahid (Unit) Testlər",
+    "status": "passed",
+    "duration": 0.0,
+    "description": "",
+    "steps": [
+      "1. Test səhifəsini aç",
+      "2. UI elementlərini yoxla",
+      "3. Nəticəni təsdiqlə"
+    ],
+    "lastPassed": {
+      "uid": "9ddc2836493fb89a",
+      "formatted": "27.11.2026, 16:16",
+      "timestamp": 1795796200107
+    },
     "images": []
   }
 ]
