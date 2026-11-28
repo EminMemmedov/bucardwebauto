@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"ffa1be8cdde4582b4e7dcef024b23952","name":"Bucard Web Automation — Every 24 Hours (Daily Regression)","statistic":{"failed":5,"broken":0,"skipped":14,"passed":30,"unknown":0,"total":49}}]}
+{"total":1,"items":[{"uid":"6b26e17d1f601decf57db073589ec5ed","name":"Bucard Web Automation — Every 3 Hours (High Priority)","statistic":{"failed":0,"broken":0,"skipped":18,"passed":32,"unknown":0,"total":50}}]}
