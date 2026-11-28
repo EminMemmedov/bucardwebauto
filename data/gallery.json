@@ -1,6 +1,6 @@
 [
   {
-    "uid": "1de31d25ff6e7b99",
+    "uid": "3fe142e665f8964f",
     "name": "E2E-001: Yeni qeydiyyat, Free profil, sabit qutular, çıxış və yenidən giriş",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -10,85 +10,85 @@
     "description": "Təzə email ilə OTP-siz qeydiyyat, Personal/Companies sabit qutularının yaranması, Free profil, Sign out və yenidən daxil olma axınını yoxlayır.",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: ssyudoqt@guerrillamailblock.com",
+      "Yeni istifadəçi qeydiyyatdan keçir: vnzaheua@guerrillamailblock.com",
       "Sabit 'Personal' və 'Companies' qutularının mövcudluğunu yoxla",
       "İstifadəçi hesabından çıxış et (Logout)",
       "Open login page at https://bucard.az/login",
-      "Log in with user/phone: ssyudoqt@guerrillamailblock.com",
+      "Log in with user/phone: vnzaheua@guerrillamailblock.com",
       "Sabit 'Personal' və 'Companies' qutularının mövcudluğunu yoxla"
     ],
     "lastPassed": {
-      "uid": "1de31d25ff6e7b99",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828379215
+      "uid": "3fe142e665f8964f",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865155642
     },
     "images": [
       {
         "name": "E2E-001 — Yeni Free Profil",
-        "src": "data/attachments/5d35bf96c2557e33.png",
-        "size": 8876
+        "src": "data/attachments/96c6624aa38a3e6a.png",
+        "size": 8895
       },
       {
         "name": "E2E-001 — Yenidən Giriş Sonrası Qutular",
-        "src": "data/attachments/62afbcc17af0a609.png",
+        "src": "data/attachments/4d64390ab8a62833.png",
         "size": 58680
       }
     ]
   },
   {
-    "uid": "8cf3c6aeea68b605",
+    "uid": "c138ac067bfb8d99",
     "name": "TC-AUTH-001: Email və şifrə ilə OTP-siz uğurlu qeydiyyat",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 5.8,
+    "duration": 4.9,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: tmqgntac@guerrillamailblock.com"
+      "Yeni istifadəçi qeydiyyatdan keçir: antsmtjb@guerrillamailblock.com"
     ],
     "lastPassed": {
-      "uid": "8cf3c6aeea68b605",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828385815
+      "uid": "c138ac067bfb8d99",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865161412
     },
     "images": [
       {
         "name": "TC-AUTH-001 — Uğurlu Qeydiyyat",
-        "src": "data/attachments/76379d9e5825020.png",
-        "size": 8776
+        "src": "data/attachments/85d7a57bcbad6275.png",
+        "size": 8895
       }
     ]
   },
   {
-    "uid": "af73c6a566484345",
+    "uid": "1e1705276ca82bc",
     "name": "TC-AUTH-003: Şifrə sərhədi — tam 8 simvol (Ab1!abcd) qəbul edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 5.6,
+    "duration": 5.9,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: vpdjawvo@guerrillamailblock.com"
+      "Yeni istifadəçi qeydiyyatdan keçir: ukhiiwhv@guerrillamailblock.com"
     ],
     "lastPassed": {
-      "uid": "af73c6a566484345",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828392088
+      "uid": "1e1705276ca82bc",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865167982
     },
     "images": []
   },
   {
-    "uid": "2ca8b53d93154eda",
+    "uid": "c4de27b57efe0b0a",
     "name": "TC-AUTH-004: Şifrə 7 simvol (Ab1!abc) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.8,
+    "duration": 3.5,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
@@ -96,20 +96,20 @@
       "Qeydiyyat formasını göndər"
     ],
     "lastPassed": {
-      "uid": "2ca8b53d93154eda",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828396595
+      "uid": "c4de27b57efe0b0a",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865172146
     },
     "images": []
   },
   {
-    "uid": "c982467b06dd016f",
+    "uid": "efae5f271a26d154",
     "name": "TC-AUTH-005: Şifrədə böyük hərf yoxdur (abcd1234!) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.9,
+    "duration": 3.6,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
@@ -117,20 +117,20 @@
       "Qeydiyyat formasını göndər"
     ],
     "lastPassed": {
-      "uid": "c982467b06dd016f",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828401231
+      "uid": "efae5f271a26d154",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865176470
     },
     "images": []
   },
   {
-    "uid": "4b8d741f0dbd377",
+    "uid": "9215c085c779bf0d",
     "name": "TC-AUTH-006: Şifrədə kiçik hərf yoxdur (ABCD1234!) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.8,
+    "duration": 3.6,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
@@ -138,20 +138,20 @@
       "Qeydiyyat formasını göndər"
     ],
     "lastPassed": {
-      "uid": "4b8d741f0dbd377",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828405745
+      "uid": "9215c085c779bf0d",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865180742
     },
     "images": []
   },
   {
-    "uid": "1a4ae9e423b54b03",
+    "uid": "d3f4a9aff026ea95",
     "name": "TC-AUTH-007: Şifrədə rəqəm yoxdur (Abcdefg!x) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.7,
+    "duration": 3.4,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
@@ -159,14 +159,14 @@
       "Qeydiyyat formasını göndər"
     ],
     "lastPassed": {
-      "uid": "1a4ae9e423b54b03",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828410107
+      "uid": "d3f4a9aff026ea95",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865184875
     },
     "images": []
   },
   {
-    "uid": "4038febca802e7bf",
+    "uid": "b6bd4c63ed303375",
     "name": "TC-AUTH-008: Şifrədə xüsusi simvol yoxdur (Abcd1234) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -180,20 +180,20 @@
       "Qeydiyyat formasını göndər"
     ],
     "lastPassed": {
-      "uid": "4038febca802e7bf",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828414642
+      "uid": "b6bd4c63ed303375",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865189367
     },
     "images": []
   },
   {
-    "uid": "59bf29174f78296f",
+    "uid": "838eecaed2c0ca9f",
     "name": "TC-AUTH-009 & TC-AUTH-049: Boş Email / Password kombinasiyaları rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 7.2,
+    "duration": 7.0,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
@@ -207,20 +207,20 @@
       "Qeydiyyat formasını göndər"
     ],
     "lastPassed": {
-      "uid": "59bf29174f78296f",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828422542
+      "uid": "838eecaed2c0ca9f",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865197079
     },
     "images": []
   },
   {
-    "uid": "557dd21e7a9631d5",
+    "uid": "92e07a8b90256b84",
     "name": "TC-AUTH-010: Yanlış email formatı (test@, test.com) rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 5.4,
+    "duration": 5.2,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
@@ -231,14 +231,14 @@
       "Qeydiyyat formasını göndər"
     ],
     "lastPassed": {
-      "uid": "557dd21e7a9631d5",
-      "formatted": "28.11.2026, 01:13",
-      "timestamp": 1795828428607
+      "uid": "92e07a8b90256b84",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865202943
     },
     "images": []
   },
   {
-    "uid": "9659cd6951e5274c",
+    "uid": "878c89f320bd49c2",
     "name": "TC-AUTH-011: Artıq qeydiyyatdan keçmiş email ilə qeydiyyat rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -255,34 +255,34 @@
     "images": []
   },
   {
-    "uid": "138f306281c39143",
+    "uid": "1c8f049d5b172135",
     "name": "TC-AUTH-012: E-poçtu təsdiqlənməmiş istifadəçi əsas ekranlardan (Home, Search, Share) istifadə edir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 13.0,
+    "duration": 11.1,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: ujjndfnz@guerrillamailblock.com",
+      "Yeni istifadəçi qeydiyyatdan keçir: pwlstlql@guerrillamailblock.com",
       "Paylaşım modalını aç və link/QR məlumatlarını əldə et"
     ],
     "lastPassed": {
-      "uid": "138f306281c39143",
-      "formatted": "28.11.2026, 01:14",
-      "timestamp": 1795828442350
+      "uid": "1c8f049d5b172135",
+      "formatted": "28.11.2026, 11:26",
+      "timestamp": 1795865214815
     },
     "images": [
       {
         "name": "TC-AUTH-012 — Təsdiqsiz İstifadəçidə Search",
-        "src": "data/attachments/e95f888c20f69ef2.png",
-        "size": 8082
+        "src": "data/attachments/d31ff75ab0fc83d.png",
+        "size": 25295
       }
     ]
   },
   {
-    "uid": "212ef3eb6af63dd3",
+    "uid": "ee351fe7cefb71b8",
     "name": "TC-AUTH-013: Mövcud hesabla düzgün email və şifrə ilə giriş",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -299,7 +299,7 @@
     "images": []
   },
   {
-    "uid": "b4b51681f697efb2",
+    "uid": "88b55ed5806716b2",
     "name": "TC-AUTH-015: Yanlış şifrə ilə giriş rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -316,110 +316,109 @@
     "images": []
   },
   {
-    "uid": "38c966a495d590b9",
+    "uid": "c3cc41d29cec9f4d",
     "name": "TC-AUTH-016: Mövcud olmayan email və nömrə ilə giriş rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 5.9,
+    "duration": 5.2,
     "description": "",
     "steps": [
       "Open login page at https://bucard.az/login",
-      "Log in with user/phone: nonexistent_1795828445012@guerrillamailblock.com",
+      "Log in with user/phone: nonexistent_1795865217360@guerrillamailblock.com",
       "Open login page at https://bucard.az/login",
       "Log in with phone: 509998877"
     ],
     "lastPassed": {
-      "uid": "38c966a495d590b9",
-      "formatted": "28.11.2026, 01:14",
-      "timestamp": 1795828448947
+      "uid": "c3cc41d29cec9f4d",
+      "formatted": "28.11.2026, 11:27",
+      "timestamp": 1795865220717
     },
     "images": []
   },
   {
-    "uid": "fd7434c719f1ec74",
+    "uid": "8c86a9207ba884e9",
     "name": "TC-AUTH-017: Sign In ekranının elementləri (Email/Phone, Password, Forgot password, OAuth)",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 2.5,
+    "duration": 2.3,
     "description": "",
     "steps": [
       "Open login page at https://bucard.az/login"
     ],
     "lastPassed": {
-      "uid": "fd7434c719f1ec74",
-      "formatted": "28.11.2026, 01:14",
-      "timestamp": 1795828452110
+      "uid": "8c86a9207ba884e9",
+      "formatted": "28.11.2026, 11:27",
+      "timestamp": 1795865223764
     },
     "images": [
       {
         "name": "TC-AUTH-017 — Sign In UI Elementləri",
-        "src": "data/attachments/ef605f39ff90c7e5.png",
-        "size": 229049
+        "src": "data/attachments/59bb42540a66ab1a.png",
+        "size": 230919
       }
     ]
   },
   {
-    "uid": "ebd69648203ab722",
+    "uid": "c6588d71eb1ffd54",
     "name": "TC-AUTH-018 & TC-AUTH-020: Şifrənin OTP ilə tam bərpası və Yenidən Göndər seçimi",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 37.8,
+    "duration": 41.4,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: nirsyuhe@guerrillamailblock.com",
+      "Yeni istifadəçi qeydiyyatdan keçir: clqlsbpz@guerrillamailblock.com",
       "İstifadəçi hesabından çıxış et (Logout)",
       "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
       "Şifrə bərpası səhifəsinin yükləndiyini yoxla",
-      "E-poçt sahəsinə mətn daxil et: nirsyuhe@guerrillamailblock.com",
+      "E-poçt sahəsinə mətn daxil et: clqlsbpz@guerrillamailblock.com",
       "Təsdiq / Göndər düyməsinə kliklə",
-      "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
       "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
       "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
       "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
       "OTP xanalarının sayını al",
       "OTP taymerinin mətnini oxu",
-      "4-rəqəmli OTP kodunu daxil et: '8045'",
+      "4-rəqəmli OTP kodunu daxil et: '6141'",
       "OTP təsdiq düyməsinə kliklə",
       "Yeni şifrə təyini səhifəsinin (/recover-password) yükləndiyini yoxla",
       "Yeni şifrəni təyin et və göndər: 'BucardReset2026!'",
       "Open login page at https://bucard.az/login",
-      "Log in with user/phone: nirsyuhe@guerrillamailblock.com"
+      "Log in with user/phone: clqlsbpz@guerrillamailblock.com"
     ],
     "lastPassed": {
-      "uid": "ebd69648203ab722",
-      "formatted": "28.11.2026, 01:14",
-      "timestamp": 1795828490726
+      "uid": "c6588d71eb1ffd54",
+      "formatted": "28.11.2026, 11:27",
+      "timestamp": 1795865265824
     },
     "images": [
       {
         "name": "TC-AUTH-018 — OTP Daxiletmə Addımı",
-        "src": "data/attachments/cea87055d01d87de.png",
+        "src": "data/attachments/1f412a3421238416.png",
         "size": 263377
       }
     ]
   },
   {
-    "uid": "6c62426bb733578",
+    "uid": "e60712f0a022fd0f",
     "name": "TC-AUTH-019 & TC-AUTH-053: Şifrə bərpasında yanlış/natamam/hərf OTP rədd edilir",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 10.2,
+    "duration": 9.2,
     "description": "",
     "steps": [
       "Qeydiyyat səhifəsini aç: https://bucard.az/register",
-      "Yeni istifadəçi qeydiyyatdan keçir: fipqazkw@guerrillamailblock.com",
+      "Yeni istifadəçi qeydiyyatdan keçir: jkisljgb@guerrillamailblock.com",
       "İstifadəçi hesabından çıxış et (Logout)",
       "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
-      "E-poçt sahəsinə mətn daxil et: fipqazkw@guerrillamailblock.com",
+      "E-poçt sahəsinə mətn daxil et: jkisljgb@guerrillamailblock.com",
       "Təsdiq / Göndər düyməsinə kliklə",
       "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
       "OTP daxiletmə addımının (Step 2) aktiv olduğunu yoxla",
@@ -431,14 +430,14 @@
       "OTP təsdiq düyməsinə kliklə"
     ],
     "lastPassed": {
-      "uid": "6c62426bb733578",
-      "formatted": "28.11.2026, 01:15",
-      "timestamp": 1795828501651
+      "uid": "e60712f0a022fd0f",
+      "formatted": "28.11.2026, 11:27",
+      "timestamp": 1795865275869
     },
     "images": []
   },
   {
-    "uid": "1152e88d24e0c7d4",
+    "uid": "b1361775b124ecec",
     "name": "TC-AUTH-022 & TC-AUTH-023: Forgot Password elementləri və qeydiyyatsız email ilə davranış",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -450,18 +449,18 @@
       "Şifrə bərpası səhifəsini aç (email): https://bucard.az/forgot-password/email",
       "E-poçt daxiletmə sahəsinin mövcudluğunu yoxla",
       "Təsdiq / Göndər düyməsinin mövcudluğunu yoxla",
-      "E-poçt sahəsinə mətn daxil et: nonexistent_1795828504390@guerrillamailblock.com",
+      "E-poçt sahəsinə mətn daxil et: nonexistent_1795865278620@guerrillamailblock.com",
       "Təsdiq / Göndər düyməsinə kliklə"
     ],
     "lastPassed": {
-      "uid": "1152e88d24e0c7d4",
-      "formatted": "28.11.2026, 01:15",
-      "timestamp": 1795828505892
+      "uid": "b1361775b124ecec",
+      "formatted": "28.11.2026, 11:28",
+      "timestamp": 1795865280097
     },
     "images": []
   },
   {
-    "uid": "7507e44e413bcac4",
+    "uid": "a07a286070e6e585",
     "name": "TC-AUTH-050: Təsdiqsiz telefonla giriş verilmir, hesabın emaili ilə açılır",
     "feature": "Giriş, Qeydiyyat, Şifrə Sərhədləri və OTP",
     "story": "",
@@ -478,7 +477,7 @@
     "images": []
   },
   {
-    "uid": "b28bb4194a1527db",
+    "uid": "3fecfb11aed9b056",
     "name": "TC-BOX-002: Yeni/Free hesabda 2 sabit qutu (Personal və Companies) mövcuddur",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -495,7 +494,7 @@
     "images": []
   },
   {
-    "uid": "9439fcf22f8c4a62",
+    "uid": "8d60619983430521",
     "name": "TC-BOX-007: Fərdi qutu yaratmaq və yenilənmədən sonra saxlanması",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -512,13 +511,13 @@
     "images": []
   },
   {
-    "uid": "d830a3fd9463feb5",
+    "uid": "749fab75b088af14",
     "name": "TC-BOX-009 & TC-BOX-016: Fərdi qutuya Persons siyahısından '+' ilə əlavə etmə",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "skipped",
-    "duration": 0.9,
+    "duration": 0.6,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -529,7 +528,7 @@
     "images": []
   },
   {
-    "uid": "206fd59914a3c32f",
+    "uid": "b3f8ddc77fa920c1",
     "name": "TC-BOX-017: Personal qutusunda '+' düyməsi Search-ə yönləndirir",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -546,7 +545,7 @@
     "images": []
   },
   {
-    "uid": "e43ae2d10931def6",
+    "uid": "9838b9673dd9bec4",
     "name": "TC-PROF-001: Free profil ekranının elementləri (avatar, ad/soyad)",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -563,7 +562,7 @@
     "images": []
   },
   {
-    "uid": "c9292ff9e6d67b3e",
+    "uid": "960b6e16a24ed3ce",
     "name": "TC-PROF-023: Pro hesabda Profile Status (Public/Private) idarəetməsi",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -580,7 +579,7 @@
     "images": []
   },
   {
-    "uid": "ddd4d9f1a8217e38",
+    "uid": "386f4966ae504a98",
     "name": "TC-SHR-003: Share modalında link formatının yoxlanması və açılması",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -597,33 +596,33 @@
     "images": []
   },
   {
-    "uid": "4cd560ed328dcaa3",
+    "uid": "5ac04d9b026ea9f7",
     "name": "TC-SHR-005: Paylaşılan Public Pro linki başqa alıcıda açılır",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
     "category": "3 Saatlıq Yoxlama (Every 3H)",
     "status": "passed",
-    "duration": 3.8,
+    "duration": 3.3,
     "description": "Anonim brauzer sessiyasında Public Pro linkini açır və göndərənin username/adının göründüyünü yoxlayır.",
     "steps": [
       "İctimai profil səhifəsini aç: 'https://bucard.az/shared-user/Raminakbarov'",
       "Açılan profilin gözlənilən istifadəçiyə aid olduğunu yoxla: 'Raminakbarov' / 'Ramin Akbarov'"
     ],
     "lastPassed": {
-      "uid": "4cd560ed328dcaa3",
-      "formatted": "28.11.2026, 01:15",
-      "timestamp": 1795828512026
+      "uid": "5ac04d9b026ea9f7",
+      "formatted": "28.11.2026, 11:28",
+      "timestamp": 1795865285397
     },
     "images": [
       {
         "name": "TC-SHR-005 — Alıcıda Açılan Public Pro Profil",
-        "src": "data/attachments/f6b7503de1bbad35.png",
-        "size": 9588
+        "src": "data/attachments/bf531763241527ce.png",
+        "size": 9098
       }
     ]
   },
   {
-    "uid": "3100e2c8f8815b8d",
+    "uid": "9d7e76880f7037ca",
     "name": "TC-SRCH-001: Ad üzrə axtarışda Public Pro profil nəticələrdə görünür",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -640,7 +639,7 @@
     "images": []
   },
   {
-    "uid": "b0a5fa9f1e11bdcd",
+    "uid": "88e2bb0ac18467c6",
     "name": "TC-SRCH-006: Free profil axtarış nəticələrində görünmür",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -657,7 +656,7 @@
     "images": []
   },
   {
-    "uid": "b88a0005b2223e33",
+    "uid": "b5491194ad52957d",
     "name": "TC-SRCH-007: Private Pro profil axtarış nəticələrində görünmür",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -674,7 +673,7 @@
     "images": []
   },
   {
-    "uid": "5c91ba7ecfd69f5",
+    "uid": "411df1a6a91c1fff",
     "name": "TC-SRCH-010: Free və Pro istifadəçilər Public Pro-nu tapır, Private gizli qalır",
     "feature": "İlk İstifadəçi Axını: Qutular, Profil, Axtarış və Paylaşım",
     "story": "",
@@ -691,27 +690,27 @@
     "images": []
   },
   {
-    "uid": "19a712b05c7eb6bb",
+    "uid": "2c0068f623013346",
     "name": "API-01: Backend əlçatanlıq və ictimai tarif endpointləri 200 qaytarır",
     "feature": "REST API Sağlamlıq və Kontrakt",
     "story": "",
     "category": "API Kontrakt Yoxlaması",
     "status": "passed",
-    "duration": 2.1,
+    "duration": 1.8,
     "description": "Backend əlçatanlığını və ictimai tarif API endpointlərinin işləkliyini yoxlayır.",
     "steps": [
       "1. Backend sağlamlıq və ictimai tarif (/api/v1/plans) endpointlərini çağır",
       "2. HTTP 200 və valid JSON strukturunu təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "19a712b05c7eb6bb",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828355439
+      "uid": "2c0068f623013346",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865131906
     },
     "images": []
   },
   {
-    "uid": "c9975dcc6e1ae6bf",
+    "uid": "c671660f3dde0165",
     "name": "API-02: İctimai profil endpointi (/api/v1/profile/{username}/) işləkdir",
     "feature": "REST API Sağlamlıq və Kontrakt",
     "story": "",
@@ -724,14 +723,14 @@
       "2. GET /api/v1/profile/{username}/ endpointinin 200 və düzgün username qaytardığını təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "c9975dcc6e1ae6bf",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828356156
+      "uid": "c671660f3dde0165",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865132585
     },
     "images": []
   },
   {
-    "uid": "1f59f6f3e46fa25f",
+    "uid": "a92bf42d5d21e0bd",
     "name": "API-03: Autentifikasiyalı profil, QR, sözlüklər, abunəlik, bildiriş və PDF endpointləri işləkdir",
     "feature": "REST API Sağlamlıq və Kontrakt",
     "story": "",
@@ -747,7 +746,7 @@
     "images": []
   },
   {
-    "uid": "a991d92f79b3f5aa",
+    "uid": "5cca076c7a789196",
     "name": "E2E-009 [Link]: Mövcud istifadəçi paylaşılan profili qutuya əlavə edir",
     "feature": "Paylaşım və QR E2E (E2E-009 — E2E-012)",
     "story": "E2E-009: Daxil olmuş istifadəçinin profili qutuya əlavə etməsi",
@@ -762,7 +761,7 @@
     "images": []
   },
   {
-    "uid": "5b31f165b602102e",
+    "uid": "2f561e34d274156b",
     "name": "E2E-010 [Link]: Yeni istifadəçi qeydiyyatdan sonra paylaşılan profilə qayıdır",
     "feature": "Paylaşım və QR E2E (E2E-009 — E2E-012)",
     "story": "E2E-010: Qeydiyyatdan sonra paylaşılan profilə qayıdış",
@@ -777,7 +776,7 @@
     "images": []
   },
   {
-    "uid": "f3e3a4cd16a87491",
+    "uid": "fb787c20c27679b4",
     "name": "Müvəqqəti e-poçt domenləri avtomatik silinməyə icazəli olmalıdır",
     "feature": "",
     "story": "",
@@ -791,14 +790,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "f3e3a4cd16a87491",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828353257
+      "uid": "fb787c20c27679b4",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865130011
     },
     "images": []
   },
   {
-    "uid": "e8c5899c2f990b44",
+    "uid": "1eb58d2c5b5a32a1",
     "name": "Paylaşılan Pro/Free/real e-poçt ünvanları heç vaxt silinməyə buraxılmamalıdır",
     "feature": "",
     "story": "",
@@ -812,20 +811,20 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "e8c5899c2f990b44",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828353289
+      "uid": "1eb58d2c5b5a32a1",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865130040
     },
     "images": []
   },
   {
-    "uid": "8f06f28582ea79a1",
+    "uid": "b26c8c15693f4628",
     "name": "Verify QrCodeDecoder decodes generated QR PNG payload accurately",
     "feature": "QR Code Decoding",
     "story": "",
     "category": "Vahid (Unit) Testlər",
     "status": "passed",
-    "duration": 2.5,
+    "duration": 1.6,
     "description": "",
     "steps": [
       "1. Test səhifəsini aç",
@@ -833,14 +832,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "8f06f28582ea79a1",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828353240
+      "uid": "b26c8c15693f4628",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865129990
     },
     "images": []
   },
   {
-    "uid": "bd2801bfeefd4ead",
+    "uid": "8be663012f796c15",
     "name": "Verify QrCodeDecoder rejects non-image bytes",
     "feature": "QR Code Decoding",
     "story": "",
@@ -854,14 +853,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "bd2801bfeefd4ead",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828353246
+      "uid": "8be663012f796c15",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865129998
     },
     "images": []
   },
   {
-    "uid": "dd6ad4128d270c3f",
+    "uid": "e4e412bc6aae00e",
     "name": "Verify QrCodeDecoder rejects null bytes",
     "feature": "QR Code Decoding",
     "story": "",
@@ -875,14 +874,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "dd6ad4128d270c3f",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828353251
+      "uid": "e4e412bc6aae00e",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865130003
     },
     "images": []
   },
   {
-    "uid": "ddf0005d247597d9",
+    "uid": "e398b877585955ea",
     "name": "Verify default base URL is https://bucard.az",
     "feature": "Framework Configuration",
     "story": "",
@@ -896,14 +895,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "ddf0005d247597d9",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350570
+      "uid": "e398b877585955ea",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128227
     },
     "images": []
   },
   {
-    "uid": "1abee21609b7c23e",
+    "uid": "796249ca472c4e2d",
     "name": "Verify default timeouts have positive values",
     "feature": "Framework Configuration",
     "story": "",
@@ -917,14 +916,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "1abee21609b7c23e",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350700
+      "uid": "796249ca472c4e2d",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128339
     },
     "images": []
   },
   {
-    "uid": "1b1eebfe2df89a53",
+    "uid": "ce638a00a6640013",
     "name": "Verify isAuthAvailable returns false when credentials are not configured",
     "feature": "Framework Configuration",
     "story": "",
@@ -938,14 +937,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "1b1eebfe2df89a53",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350709
+      "uid": "ce638a00a6640013",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128348
     },
     "images": []
   },
   {
-    "uid": "c44df91bf783b7c6",
+    "uid": "77feeeac8f28aac8",
     "name": "Verify long messages are truncated without exceeding limits",
     "feature": "Security & Sanitization",
     "story": "",
@@ -959,14 +958,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "c44df91bf783b7c6",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350737
+      "uid": "77feeeac8f28aac8",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128378
     },
     "images": []
   },
   {
-    "uid": "3275313269da3f9",
+    "uid": "7fde76578cd710b9",
     "name": "Verify null or empty messages are handled gracefully",
     "feature": "Security & Sanitization",
     "story": "",
@@ -980,14 +979,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "3275313269da3f9",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350721
+      "uid": "7fde76578cd710b9",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128358
     },
     "images": []
   },
   {
-    "uid": "b5f555d40fd671fe",
+    "uid": "4ced4abef56ddee0",
     "name": "Verify password and token parameters are redacted",
     "feature": "Security & Sanitization",
     "story": "",
@@ -1001,14 +1000,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "b5f555d40fd671fe",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350731
+      "uid": "4ced4abef56ddee0",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128372
     },
     "images": []
   },
   {
-    "uid": "acc2d8abdc706509",
+    "uid": "466b29b5d6a15de2",
     "name": "Verify proShareUrl derives shared-user URL from pro.username when shareUrl is unset",
     "feature": "Framework Configuration",
     "story": "",
@@ -1022,14 +1021,14 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "acc2d8abdc706509",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350713
+      "uid": "466b29b5d6a15de2",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128353
     },
     "images": []
   },
   {
-    "uid": "d6b10fbeaff81ed9",
+    "uid": "8a9e90ccbdcbd8db",
     "name": "Verify sensitive URLs with query parameters are redacted",
     "feature": "Security & Sanitization",
     "story": "",
@@ -1043,9 +1042,9 @@
       "3. Nəticəni təsdiqlə"
     ],
     "lastPassed": {
-      "uid": "d6b10fbeaff81ed9",
-      "formatted": "28.11.2026, 01:12",
-      "timestamp": 1795828350727
+      "uid": "8a9e90ccbdcbd8db",
+      "formatted": "28.11.2026, 11:25",
+      "timestamp": 1795865128368
     },
     "images": []
   }
